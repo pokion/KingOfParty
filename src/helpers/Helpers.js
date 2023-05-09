@@ -5,7 +5,7 @@ export default{
     }){
         let tempMap = new Map();
 
-        for(let item in array){
+        for(let item of array){
             tempMap.set(item[key], item);
         }
 

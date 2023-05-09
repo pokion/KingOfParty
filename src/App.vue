@@ -5,7 +5,8 @@
 		@players="setPlayers" 
 		:routes="allRoutes"
 		:Cards="this.allCards"
-		:Players="this.allPlayers" />
+		:Players="this.allPlayers"
+		:Tags="this.allTags" />
 	</main>
 	<div class="settings" @click="settings">
 		<SettingsGear />
@@ -21,7 +22,7 @@ import PlayersScene from './scenes/PlayersScene.vue'
 import GameScene from './scenes/GameScene.vue'
 
 //js
-import Cards from './helpers/Helpers'
+import Cards from './helpers/Cards.js'
 
 export default { 
 	name: 'App',
@@ -54,7 +55,8 @@ export default {
 			},
 			currentScene: MenuScene,
 			allPlayers: null,
-			allCards: Cards.getMapOfCards
+			allCards: Cards.getMapOfCards(),
+			allTags: Cards.getMapOfTags()
 		}
 	},
 	methods: {
@@ -67,7 +69,7 @@ export default {
 		setPlayers(mapOfPlayers){
 			this.allPlayers = mapOfPlayers;
 		}
-	},
+	}
 }
 </script>
 
@@ -88,6 +90,7 @@ export default {
 main{
 	height: 100vh;
 	display: flex;
+	width: 80vw;
 	justify-content: center;
 }
 
