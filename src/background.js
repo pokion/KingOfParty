@@ -17,6 +17,7 @@ async function createWindow() {
     height: 1280,
     webPreferences: {
       nodeIntegration: true,
+      nodeIntegrationInWorker: true,
       contextIsolation: false,
       enableRemoteModule: true,
     },
