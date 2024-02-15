@@ -10,7 +10,5 @@ func _ready():
 	$Panel/VBoxContainer/Content.text = content
 	$Panel/VBoxContainer/Author.text = author
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
+func setContent(text: String)->void:
+	$Panel/VBoxContainer/Content.text = text;

@@ -1,13 +1,15 @@
-[gd_scene load_steps=2 format=3 uid="uid://dohwppgl1ps23"]
+[gd_scene load_steps=4 format=3 uid="uid://dohwppgl1ps23"]
 
 [ext_resource type="Script" path="res://game.gd" id="1_av4wj"]
+[ext_resource type="PackedScene" uid="uid://b081xeiswvxja" path="res://components/card.tscn" id="2_l6n1r"]
+[ext_resource type="PackedScene" uid="uid://cmsffux1oq54t" path="res://components/button.tscn" id="3_msh85"]
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_av4wj")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="neverEverMode" type="VBoxContainer" parent="CanvasLayer"]
+[node name="gameScene" type="VBoxContainer" parent="CanvasLayer"]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -22,34 +24,73 @@ grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/neverEverMode"]
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/gameScene"]
 layout_mode = 2
 alignment = 1
 
-[node name="pointsLabel" type="Label" parent="CanvasLayer/neverEverMode/HBoxContainer"]
+[node name="pointsLabel" type="Label" parent="CanvasLayer/gameScene/HBoxContainer"]
 layout_mode = 2
 text = "points:"
 horizontal_alignment = 1
 
-[node name="pointsDisplay" type="Label" parent="CanvasLayer/neverEverMode/HBoxContainer"]
+[node name="pointsDisplay" type="Label" parent="CanvasLayer/gameScene/HBoxContainer"]
 layout_mode = 2
 text = "20"
 
-[node name="playerContainer" type="HBoxContainer" parent="CanvasLayer/neverEverMode"]
+[node name="playerContainer" type="HBoxContainer" parent="CanvasLayer/gameScene"]
 layout_mode = 2
 alignment = 1
 
-[node name="Control" type="Control" parent="CanvasLayer/neverEverMode"]
+[node name="gameModeSectionStart" type="Control" parent="CanvasLayer/gameScene"]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="cardContainer" type="CenterContainer" parent="CanvasLayer/neverEverMode"]
+[node name="truthDareMode" type="HBoxContainer" parent="CanvasLayer/gameScene"]
+layout_mode = 2
+alignment = 1
+
+[node name="dare" parent="CanvasLayer/gameScene/truthDareMode" instance=ExtResource("2_l6n1r")]
+layout_mode = 2
+gameMode = ""
+content = "Dare"
+author = ""
+
+[node name="truth" parent="CanvasLayer/gameScene/truthDareMode" instance=ExtResource("2_l6n1r")]
+layout_mode = 2
+gameMode = ""
+content = "Truth"
+author = ""
+
+[node name="neverEverMode" type="CenterContainer" parent="CanvasLayer/gameScene"]
+visible = false
 layout_mode = 2
 
-[node name="Control2" type="Control" parent="CanvasLayer/neverEverMode"]
+[node name="neverEverCard" parent="CanvasLayer/gameScene/neverEverMode" instance=ExtResource("2_l6n1r")]
+layout_mode = 2
+gameMode = "Never Ever"
+author = ""
+
+[node name="playerAnnoucmentCard" type="CenterContainer" parent="CanvasLayer/gameScene"]
+visible = false
+layout_mode = 2
+
+[node name="playerNameAnnoucment" parent="CanvasLayer/gameScene/playerAnnoucmentCard" instance=ExtResource("2_l6n1r")]
+layout_mode = 2
+gameMode = ""
+author = ""
+
+[node name="gameModeSectionEnd" type="Control" parent="CanvasLayer/gameScene"]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="Button" type="Button" parent="CanvasLayer/neverEverMode"]
+[node name="showCardButton" parent="CanvasLayer/gameScene" instance=ExtResource("3_msh85")]
 layout_mode = 2
-text = "TEST"
+text = "Show"
+
+[node name="neverEverButton" parent="CanvasLayer/gameScene" instance=ExtResource("3_msh85")]
+visible = false
+layout_mode = 2
+text = "Continue"
+
+[connection signal="pressed" from="CanvasLayer/gameScene/showCardButton" to="." method="_on_show_card_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/gameScene/neverEverButton" to="." method="onNextPlayer"]

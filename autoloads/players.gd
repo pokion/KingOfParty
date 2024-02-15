@@ -16,7 +16,7 @@ func addPlayer(name: String) -> Dictionary:
 func clearPlayers() -> void:
 	playersArray = {}
 	
-func getPlayers() -> Dictionary:
+func getAllPlayers() -> Dictionary:
 	if playersArray.is_empty():
 		#test players
 		playersArray["test"] = {"name": "name","points": 0,"firstLetter": "N","color": colors.pick_random()}
