@@ -1,0 +1,50 @@
+[gd_scene load_steps=3 format=3 uid="uid://c6ms2a512vxpt"]
+
+[ext_resource type="Script" path="res://components/playerChip.gd" id="1_q6a1f"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wjl8r"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.85098, 0.423529, 0.423529, 1)
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+
+[node name="PanelContainer" type="PanelContainer"]
+custom_minimum_size = Vector2(54, 54)
+offset_right = 50.0
+offset_bottom = 50.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_wjl8r")
+script = ExtResource("1_q6a1f")
+
+[node name="fullNameChip" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 33
+theme_override_constants/margin_top = 11
+theme_override_constants/margin_right = 33
+theme_override_constants/margin_bottom = 11
+
+[node name="fullName" type="Label" parent="fullNameChip"]
+layout_mode = 2
+text = "Andy"
+
+[node name="FirstLetterChip" type="MarginContainer" parent="."]
+visible = false
+layout_mode = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="firstLetter" type="Label" parent="FirstLetterChip"]
+layout_mode = 2
+text = "A
+"
+horizontal_alignment = 1
+vertical_alignment = 1

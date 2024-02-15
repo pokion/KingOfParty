@@ -11,10 +11,28 @@ config_version=5
 [application]
 
 config/name="KingOfParty"
+run/main_scene="res://scenes/menu.tscn"
 config/features=PackedStringArray("4.1", "GL Compatibility")
-config/icon="res://icon.svg"
+
+[autoload]
+
+Players="*res://autoloads/players.gd"
+Cards="*res://autoloads/cards.gd"
+
+[display]
+
+window/size/viewport_width=576
+window/size/viewport_height=1024
+window/stretch/mode="canvas_items"
+window/stretch/aspect="expand"
+window/handheld/orientation=1
+
+[gui]
+
+theme/custom="res://styles/main.tres"
 
 [rendering]
 
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
+environment/defaults/default_clear_color=Color(0.00392157, 0.0941176, 0.14902, 1)

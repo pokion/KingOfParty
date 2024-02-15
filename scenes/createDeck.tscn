@@ -1,0 +1,88 @@
+[gd_scene load_steps=4 format=3 uid="uid://cnuom8hljl8bp"]
+
+[ext_resource type="PackedScene" uid="uid://dnb15spl4ya4" path="res://components/chip.tscn" id="1_6a032"]
+[ext_resource type="PackedScene" uid="uid://cmsffux1oq54t" path="res://components/button.tscn" id="1_i83ml"]
+[ext_resource type="PackedScene" uid="uid://b081xeiswvxja" path="res://components/card.tscn" id="2_3ef11"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Scene name" type="Label" parent="CanvasLayer/VBoxContainer"]
+layout_mode = 2
+text = "Decks"
+horizontal_alignment = 1
+
+[node name="Tag name" type="Label" parent="CanvasLayer/VBoxContainer"]
+layout_mode = 2
+text = "Tags"
+
+[node name="Tags display" type="ScrollContainer" parent="CanvasLayer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/VBoxContainer/Tags display"]
+layout_mode = 2
+
+[node name="PanelContainer" parent="CanvasLayer/VBoxContainer/Tags display/HBoxContainer" instance=ExtResource("1_6a032")]
+layout_mode = 2
+
+[node name="PanelContainer2" parent="CanvasLayer/VBoxContainer/Tags display/HBoxContainer" instance=ExtResource("1_6a032")]
+layout_mode = 2
+
+[node name="PanelContainer3" parent="CanvasLayer/VBoxContainer/Tags display/HBoxContainer" instance=ExtResource("1_6a032")]
+layout_mode = 2
+
+[node name="PanelContainer4" parent="CanvasLayer/VBoxContainer/Tags display/HBoxContainer" instance=ExtResource("1_6a032")]
+layout_mode = 2
+
+[node name="PanelContainer5" parent="CanvasLayer/VBoxContainer/Tags display/HBoxContainer" instance=ExtResource("1_6a032")]
+layout_mode = 2
+
+[node name="PanelContainer6" parent="CanvasLayer/VBoxContainer/Tags display/HBoxContainer" instance=ExtResource("1_6a032")]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Card name" type="Label" parent="CanvasLayer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Cards: "
+
+[node name="Label" type="Label" parent="CanvasLayer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "200"
+
+[node name="Card display" type="ScrollContainer" parent="CanvasLayer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 323)
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/VBoxContainer/Card display"]
+layout_mode = 2
+
+[node name="AspectRatioContainer" parent="CanvasLayer/VBoxContainer/Card display/HBoxContainer" instance=ExtResource("2_3ef11")]
+layout_mode = 2
+content = "Contesdf sdf nt"
+
+[node name="AspectRatioContainer2" parent="CanvasLayer/VBoxContainer/Card display/HBoxContainer" instance=ExtResource("2_3ef11")]
+layout_mode = 2
+
+[node name="AspectRatioContainer3" parent="CanvasLayer/VBoxContainer/Card display/HBoxContainer" instance=ExtResource("2_3ef11")]
+layout_mode = 2
+
+[node name="AspectRatioContainer4" parent="CanvasLayer/VBoxContainer/Card display/HBoxContainer" instance=ExtResource("2_3ef11")]
+layout_mode = 2
+
+[node name="AspectRatioContainer5" parent="CanvasLayer/VBoxContainer/Card display/HBoxContainer" instance=ExtResource("2_3ef11")]
+layout_mode = 2
+
+[node name="Button2" parent="CanvasLayer/VBoxContainer" instance=ExtResource("1_i83ml")]
+layout_mode = 2
+text = "Add Cards"

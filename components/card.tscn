@@ -1,0 +1,42 @@
+[gd_scene load_steps=3 format=3 uid="uid://b081xeiswvxja"]
+
+[ext_resource type="Script" path="res://components/card.gd" id="1_6hw61"]
+[ext_resource type="StyleBox" uid="uid://bhl7rmreqex31" path="res://styles/deckStyle.tres" id="1_mh16k"]
+
+[node name="AspectRatioContainer" type="AspectRatioContainer"]
+custom_minimum_size = Vector2(177, 303)
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_6hw61")
+
+[node name="Panel" type="Panel" parent="."]
+custom_minimum_size = Vector2(0, 303)
+layout_mode = 2
+theme_override_styles/panel = ExtResource("1_mh16k")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Game mode" type="Label" parent="Panel/VBoxContainer"]
+layout_mode = 2
+text = "Time trial"
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="Content" type="Label" parent="Panel/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Name 3 things that you can find in a classroom"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Author" type="Label" parent="Panel/VBoxContainer"]
+layout_mode = 2
+text = "Kinf od Party"
+horizontal_alignment = 1

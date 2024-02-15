@@ -1,0 +1,84 @@
+[gd_scene load_steps=5 format=3 uid="uid://ct6vkityq225n"]
+
+[ext_resource type="Script" path="res://renderDecks.gd" id="1_2ltln"]
+[ext_resource type="Script" path="res://components/deck.gd" id="2_wbqqg"]
+[ext_resource type="StyleBox" uid="uid://bhl7rmreqex31" path="res://styles/deckStyle.tres" id="3_52f24"]
+[ext_resource type="PackedScene" uid="uid://cmsffux1oq54t" path="res://components/button.tscn" id="4_ou7c5"]
+
+[node name="Decks" type="Node2D"]
+script = ExtResource("1_2ltln")
+
+[node name="HiddenDeck" type="AspectRatioContainer" parent="."]
+visible = false
+offset_top = 30.0
+offset_right = 576.0
+offset_bottom = 143.0
+ratio = 3.0
+script = ExtResource("2_wbqqg")
+
+[node name="Panel" type="Panel" parent="HiddenDeck"]
+custom_minimum_size = Vector2(359, 113)
+layout_mode = 2
+theme_override_styles/panel = ExtResource("3_52f24")
+
+[node name="DeckName" type="Label" parent="HiddenDeck/Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Deck Name"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HiddenDeck/Panel"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -40.0
+offset_top = -40.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="CardsCounter" type="Label" parent="HiddenDeck/Panel/HBoxContainer"]
+layout_mode = 2
+text = "Cards:"
+
+[node name="CardsCounterDisplay" type="Label" parent="HiddenDeck/Panel/HBoxContainer"]
+layout_mode = 2
+text = "200"
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/VBoxContainer"]
+layout_mode = 2
+text = "Decks"
+horizontal_alignment = 1
+
+[node name="ScrollContainer" type="ScrollContainer" parent="CanvasLayer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="decksDisplay" type="VBoxContainer" parent="CanvasLayer/VBoxContainer/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+
+[node name="Button" parent="CanvasLayer/VBoxContainer" instance=ExtResource("4_ou7c5")]
+layout_mode = 2
+text = "Create Deck"

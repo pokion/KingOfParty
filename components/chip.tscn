@@ -1,0 +1,38 @@
+[gd_scene load_steps=4 format=3 uid="uid://dnb15spl4ya4"]
+
+[ext_resource type="StyleBox" uid="uid://dskdwmpg5c0ad" path="res://styles/chip.tres" id="1_wj7nw"]
+[ext_resource type="Script" path="res://components/chip.gd" id="2_db6mv"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_snfto"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[node name="PanelContainer" type="PanelContainer"]
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+theme_override_styles/panel = ExtResource("1_wj7nw")
+script = ExtResource("2_db6mv")
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 2
+mouse_default_cursor_shape = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_snfto")
+theme_override_styles/hover = SubResource("StyleBoxFlat_snfto")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_snfto")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_snfto")
+theme_override_styles/focus = SubResource("StyleBoxFlat_snfto")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 5
+
+[node name="Label" type="Label" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Coś innego"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

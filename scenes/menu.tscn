@@ -1,0 +1,77 @@
+[gd_scene load_steps=3 format=3 uid="uid://5fgvookc18k0"]
+
+[ext_resource type="Script" path="res://mainMenu.gd" id="1_fhynu"]
+[ext_resource type="StyleBox" uid="uid://darr0rtubtph4" path="res://styles/secondButton.tres" id="2_l5odv"]
+
+[node name="mainMenu" type="Node2D"]
+script = ExtResource("1_fhynu")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -288.0
+offset_top = -511.0
+offset_right = 288.0
+offset_bottom = 513.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="CanvasLayer/VBoxContainer"]
+layout_mode = 2
+text = "King Of Party"
+horizontal_alignment = 1
+
+[node name="Spacer" type="Control" parent="CanvasLayer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 3.0
+
+[node name="Play" type="Button" parent="CanvasLayer/VBoxContainer"]
+custom_minimum_size = Vector2(163, 52)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+mouse_default_cursor_shape = 2
+text = "Play"
+
+[node name="Decks" type="Button" parent="CanvasLayer/VBoxContainer"]
+custom_minimum_size = Vector2(163, 52)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+mouse_default_cursor_shape = 2
+text = "Decks"
+
+[node name="Cards" type="Button" parent="CanvasLayer/VBoxContainer"]
+custom_minimum_size = Vector2(163, 52)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+mouse_default_cursor_shape = 2
+text = "Cards"
+
+[node name="Author" type="Button" parent="CanvasLayer/VBoxContainer"]
+custom_minimum_size = Vector2(163, 52)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+mouse_default_cursor_shape = 2
+theme_override_styles/normal = ExtResource("2_l5odv")
+theme_override_styles/hover = ExtResource("2_l5odv")
+theme_override_styles/pressed = ExtResource("2_l5odv")
+theme_override_styles/focus = ExtResource("2_l5odv")
+text = "Author"
+
+[node name="Spacer2" type="Control" parent="CanvasLayer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 3.0
+
+[connection signal="pressed" from="CanvasLayer/VBoxContainer/Decks" to="." method="_on_decks_pressed"]
