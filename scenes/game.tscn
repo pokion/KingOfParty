@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://dohwppgl1ps23"]
+[gd_scene load_steps=7 format=3 uid="uid://dohwppgl1ps23"]
 
-[ext_resource type="Script" path="res://game.gd" id="1_av4wj"]
+[ext_resource type="Script" path="res://scripts/game.gd" id="1_yuuu2"]
+[ext_resource type="Script" path="res://scripts/progressBarSecondsMode.gd" id="2_1dpkd"]
 [ext_resource type="PackedScene" uid="uid://b081xeiswvxja" path="res://components/card.tscn" id="2_l6n1r"]
 [ext_resource type="PackedScene" uid="uid://cmsffux1oq54t" path="res://components/button.tscn" id="3_msh85"]
 
@@ -11,7 +12,7 @@ bg_color = Color(0.6, 0.6, 0.6, 0)
 bg_color = Color(0.6, 0.6, 0.6, 0)
 
 [node name="Game" type="Node2D"]
-script = ExtResource("1_av4wj")
+script = ExtResource("1_yuuu2")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -51,7 +52,40 @@ alignment = 1
 layout_mode = 2
 size_flags_vertical = 3
 
+[node name="secondsMode" type="VBoxContainer" parent="CanvasLayer/gameScene"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 4.47
+alignment = 1
+
+[node name="secondsProgressBar" type="ProgressBar" parent="CanvasLayer/gameScene/secondsMode"]
+layout_mode = 2
+max_value = 10.0
+step = 1.0
+value = 10.0
+script = ExtResource("2_1dpkd")
+
+[node name="separator" type="Control" parent="CanvasLayer/gameScene/secondsMode"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="secondContainer" type="CenterContainer" parent="CanvasLayer/gameScene/secondsMode"]
+layout_mode = 2
+
+[node name="secondsCard" parent="CanvasLayer/gameScene/secondsMode/secondContainer" instance=ExtResource("2_l6n1r")]
+layout_mode = 2
+gameMode = "Time trial"
+author = "King Of Party"
+
+[node name="separator2" type="Control" parent="CanvasLayer/gameScene/secondsMode"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="secondsTimer" type="Timer" parent="CanvasLayer/gameScene/secondsMode"]
+one_shot = true
+
 [node name="whoAmIMode" type="CenterContainer" parent="CanvasLayer/gameScene"]
+visible = false
 layout_mode = 2
 
 [node name="whoAmICard" parent="CanvasLayer/gameScene/whoAmIMode" instance=ExtResource("2_l6n1r")]
@@ -124,6 +158,7 @@ layout_mode = 2
 size_flags_vertical = 3
 
 [node name="showCardButton" parent="CanvasLayer/gameScene" instance=ExtResource("3_msh85")]
+visible = false
 layout_mode = 2
 text = "Show"
 
@@ -132,7 +167,16 @@ visible = false
 layout_mode = 2
 text = "Continue"
 
+[node name="startTimerButton" parent="CanvasLayer/gameScene" instance=ExtResource("3_msh85")]
+visible = false
+layout_mode = 2
+text = "Start timer
+"
+
+[connection signal="timerEmpty" from="CanvasLayer/gameScene/secondsMode/secondsProgressBar" to="." method="_on_seconds_progress_bar_timer_empty"]
+[connection signal="timeout" from="CanvasLayer/gameScene/secondsMode/secondsTimer" to="CanvasLayer/gameScene/secondsMode/secondsProgressBar" method="_on_seconds_timer_timeout"]
 [connection signal="pressed" from="CanvasLayer/gameScene/truthDareMode/dare/dareButton" to="." method="_on_dare_button" binds= [false]]
 [connection signal="pressed" from="CanvasLayer/gameScene/truthDareMode/truth/truthButton" to="." method="_on_dare_button" binds= [true]]
 [connection signal="pressed" from="CanvasLayer/gameScene/showCardButton" to="." method="_on_show_card_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/gameScene/nextPlayerButton" to="." method="onNextPlayer"]
+[connection signal="pressed" from="CanvasLayer/gameScene/startTimerButton" to="." method="_on_start_timer_button_pressed"]

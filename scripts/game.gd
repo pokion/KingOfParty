@@ -7,19 +7,24 @@ enum {
 	SHOW_TRUTH_SCENE,
 	SHOW_DARE_SCENE,
 	SHOW_WHOAMI_SCENE,
+	SHOW_SECONDS_SCENE,
 }
 var gameModeToEnums = {
 	"neverever": SHOW_NEVER_EVER_SCENE,
 	"truthDare": SHOW_TRUTH_DARE_SCENE,
 	"whoami": SHOW_WHOAMI_SCENE,
+	"seconds": SHOW_SECONDS_SCENE,
 }
 var cardsController;
 var playersController;
 var players;
+var playersNodeReference = {};
 var cards;
 var currentCard;
 var currentPlayer: int = 0;
 var nodes
+
+var playerChip = preload("res://components/playerChip.tscn");
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -35,13 +40,17 @@ func _ready():
 		"truthDareContentCard": $CanvasLayer/gameScene/truthDareMode/truthDareContentCard,
 		"whoAmIMode": $CanvasLayer/gameScene/whoAmIMode,
 		"whoAmICard": $CanvasLayer/gameScene/whoAmIMode/whoAmICard,
+		"startTimerButton": $CanvasLayer/gameScene/startTimerButton,
+		"secondsMode": $CanvasLayer/gameScene/secondsMode,
 	}
 	cardsController = get_node("/root/Cards");
 	playersController = get_node("/root/Players");
-	#cards = cardsController.shuffleAndReturn(["neverever", "whoami", ["truth", "dare"],"seconds"]);
-	cards = cardsController.shuffleAndReturn(["whoami"]);
+	cards = cardsController.shuffleAndReturn(["neverever", "whoami", ["truth", "dare"],"seconds"]);
+	#cards = cardsController.shuffleAndReturn(["seconds"]);
 	players = playersController.getAllPlayers();
+	addPlayersChips(players)
 	changeVisibilityOfNodes(SHOW_PLAYER_TURN);
+	changePlayerChipViewToCurrentPlayer()
 
 func changeVisibilityOfNodes(state):
 	hideAllNodes();
@@ -58,8 +67,15 @@ func changeVisibilityOfNodes(state):
 			showTruthDareMode("dare");
 		SHOW_WHOAMI_SCENE:
 			showWhoAmIMode();
+		SHOW_SECONDS_SCENE:
+			showSecondsMode();
 
 #Mode changers
+func showSecondsMode():
+	showNodes(["secondsMode", "startTimerButton"]);
+	$CanvasLayer/gameScene/secondsMode/secondsProgressBar.value = 10;
+	$CanvasLayer/gameScene/secondsMode/secondContainer/secondsCard.setContent(currentCard["content"])
+
 func showWhoAmIMode():
 	showNodes(["whoAmIMode", "whoAmICard", "nextPlayerButton"])
 	nodes["whoAmICard"].setContent(currentCard["content"])
@@ -90,7 +106,23 @@ func showNodes(nodesName: Array[String]):
 func hideAllNodes():
 	for node in nodes:
 		nodes[node].visible = false
+		
+func addPlayersChips(players):
+	for player in players:
+		var playerChipDuplicated = playerChip.duplicate().instantiate();
+		playerChipDuplicated.fullName = players[player].name
+		playerChipDuplicated.firstLetter = players[player].firstLetter
+		playerChipDuplicated.colorBorder = players[player].color
+		$CanvasLayer/gameScene/playerContainer.add_child(playerChipDuplicated)
+		playersNodeReference[player] = playerChipDuplicated;
 
+func changePlayerChipViewToCurrentPlayer():
+	playersNodeReference[players.keys()[currentPlayer]].changeVisibility(true)
+	if currentPlayer == 0:
+		playersNodeReference[players.keys()[players.size() - 1]].changeVisibility(false)
+	else:
+		playersNodeReference[players.keys()[currentPlayer - 1]].changeVisibility(false)
+	
 #Signals
 func _on_show_card_button_pressed():
 	currentCard = cards.pop_back()
@@ -105,6 +137,7 @@ func onNextPlayer():
 	if currentPlayer == players.size():
 		currentPlayer = 0;
 	changeVisibilityOfNodes(SHOW_PLAYER_TURN);
+	changePlayerChipViewToCurrentPlayer()
 
 #this function catch signal form truth/dare button
 func _on_dare_button(isTruth):
@@ -112,3 +145,12 @@ func _on_dare_button(isTruth):
 		changeVisibilityOfNodes(SHOW_TRUTH_SCENE);
 	else:
 		changeVisibilityOfNodes(SHOW_DARE_SCENE);
+
+
+func _on_start_timer_button_pressed():
+	nodes["startTimerButton"].visible = false;
+	$CanvasLayer/gameScene/secondsMode/secondsTimer.start();
+
+
+func _on_seconds_progress_bar_timer_empty():
+	showNodes(["nextPlayerButton"]);

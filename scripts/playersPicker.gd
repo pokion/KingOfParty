@@ -21,3 +21,7 @@ func _on_add_player_pressed():
 	playerDisplayComponentNew.color = playerObject.color
 	$CanvasLayer/VBoxContainer/ScrollContainer/PlayerContainer.add_child(playerDisplayComponentNew)
 	$CanvasLayer/VBoxContainer/HBoxContainer/playerName.text = ""
+
+
+func _on_button_pressed():
+	get_tree().change_scene_to_file("res://scenes/game.tscn")

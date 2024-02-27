@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://ct6vkityq225n"]
 
-[ext_resource type="Script" path="res://renderDecks.gd" id="1_2ltln"]
-[ext_resource type="Script" path="res://components/deck.gd" id="2_wbqqg"]
+[ext_resource type="Script" path="res://scripts/renderDecks.gd" id="1_2ltln"]
+[ext_resource type="Script" path="res://components/scripts/deck.gd" id="2_wbqqg"]
 [ext_resource type="StyleBox" uid="uid://bhl7rmreqex31" path="res://styles/deckStyle.tres" id="3_52f24"]
 [ext_resource type="PackedScene" uid="uid://cmsffux1oq54t" path="res://components/button.tscn" id="4_ou7c5"]
 

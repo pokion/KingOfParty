@@ -1,6 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://dscu0iahp02km"]
+[gd_scene load_steps=3 format=3 uid="uid://bn0xlnfuxys0v"]
 
-[ext_resource type="Script" path="res://components/playerDisplay.gd" id="1_txafh"]
+[ext_resource type="Script" path="res://components/scripts/playerDisplay.gd" id="1_euy00"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8hbj6"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -19,7 +19,7 @@ offset_right = 40.0
 offset_bottom = 40.0
 size_flags_horizontal = 3
 alignment = 1
-script = ExtResource("1_txafh")
+script = ExtResource("1_euy00")
 
 [node name="name" type="Label" parent="."]
 layout_mode = 2

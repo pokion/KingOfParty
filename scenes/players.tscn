@@ -1,13 +1,13 @@
 [gd_scene load_steps=4 format=3 uid="uid://dbwr73ave4oss"]
 
-[ext_resource type="Script" path="res://playersPicker.gd" id="1_i8yde"]
+[ext_resource type="Script" path="res://scripts/playersPicker.gd" id="1_q03oj"]
 [ext_resource type="PackedScene" uid="uid://cmsffux1oq54t" path="res://components/button.tscn" id="1_wse4t"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xy78s"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
 
 [node name="playersPicker" type="Node2D"]
-script = ExtResource("1_i8yde")
+script = ExtResource("1_q03oj")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -63,3 +63,4 @@ layout_mode = 2
 text = "Start"
 
 [connection signal="pressed" from="CanvasLayer/VBoxContainer/HBoxContainer/addPlayer" to="." method="_on_add_player_pressed"]
+[connection signal="pressed" from="CanvasLayer/VBoxContainer/Button" to="." method="_on_button_pressed"]

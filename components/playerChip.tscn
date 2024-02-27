@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://c6ms2a512vxpt"]
 
-[ext_resource type="Script" path="res://components/playerChip.gd" id="1_q6a1f"]
+[ext_resource type="Script" path="res://components/scripts/playerChip.gd" id="1_cxnv4"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wjl8r"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -21,7 +21,7 @@ offset_bottom = 50.0
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_styles/panel = SubResource("StyleBoxFlat_wjl8r")
-script = ExtResource("1_q6a1f")
+script = ExtResource("1_cxnv4")
 
 [node name="fullNameChip" type="MarginContainer" parent="."]
 layout_mode = 2

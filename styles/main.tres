@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=4 format=3 uid="uid://desyax6efvr7c"]
+[gd_resource type="Theme" load_steps=6 format=3 uid="uid://desyax6efvr7c"]
 
 [ext_resource type="StyleBox" uid="uid://rvs7g0x6xoms" path="res://styles/colorsButton.tres" id="1_5dmom"]
 
@@ -12,6 +12,25 @@ bg_color = Color(0.6, 0.6, 0.6, 0)
 border_width_bottom = 1
 border_color = Color(0.85098, 0.423529, 0.423529, 1)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_er8sd"]
+bg_color = Color(0.85098, 0.423529, 0.423529, 0)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.85098, 0.423529, 0.423529, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_s4jog"]
+bg_color = Color(0.85098, 0.423529, 0.423529, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
 [resource]
 Button/colors/font_color = Color(1, 1, 1, 1)
 Button/styles/focus = ExtResource("1_5dmom")
@@ -20,3 +39,5 @@ Button/styles/normal = ExtResource("1_5dmom")
 Button/styles/pressed = ExtResource("1_5dmom")
 LineEdit/styles/focus = SubResource("StyleBoxFlat_ttcnq")
 LineEdit/styles/normal = SubResource("StyleBoxFlat_j6lkg")
+ProgressBar/styles/background = SubResource("StyleBoxFlat_er8sd")
+ProgressBar/styles/fill = SubResource("StyleBoxFlat_s4jog")

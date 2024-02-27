@@ -3,7 +3,7 @@ extends PanelContainer
 @export var fullName: String = "Andy";
 @export var firstLetter: String = "A";
 @export var colorBorder: Color = "#D96C6C";
-@export var isExpanded: bool = true;
+@export var isExpanded: bool = false;
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
