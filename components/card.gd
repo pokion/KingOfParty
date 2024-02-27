@@ -12,3 +12,9 @@ func _ready():
 
 func setContent(text: String)->void:
 	$Panel/VBoxContainer/Content.text = text;
+
+func setGameMode(gameMode: String)->void:
+	$"Panel/VBoxContainer/Game mode".text = gameMode
+	
+func setAuthor(author: String)->void:
+	$Panel/VBoxContainer/Author.text = author
