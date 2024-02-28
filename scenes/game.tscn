@@ -53,6 +53,7 @@ layout_mode = 2
 size_flags_vertical = 3
 
 [node name="secondsMode" type="VBoxContainer" parent="CanvasLayer/gameScene"]
+visible = false
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 4.47
@@ -145,13 +146,20 @@ gameMode = "Never Ever"
 author = ""
 
 [node name="playerAnnoucmentCard" type="CenterContainer" parent="CanvasLayer/gameScene"]
-visible = false
 layout_mode = 2
 
-[node name="playerNameAnnoucment" parent="CanvasLayer/gameScene/playerAnnoucmentCard" instance=ExtResource("2_l6n1r")]
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/gameScene/playerAnnoucmentCard"]
 layout_mode = 2
-gameMode = ""
-author = ""
+
+[node name="playerTurn" type="Label" parent="CanvasLayer/gameScene/playerAnnoucmentCard/VBoxContainer"]
+layout_mode = 2
+text = "Andy's turns"
+horizontal_alignment = 1
+
+[node name="hint" type="Label" parent="CanvasLayer/gameScene/playerAnnoucmentCard/VBoxContainer"]
+layout_mode = 2
+text = "Put the phone to your forehead and click on the card."
+horizontal_alignment = 1
 
 [node name="gameModeSectionEnd" type="Control" parent="CanvasLayer/gameScene"]
 layout_mode = 2

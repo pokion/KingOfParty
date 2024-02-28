@@ -15,13 +15,19 @@ var gameModeToEnums = {
 	"whoami": SHOW_WHOAMI_SCENE,
 	"seconds": SHOW_SECONDS_SCENE,
 }
+
+var hintsForNextMode = {
+	"seconds": "Pass phone to next player.",
+	"whoami": "Put the phone to your forehead and click screen."
+}
+
 var cardsController;
 var playersController;
 var players;
 var playersNodeReference = {};
 var cards;
 var currentCard;
-var currentPlayer: int = 0;
+var currentPlayer: int = -1;
 var nodes
 
 var playerChip = preload("res://components/playerChip.tscn");
@@ -31,7 +37,6 @@ func _ready():
 	nodes = {
 		"showCardButton": $CanvasLayer/gameScene/showCardButton,
 		"playerAnnoucmentCard": $CanvasLayer/gameScene/playerAnnoucmentCard,
-		"playerNameAnnoucment": $CanvasLayer/gameScene/playerAnnoucmentCard/playerNameAnnoucment,
 		"truthDare": $CanvasLayer/gameScene/truthDareMode,
 		"neverEver": $CanvasLayer/gameScene/neverEverMode,
 		"nextPlayerButton": $CanvasLayer/gameScene/nextPlayerButton,
@@ -46,10 +51,9 @@ func _ready():
 	cardsController = get_node("/root/Cards");
 	playersController = get_node("/root/Players");
 	cards = cardsController.shuffleAndReturn(["neverever", "whoami", ["truth", "dare"],"seconds"]);
-	#cards = cardsController.shuffleAndReturn(["seconds"]);
 	players = playersController.getAllPlayers();
 	addPlayersChips(players)
-	changeVisibilityOfNodes(SHOW_PLAYER_TURN);
+	onNextPlayer()
 	changePlayerChipViewToCurrentPlayer()
 
 func changeVisibilityOfNodes(state):
@@ -95,8 +99,15 @@ func showNeverEverMode():
 	$CanvasLayer/gameScene/neverEverMode/neverEverCard.setContent(currentCard["content"])
 
 func showPlayerMode():
-	nodes["playerNameAnnoucment"].setContent(players[players.keys()[currentPlayer]]["name"])
-	showNodes(["showCardButton", "playerNameAnnoucment", "playerAnnoucmentCard"])
+	var hintForGameMode = "";
+	if not (currentCard is Array):
+		print(hintsForNextMode.has(currentCard.gameMode))
+		if hintsForNextMode.has(currentCard.gameMode):
+			hintForGameMode = hintsForNextMode[currentCard.gameMode];
+		
+	$CanvasLayer/gameScene/playerAnnoucmentCard/VBoxContainer/playerTurn.text = players[players.keys()[currentPlayer]]["name"] + " turn";
+	$CanvasLayer/gameScene/playerAnnoucmentCard/VBoxContainer/hint.text = hintForGameMode;
+	showNodes(["showCardButton", "playerAnnoucmentCard"])
 
 #Utilities
 func showNodes(nodesName: Array[String]):
@@ -125,7 +136,6 @@ func changePlayerChipViewToCurrentPlayer():
 	
 #Signals
 func _on_show_card_button_pressed():
-	currentCard = cards.pop_back()
 	if currentCard is Array:
 		changeVisibilityOfNodes(SHOW_TRUTH_DARE_SCENE)
 	else:
@@ -133,6 +143,7 @@ func _on_show_card_button_pressed():
 
 
 func onNextPlayer():
+	currentCard = cards.pop_back();
 	currentPlayer += 1;
 	if currentPlayer == players.size():
 		currentPlayer = 0;
