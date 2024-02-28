@@ -101,12 +101,11 @@ func showNeverEverMode():
 func showPlayerMode():
 	var hintForGameMode = "";
 	if not (currentCard is Array):
-		print(hintsForNextMode.has(currentCard.gameMode))
 		if hintsForNextMode.has(currentCard.gameMode):
 			hintForGameMode = hintsForNextMode[currentCard.gameMode];
 		
-	$CanvasLayer/gameScene/playerAnnoucmentCard/VBoxContainer/playerTurn.text = players[players.keys()[currentPlayer]]["name"] + " turn";
-	$CanvasLayer/gameScene/playerAnnoucmentCard/VBoxContainer/hint.text = hintForGameMode;
+	$CanvasLayer/gameScene/playerAnnoucmentCard/playerTurn.text = players[players.keys()[currentPlayer]]["name"] + " turn";
+	$CanvasLayer/gameScene/playerAnnoucmentCard/hint.text = hintForGameMode;
 	showNodes(["showCardButton", "playerAnnoucmentCard"])
 
 #Utilities

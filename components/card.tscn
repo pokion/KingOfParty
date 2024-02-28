@@ -7,6 +7,7 @@
 custom_minimum_size = Vector2(177, 303)
 offset_right = 40.0
 offset_bottom = 40.0
+size_flags_vertical = 3
 script = ExtResource("1_ojpo5")
 
 [node name="Panel" type="Panel" parent="."]
