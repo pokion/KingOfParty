@@ -146,6 +146,7 @@ gameMode = "Never Ever"
 author = ""
 
 [node name="playerAnnoucmentCard" type="VBoxContainer" parent="CanvasLayer/gameScene"]
+visible = false
 layout_mode = 2
 alignment = 1
 

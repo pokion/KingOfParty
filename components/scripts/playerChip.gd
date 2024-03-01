@@ -12,6 +12,9 @@ func _ready():
 	changeVisibility(isExpanded)
 	changeColor(colorBorder)
 
+func changeFirstLetter(letter: String)->void:
+	$FirstLetterChip/firstLetter.text = letter
+
 func changeVisibility(visibility: bool):
 	isExpanded = visibility
 	$fullNameChip.visible = isExpanded

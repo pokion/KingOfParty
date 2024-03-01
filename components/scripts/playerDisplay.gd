@@ -7,10 +7,8 @@ extends HBoxContainer
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$name.text = playerName
-	$firstLetter.text = firstLetter
-	var style = $firstLetter.get_theme_stylebox("normal").duplicate()
-	style.border_color = color
-	$firstLetter.add_theme_stylebox_override("normal", style)
+	$PanelContainer.changeFirstLetter(firstLetter)
+	$PanelContainer.changeColor(color)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
