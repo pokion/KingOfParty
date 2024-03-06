@@ -1,0 +1,52 @@
+[gd_scene load_steps=5 format=3 uid="uid://cal5ok8nygcem"]
+
+[ext_resource type="Script" path="res://components/scripts/colorsPicker_control.gd" id="1_escx1"]
+[ext_resource type="Script" path="res://components/scripts/colorPicker_createColorBalls.gd" id="1_t7m7k"]
+[ext_resource type="Script" path="res://components/scripts/colorsPicker_testPanel.gd" id="3_ybpvy"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hq0il"]
+bg_color = Color(0.901961, 0.368627, 0.721569, 1)
+corner_radius_top_left = 1024
+corner_radius_top_right = 1024
+corner_radius_bottom_right = 1024
+corner_radius_bottom_left = 1024
+
+[node name="colorPicker" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_escx1")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="FlowContainer" type="FlowContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/h_separation = 40
+theme_override_constants/v_separation = 40
+alignment = 1
+script = ExtResource("1_t7m7k")
+
+[node name="testPanel" type="Panel" parent="MarginContainer/FlowContainer"]
+visible = false
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_hq0il")
+script = ExtResource("3_ybpvy")
+
+[connection signal="colorPicked" from="MarginContainer/FlowContainer/testPanel" to="." method="_on_test_panel_color_picked"]
+[connection signal="gui_input" from="MarginContainer/FlowContainer/testPanel" to="MarginContainer/FlowContainer/testPanel" method="_on_gui_input"]

@@ -27,3 +27,5 @@ layout_mode = 2
 [node name="Control" type="Control" parent="."]
 layout_mode = 2
 size_flags_horizontal = 3
+
+[connection signal="chipPressed" from="PanelContainer" to="." method="_on_panel_container_chip_pressed"]

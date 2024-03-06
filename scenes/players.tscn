@@ -1,10 +1,21 @@
-[gd_scene load_steps=4 format=3 uid="uid://dbwr73ave4oss"]
+[gd_scene load_steps=7 format=3 uid="uid://dbwr73ave4oss"]
 
 [ext_resource type="Script" path="res://scripts/playersPicker.gd" id="1_q03oj"]
 [ext_resource type="PackedScene" uid="uid://cmsffux1oq54t" path="res://components/button.tscn" id="1_wse4t"]
+[ext_resource type="Script" path="res://components/scripts/colorPickerControl.gd" id="3_iqooa"]
+[ext_resource type="PackedScene" uid="uid://cal5ok8nygcem" path="res://components/colorsPicker.tscn" id="3_vx6db"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xy78s"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6yf8b"]
+bg_color = Color(0.00392157, 0.0941176, 0.14902, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_color = Color(0.85098, 0.423529, 0.423529, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
 
 [node name="playersPicker" type="Node2D"]
 script = ExtResource("1_q03oj")
@@ -61,6 +72,36 @@ alignment = 1
 [node name="Button" parent="CanvasLayer/VBoxContainer" instance=ExtResource("1_wse4t")]
 layout_mode = 2
 text = "Start"
+
+[node name="colorPickerControl" type="Control" parent="CanvasLayer"]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_top = 500.0
+offset_right = 576.0
+offset_bottom = 1025.0
+size_flags_vertical = 8
+script = ExtResource("3_iqooa")
+
+[node name="Panel" type="Panel" parent="CanvasLayer/colorPickerControl"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_6yf8b")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="CanvasLayer/colorPickerControl"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Control" parent="CanvasLayer/colorPickerControl/ScrollContainer" instance=ExtResource("3_vx6db")]
+layout_mode = 2
 
 [connection signal="pressed" from="CanvasLayer/VBoxContainer/HBoxContainer/addPlayer" to="." method="_on_add_player_pressed"]
 [connection signal="pressed" from="CanvasLayer/VBoxContainer/Button" to="." method="_on_button_pressed"]
