@@ -8,9 +8,7 @@ func _ready():
 	players = get_node("/root/Players");
 	colorPicker = $CanvasLayer/colorPickerControl;
 
-func _on_add_player_pressed():
-	var playerName = $CanvasLayer/VBoxContainer/HBoxContainer/playerName.text
-	var playerObject = players.addPlayer(playerName);
+func addPlayerToContainer(playerObject: Dictionary):
 	var playerDisplayComponentNew = playerDisplayComponent.duplicate().instantiate()
 	playerDisplayComponentNew.showColorpicker.connect(_on_changeColorButton)
 	playerDisplayComponentNew.referenceObject = playerObject
@@ -18,6 +16,10 @@ func _on_add_player_pressed():
 	playerDisplayComponentNew.firstLetter = playerObject.firstLetter
 	playerDisplayComponentNew.color = playerObject.color
 	$CanvasLayer/VBoxContainer/ScrollContainer/PlayerContainer.add_child(playerDisplayComponentNew)
+
+func _on_add_player_pressed():
+	var playerName = $CanvasLayer/VBoxContainer/HBoxContainer/playerName.text
+	addPlayerToContainer(players.addPlayer(playerName))
 	$CanvasLayer/VBoxContainer/HBoxContainer/playerName.text = ""
 
 
