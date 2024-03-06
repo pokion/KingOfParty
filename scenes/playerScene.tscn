@@ -1,14 +1,13 @@
-[gd_scene load_steps=7 format=3 uid="uid://dbwr73ave4oss"]
+[gd_scene load_steps=6 format=3 uid="uid://b0ivuwpcqlqjt"]
 
-[ext_resource type="Script" path="res://scripts/playersPicker.gd" id="1_q03oj"]
-[ext_resource type="PackedScene" uid="uid://cmsffux1oq54t" path="res://components/button.tscn" id="1_wse4t"]
-[ext_resource type="Script" path="res://components/scripts/colorPickerControl.gd" id="3_iqooa"]
-[ext_resource type="PackedScene" uid="uid://cal5ok8nygcem" path="res://components/colorsPicker.tscn" id="3_vx6db"]
+[ext_resource type="Script" path="res://scripts/playersPicker.gd" id="1_o5ex7"]
+[ext_resource type="Script" path="res://components/scripts/colorPickerControl.gd" id="3_ibtk2"]
+[ext_resource type="PackedScene" uid="uid://cal5ok8nygcem" path="res://components/colorsPicker.tscn" id="4_imtll"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xy78s"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_iwr8t"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6yf8b"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_d7ljd"]
 bg_color = Color(0.00392157, 0.0941176, 0.14902, 1)
 border_width_left = 2
 border_width_top = 2
@@ -17,8 +16,14 @@ border_color = Color(0.85098, 0.423529, 0.423529, 1)
 corner_radius_top_left = 20
 corner_radius_top_right = 20
 
-[node name="playersPicker" type="Node2D"]
-script = ExtResource("1_q03oj")
+[node name="playerScene" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_o5ex7")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -50,6 +55,8 @@ alignment = 1
 custom_minimum_size = Vector2(212, 0)
 layout_mode = 2
 placeholder_text = "Enter name"
+caret_blink = true
+caret_blink_interval = 0.5
 
 [node name="addPlayer" type="Button" parent="CanvasLayer/VBoxContainer/HBoxContainer"]
 custom_minimum_size = Vector2(31, 31)
@@ -58,7 +65,7 @@ text = "+"
 
 [node name="HSeparator" type="HSeparator" parent="CanvasLayer/VBoxContainer"]
 layout_mode = 2
-theme_override_styles/separator = SubResource("StyleBoxFlat_xy78s")
+theme_override_styles/separator = SubResource("StyleBoxFlat_iwr8t")
 
 [node name="ScrollContainer" type="ScrollContainer" parent="CanvasLayer/VBoxContainer"]
 layout_mode = 2
@@ -69,10 +76,6 @@ layout_mode = 2
 size_flags_horizontal = 3
 alignment = 1
 
-[node name="Button" parent="CanvasLayer/VBoxContainer" instance=ExtResource("1_wse4t")]
-layout_mode = 2
-text = "Start"
-
 [node name="colorPickerControl" type="Control" parent="CanvasLayer"]
 visible = false
 layout_mode = 3
@@ -81,7 +84,7 @@ offset_top = 500.0
 offset_right = 576.0
 offset_bottom = 1025.0
 size_flags_vertical = 8
-script = ExtResource("3_iqooa")
+script = ExtResource("3_ibtk2")
 
 [node name="Panel" type="Panel" parent="CanvasLayer/colorPickerControl"]
 layout_mode = 1
@@ -90,7 +93,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_6yf8b")
+theme_override_styles/panel = SubResource("StyleBoxFlat_d7ljd")
 
 [node name="ScrollContainer" type="ScrollContainer" parent="CanvasLayer/colorPickerControl"]
 layout_mode = 1
@@ -100,8 +103,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Control" parent="CanvasLayer/colorPickerControl/ScrollContainer" instance=ExtResource("3_vx6db")]
+[node name="Control" parent="CanvasLayer/colorPickerControl/ScrollContainer" instance=ExtResource("4_imtll")]
 layout_mode = 2
 
 [connection signal="pressed" from="CanvasLayer/VBoxContainer/HBoxContainer/addPlayer" to="." method="_on_add_player_pressed"]
-[connection signal="pressed" from="CanvasLayer/VBoxContainer/Button" to="." method="_on_button_pressed"]

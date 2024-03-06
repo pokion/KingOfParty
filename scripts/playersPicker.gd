@@ -1,4 +1,4 @@
-extends Node2D
+extends Control
 
 var playerDisplayComponent = preload("res://components/playerDisplay.tscn")
 var players;

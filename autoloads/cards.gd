@@ -1,6 +1,12 @@
 extends Node
 
 var cards = {}
+var gameModes = {
+	"neverever": "Never Ever",
+	"whoami": "Who am I?",
+	"truth|dare": "Truth or Dare",
+	"seconds": "10 Seconds"
+}
 
 func _ready():
 	importDataFromCsv("res://cards/cards.txt")
