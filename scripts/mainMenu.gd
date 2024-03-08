@@ -16,7 +16,7 @@ func _on_decks_pressed():
 
 
 func _on_play_pressed():
-	get_tree().change_scene_to_file("res://scenes/players.tscn")
+	get_tree().change_scene_to_file("res://scenes/gameSetup.tscn")
 
 
 func _on_author_pressed():

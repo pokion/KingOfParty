@@ -29,6 +29,7 @@ var cards;
 var currentCard;
 var currentPlayer: int = -1;
 var nodes
+var gameSettings;
 
 var playerChip = preload("res://components/playerChip.tscn");
 
@@ -50,7 +51,8 @@ func _ready():
 	}
 	cardsController = get_node("/root/Cards");
 	playersController = get_node("/root/Players");
-	cards = cardsController.shuffleAndReturn(["neverever", "whoami", ["truth", "dare"],"seconds"]);
+	gameSettings = get_node("/root/GameSettings");
+	cards = cardsController.shuffleAndReturn(gameSettings.getGameModes());
 	players = playersController.getAllPlayers();
 	addPlayersChips(players)
 	onNextPlayer()

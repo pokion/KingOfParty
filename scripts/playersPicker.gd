@@ -6,7 +6,7 @@ var colorPicker;
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	players = get_node("/root/Players");
-	colorPicker = $CanvasLayer/colorPickerControl;
+	colorPicker = $colorPickerControl;
 
 func addPlayerToContainer(playerObject: Dictionary):
 	var playerDisplayComponentNew = playerDisplayComponent.duplicate().instantiate()
@@ -15,12 +15,12 @@ func addPlayerToContainer(playerObject: Dictionary):
 	playerDisplayComponentNew.playerName = playerObject.name
 	playerDisplayComponentNew.firstLetter = playerObject.firstLetter
 	playerDisplayComponentNew.color = playerObject.color
-	$CanvasLayer/VBoxContainer/ScrollContainer/PlayerContainer.add_child(playerDisplayComponentNew)
+	$VBoxContainer/ScrollContainer/PlayerContainer.add_child(playerDisplayComponentNew)
 
 func _on_add_player_pressed():
-	var playerName = $CanvasLayer/VBoxContainer/HBoxContainer/playerName.text
+	var playerName = $VBoxContainer/HBoxContainer/playerName.text
 	addPlayerToContainer(players.addPlayer(playerName))
-	$CanvasLayer/VBoxContainer/HBoxContainer/playerName.text = ""
+	$VBoxContainer/HBoxContainer/playerName.text = ""
 
 
 func _on_button_pressed():

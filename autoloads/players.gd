@@ -32,9 +32,9 @@ func getAllColors():
 func clearPlayers() -> void:
 	playersArray = {}
 	
+func putTestPlayers():
+	playersArray["test"] = {"name": "name","points": 0,"firstLetter": "N","color": getRandomColor()}
+	playersArray["test2"] = {"name": "admin","points": 0,"firstLetter": "A","color": getRandomColor()}
+	
 func getAllPlayers() -> Dictionary:
-	if playersArray.is_empty():
-		#test players
-		playersArray["test"] = {"name": "name","points": 0,"firstLetter": "N","color": getRandomColor()}
-		playersArray["test2"] = {"name": "admin","points": 0,"firstLetter": "A","color": getRandomColor()}
 	return playersArray
