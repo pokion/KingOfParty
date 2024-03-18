@@ -1,15 +1,23 @@
-[gd_scene load_steps=5 format=3 uid="uid://ct6vkityq225n"]
+[gd_scene load_steps=4 format=3 uid="uid://ct6vkityq225n"]
 
 [ext_resource type="Script" path="res://scripts/renderDecks.gd" id="1_2ltln"]
 [ext_resource type="Script" path="res://components/scripts/deck.gd" id="2_wbqqg"]
 [ext_resource type="StyleBox" uid="uid://bhl7rmreqex31" path="res://styles/deckStyle.tres" id="3_52f24"]
-[ext_resource type="PackedScene" uid="uid://cmsffux1oq54t" path="res://components/button.tscn" id="4_ou7c5"]
 
-[node name="Decks" type="Node2D"]
+[node name="Decks" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
 script = ExtResource("1_2ltln")
 
 [node name="HiddenDeck" type="AspectRatioContainer" parent="."]
 visible = false
+layout_mode = 0
 offset_top = 30.0
 offset_right = 576.0
 offset_bottom = 143.0
@@ -36,49 +44,38 @@ grow_horizontal = 2
 grow_vertical = 2
 text = "Deck Name"
 
-[node name="HBoxContainer" type="HBoxContainer" parent="HiddenDeck/Panel"]
+[node name="Label" type="Label" parent="HiddenDeck/Panel"]
+visible = false
 layout_mode = 1
-anchors_preset = 3
+anchors_preset = 1
 anchor_left = 1.0
-anchor_top = 1.0
 anchor_right = 1.0
-anchor_bottom = 1.0
 offset_left = -40.0
-offset_top = -40.0
+offset_bottom = 24.0
 grow_horizontal = 0
-grow_vertical = 0
+text = "Selected"
 
-[node name="CardsCounter" type="Label" parent="HiddenDeck/Panel/HBoxContainer"]
-layout_mode = 2
-text = "Cards:"
-
-[node name="CardsCounterDisplay" type="Label" parent="HiddenDeck/Panel/HBoxContainer"]
-layout_mode = 2
-text = "200"
-
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Label" type="Label" parent="CanvasLayer/VBoxContainer"]
+[node name="Label" type="Label" parent="VBoxContainer"]
 layout_mode = 2
 text = "Decks"
 horizontal_alignment = 1
 
-[node name="ScrollContainer" type="ScrollContainer" parent="CanvasLayer/VBoxContainer"]
+[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="decksDisplay" type="VBoxContainer" parent="CanvasLayer/VBoxContainer/ScrollContainer"]
+[node name="decksDisplay" type="VBoxContainer" parent="VBoxContainer/ScrollContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 4
 
-[node name="Button" parent="CanvasLayer/VBoxContainer" instance=ExtResource("4_ou7c5")]
-layout_mode = 2
-text = "Create Deck"
+[connection signal="deckNamePropagate" from="HiddenDeck" to="." method="_on_hidden_deck_deck_name_propagate"]
+[connection signal="gui_input" from="HiddenDeck/Panel" to="HiddenDeck" method="_on_panel_gui_input"]

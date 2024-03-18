@@ -6,11 +6,12 @@ var currentStep = 0
 var gameSettings;
 var rules = [checkIfPlayerCheckedAtLeastOneGameMode, checkIfPlayerSelectAtLeastOneDeck, checkIfPlayerSelectAtLeastOnePlayer, checkIfPlayerSelectGameType];
 var players;
+var decks = []
 
 func _ready():
 	gameSettings = get_node("/root/GameSettings")
 	players = get_node("/root/Players")
-	step = [$CanvasLayer/VBoxContainer/Control/gameModePicker,$CanvasLayer/VBoxContainer/Control/decki,$CanvasLayer/VBoxContainer/Control/playerScene,$CanvasLayer/VBoxContainer/Control/gameType]
+	step = [$CanvasLayer/VBoxContainer/Control/gameModePicker,$CanvasLayer/VBoxContainer/Control/Decks,$CanvasLayer/VBoxContainer/Control/playerScene,$CanvasLayer/VBoxContainer/Control/gameType]
 	$CanvasLayer/VBoxContainer/Control/gameModePicker.onGameModeToggle.connect(_on_game_mode_picker_on_game_mode_toggle)
 	
 func checkIfPlayerCheckedAtLeastOneGameMode():
@@ -26,8 +27,10 @@ func checkIfPlayerSelectAtLeastOnePlayer():
 		return false;
 		
 func checkIfPlayerSelectAtLeastOneDeck():
-	#to jest będzie trzeba zrobić
-	return false;
+	if decks.size() == 0:
+		return "You need select at least one deck."
+	else:
+		return false;
 		
 func checkIfPlayerSelectGameType():
 	#to jest będzie trzeba zrobić
@@ -88,3 +91,7 @@ func _on_game_mode_picker_on_game_mode_toggle(isTrue, gameMode):
 		pickedGameModes.append(gameMode)
 	else:
 		pickedGameModes.erase(gameMode)
+
+
+func _on_decks_deck_name(deck):
+	decks = deck;

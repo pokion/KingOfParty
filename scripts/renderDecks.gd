@@ -1,28 +1,25 @@
-extends Node2D
+extends Control;
 
-var decks = [
-	{"name": "test1", "cardCount": 30},
-	{"name": "test2", "cardCount": 35},
-	{"name": "test3", "cardCount": 50},
-	{"name": "test4", "cardCount": 111},
-	{"name": "test5", "cardCount": 50},
-	{"name": "test6", "cardCount": 99},
-	{"name": "test7", "cardCount": 69},
-	{"name": "test8", "cardCount": 420},
-	{"name": "test9", "cardCount": 4230}
-]
+var decks = []
+var selectedDecks = []
+signal deckName(deck)
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	var decksNames = get_node("/root/Cards").getAllCards();
+	for deckname in decksNames:
+		decks.append(deckname)
+
 	var hiddenDeck = $HiddenDeck
-	var deckDispaly = $CanvasLayer/VBoxContainer/ScrollContainer/decksDisplay
-	for deck in decks:
+	var deckDispaly = $VBoxContainer/ScrollContainer/decksDisplay
+	for deckName in decks:
 		var newDeck = hiddenDeck.duplicate()
-		newDeck.deckName = deck.name
-		newDeck.cardCount = str(deck.cardCount)
+		newDeck.deckName = deckName
 		newDeck.visible = true
 		deckDispaly.add_child(newDeck)
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
+func _on_hidden_deck_deck_name_propagate(name, selected):
+	if not selected:
+		selectedDecks.erase(name)
+	else:
+		selectedDecks.append(name)
+	deckName.emit(selectedDecks);

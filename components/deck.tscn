@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3 uid="uid://cg5p06qt33w4a"]
+
+[ext_resource type="Script" path="res://components/scripts/deck.gd" id="1_i836v"]
+
+[node name="Deck" type="AspectRatioContainer"]
+offset_right = 359.0
+offset_bottom = 113.0
+size_flags_horizontal = 4
+script = ExtResource("1_i836v")
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CenterContainer"]
+layout_mode = 2
+text = "Test"

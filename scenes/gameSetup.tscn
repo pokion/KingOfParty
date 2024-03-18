@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://b0ivuwpcqlqjt" path="res://scenes/playerScene.tscn" id="1_2j38f"]
 [ext_resource type="PackedScene" uid="uid://cmsffux1oq54t" path="res://components/button.tscn" id="1_i1wt6"]
 [ext_resource type="Script" path="res://components/scripts/gameSetup.gd" id="1_uow7c"]
-[ext_resource type="PackedScene" uid="uid://lu3qoimj6w2l" path="res://scenes/decki.tscn" id="3_40d8t"]
+[ext_resource type="PackedScene" uid="uid://ct6vkityq225n" path="res://scenes/Decks.tscn" id="3_ltpui"]
 [ext_resource type="PackedScene" uid="uid://cy08qocf2meim" path="res://scenes/gameModePicker.tscn" id="3_owr8o"]
 [ext_resource type="PackedScene" uid="uid://dg74xv5tutaex" path="res://scenes/game_type.tscn" id="5_ylg1o"]
 
@@ -34,6 +34,7 @@ vertical_alignment = 1
 
 [node name="ErrorMessage" type="Label" parent="CanvasLayer/VBoxContainer"]
 layout_mode = 2
+horizontal_alignment = 1
 
 [node name="Control" type="Control" parent="CanvasLayer/VBoxContainer"]
 layout_mode = 2
@@ -43,7 +44,7 @@ size_flags_vertical = 3
 visible = false
 layout_mode = 1
 
-[node name="decki" parent="CanvasLayer/VBoxContainer/Control" instance=ExtResource("3_40d8t")]
+[node name="Decks" parent="CanvasLayer/VBoxContainer/Control" instance=ExtResource("3_ltpui")]
 visible = false
 layout_mode = 1
 
@@ -83,6 +84,7 @@ visible = false
 layout_mode = 2
 text = "start"
 
+[connection signal="deckName" from="CanvasLayer/VBoxContainer/Control/Decks" to="." method="_on_decks_deck_name"]
 [connection signal="onGameModeToggle" from="CanvasLayer/VBoxContainer/Control/gameModePicker" to="." method="_on_game_mode_picker_on_game_mode_toggle"]
 [connection signal="pressed" from="CanvasLayer/VBoxContainer/MarginContainer/HBoxContainer/goToMenu" to="." method="backToMenu"]
 [connection signal="pressed" from="CanvasLayer/VBoxContainer/MarginContainer/HBoxContainer/previousButton" to="." method="ruleToStep" binds= ["prev"]]

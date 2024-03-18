@@ -1,50 +1,81 @@
 gameMode,content,deck
-neverever,Never have I ever faked sick from work ,
-neverever,Never have I ever gone skinny dipping ,
-neverever,Never have I ever cheated on a test ,
-neverever,Never have I ever marched in a protest ,
-neverever,Never have I ever overdrafted my bank account ,
-neverever,Never have I ever eaten someone else's lunch ,
-neverever,Never have I ever played strip poker ,
-neverever, Never have I ever smoked a joint ,
-neverever,Never have I ever peed in a pool ,
-neverever,Never have I ever tried hard drugs ,
-neverever,Never have I ever fallen asleep in public ,
-neverever,Never have I ever fallen asleep at work ,
-neverever,Never have I ever lied on my resume ,
-neverever,Never have I ever drunk-dialed my ex ,
-whoami,Scooby Doo,
-whoami,Superman,
-whoami,Batman,
-whoami,Robin,
-whoami,Banana,
-whoami,Raccon,
-whoami,Andrzej Duda,
-whoami,Avocado,
-whoami,House,
-whoami,Spider-Man,
-whoami,Tom Holland,
-whoami,Skynet,
-whoami,Harry Potter,
-whoami,Awięc,
-whoami,OjWojtek,
-truth,When was the last time you lied?,
-truth,What's your biggest fantasy?,
-truth,Who's the last person you searched on Instagram?,
-truth,What's the strangest thing you've ever eaten?,
-truth,Do you have a hidden talent?,
-dare,Do 10 squats,
-dare,Yell out the first word that comes to your mind,
-dare,Eat a snack without using your hands,
-dare,Only talk in whispers for the next 10 minutes,
-dare,Try not to laugh for the next 10 minutes,
-seconds,Name 3 body parts that you don’t want to shave,
-seconds,Name 3 things you would do if you were the opposite sex,
-seconds,Name 3 gross things you’ve eaten,
-seconds,Name 3 embarrassing moments you’ve had in public,
-seconds,Name 3 ways to annoy your neighbor,
-seconds,Name 3 swear words in a foreign language,
-seconds,Name 3 celebrities you find attractive,
-seconds,Name 3 things you would do if you were invisible for a day,
-seconds,Name 3 weird things you find oddly satisfying,
-seconds,Name 3 places you’ve peed in public,
+neverever,Never have I ever traveled to a country without knowing any of the local language.,travel
+neverever,Never have I ever lost my luggage during a trip.,travel
+neverever,Never have I ever missed a flight.,travel
+neverever,Never have I ever traveled alone to a foreign country.,travel
+neverever,Never have I ever slept in an airport overnight.,travel
+neverever,Never have I ever hitchhiked.,travel
+neverever,Never have I ever taken a spontaneous road trip without a destination in mind.,travel
+neverever,Never have I ever been on a cruise.,travel
+neverever,Never have I ever visited all seven continents.,travel
+neverever,Never have I ever gone backpacking through multiple countries.,travel
+whoami,San Francisco,travel
+whoami,Egypt,travel
+whoami,Japan,travel
+whoami,Pisa,travel
+whoami,Iceland,travel
+whoami,Rome,travel
+whoami,Australia,travel
+whoami,Rio de Janeiro,travel
+whoami,Norway,travel
+whoami,Amsterdam,travel
+truth,Have you ever traveled to a place just because you saw it in a movie or on TV?,travel
+truth,What’s the most unusual food you’ve eaten while traveling?,travel
+truth,Have you ever pretended to be a local to avoid looking like a tourist?,travel
+truth,What’s the scariest experience you’ve had while traveling?,travel
+truth,Have you ever taken something from a hotel room?,travel
+dare,Speak in a foreign language for the next two rounds.,travel
+dare,Act out a scene from a famous travel movie.,travel
+dare,Show the most embarrassing photo from your travels.,travel
+dare,Imitate an accent from a country you’ve visited.,travel
+dare,Plan a hypothetical trip to a random country in 2 minutes.,travel
+seconds,Name 5 European capitals.,travel
+seconds,List 5 islands.,travel
+seconds,Name 5 countries that start with the letter ‘M’.,travel
+seconds,"Recall 5 types of traditional transport (like rickshaws, gondolas).",travel
+seconds,Mention 5 famous landmarks.,travel
+seconds,"Name 5 countries that have a red, white, and blue flag.",travel
+seconds,List 5 desert destinations.,travel
+seconds,Name 5 cities with an underground metro system.,travel
+seconds,Recall 5 beach destinations.,travel
+seconds,List 5 countries in Africa.,travel
+neverever,Never have I ever finished a coding challenge in less than an hour.,nerds
+neverever,Never have I ever attended a comic con in full cosplay.,nerds
+neverever,Never have I ever solved a Rubik’s cube in under 2 minutes.,nerds
+neverever,Never have I ever binge-watched an entire sci-fi series in one weekend.,nerds
+neverever,Never have I ever read more than 3 technical books in a month.,nerds
+neverever,Never have I ever built my own computer from scratch.,nerds
+neverever,Never have I ever memorized the periodic table for fun.,nerds
+neverever,Never have I ever participated in a hackathon.,nerds
+neverever,Never have I ever learned a programming language in less than a week.,nerds
+neverever,Never have I ever owned more than 5 different gaming consoles.,nerds
+whoami,The DeLorean from Back to the Future,nerds
+whoami,C-3PO,nerds
+whoami,Harry Potter,nerds
+whoami,Captain James T. Kirk of the USS Enterprise,nerds
+whoami,The One Ring from The Lord of the Rings,nerds
+whoami,Siri,nerds
+whoami,Superman,nerds
+whoami,The Doctor from Doctor Who,nerds
+whoami,Yoda,nerds
+whoami,Sherlock Holmes,nerds
+truth,"If you could be invisible for a day, what’s the first thing you would do? ",nerds
+truth,What’s the most embarrassing piece of fanfiction you’ve ever written or read? ,nerds
+truth,"Which Hogwarts house do you secretly wish you were sorted into, and why? ",nerds
+truth,What’s the nerdiest pickup line you’ve ever used or heard? ,nerds
+truth,Have you ever rage-quit a video game? Which one and why? ,nerds
+dare,Recite the first 10 digits of π (pi) without looking it up! ,nerds
+dare,Perform an impromptu dramatic monologue as your favorite fictional character. ,nerds
+dare,Attempt to explain Schrödinger’s cat paradox in under 60 seconds. ,nerds
+dare,Create a meme on the spot using only science-related terms. ,nerds
+dare,"Speak like Yoda for the next three rounds of the game, you must! ",nerds
+seconds,Blade Runner ,nerds
+seconds,Dragon ,nerds
+seconds,PlayStation ,nerds
+seconds,Spider-Man ,nerds
+seconds,GPS ,nerds
+seconds,Einstein ,nerds
+seconds,Luffy ,nerds
+seconds,Ruby ,nerds
+seconds,Tatooine ,nerds
+seconds,Chess ,nerds

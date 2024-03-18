@@ -15,23 +15,32 @@ func _ready():
 func getAllCards():
 	return cards;
 	
-func shuffleAndReturn(nameOfGamemodes: Array) -> Array:
+func shuffleAndReturn(nameOfGamemodes: Array, decks: Array = ["travel", "nerds"]) -> Array:
 	var newArray = [];
+	var tempArray = null;
+	
+	for deck in decks:
+		if tempArray == null:
+			tempArray = cards[deck]
+		else:
+			for gamemode in cards[deck]:
+				tempArray[gamemode].append(cards[deck][gamemode])
+
 	for name in nameOfGamemodes:
 		if name is Array:
 			var minimalSize = 0
 			var joinedArray = []
 			for indexName in name:
-				minimalSize = cards[indexName].size();
-				cards[indexName].shuffle();
+				minimalSize = tempArray[indexName].size();
+				tempArray[indexName].shuffle();
 			for index in minimalSize:
 				var arrayToPush = []
 				for indexName in name:
-					arrayToPush.append(cards[indexName][index])
+					arrayToPush.append(tempArray[indexName][index])
 				joinedArray.append(arrayToPush)
 			newArray += joinedArray;
 		else:
-			newArray += cards[name];
+			newArray += tempArray[name];
 			
 	newArray.shuffle();
 	return newArray;
@@ -49,7 +58,9 @@ func importDataFromCsv(filePath):
 				objectCard[objectStructure[index]] = data_set[index]
 			
 		if not objectCard.is_empty():
-			if not cards.has(objectCard["gameMode"]):
-				cards[objectCard["gameMode"]] = []
-			cards[objectCard["gameMode"]].append(objectCard)
+			if not cards.has(objectCard["deck"]):
+				cards[objectCard["deck"]] = {}
+			if not cards[objectCard["deck"]].has(objectCard["gameMode"]):
+				cards[objectCard["deck"]][objectCard["gameMode"]] = []
+			cards[objectCard["deck"]][objectCard["gameMode"]].append(objectCard)
 	file.close()
