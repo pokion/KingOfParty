@@ -7,6 +7,7 @@ var gameSettings;
 var rules = [checkIfPlayerCheckedAtLeastOneGameMode, checkIfPlayerSelectAtLeastOneDeck, checkIfPlayerSelectAtLeastOnePlayer, checkIfPlayerSelectGameType];
 var players;
 var decks = []
+var gameType = null
 
 func _ready():
 	gameSettings = get_node("/root/GameSettings")
@@ -33,8 +34,10 @@ func checkIfPlayerSelectAtLeastOneDeck():
 		return false;
 		
 func checkIfPlayerSelectGameType():
-	#to jest będzie trzeba zrobić
-	return false;
+	if gameType == null:
+		return "You need select game type."
+	else:
+		return false;
 	
 func setErrorMessage(message):
 	$CanvasLayer/VBoxContainer/ErrorMessage.text = message;
@@ -83,7 +86,11 @@ func backToMenu():
 	get_tree().change_scene_to_file("res://scenes/menu.tscn")
 	
 func startGame():
-	gameSettings.setGameModes(pickedGameModes)
+	var ruleText = rules[currentStep].call()
+	if not (ruleText is bool):
+		setErrorMessage(ruleText);
+		return;
+	gameSettings.saveSettings(pickedGameModes, decks, gameType)
 	get_tree().change_scene_to_file("res://scenes/game.tscn")
 
 func _on_game_mode_picker_on_game_mode_toggle(isTrue, gameMode):
@@ -95,3 +102,8 @@ func _on_game_mode_picker_on_game_mode_toggle(isTrue, gameMode):
 
 func _on_decks_deck_name(deck):
 	decks = deck;
+
+
+
+func _on_game_type_send_selected(gameTypeName):
+	gameType = gameTypeName;

@@ -1,4 +1,7 @@
-[gd_scene format=3 uid="uid://dg74xv5tutaex"]
+[gd_scene load_steps=3 format=3 uid="uid://dg74xv5tutaex"]
+
+[ext_resource type="Script" path="res://components/scripts/game_type.gd" id="1_48w4v"]
+[ext_resource type="StyleBox" uid="uid://bhl7rmreqex31" path="res://styles/deckStyle.tres" id="2_bxuxf"]
 
 [node name="gameType" type="Control"]
 layout_mode = 3
@@ -7,9 +10,95 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_48w4v")
 
-[node name="Label" type="Label" parent="."]
-layout_mode = 0
-offset_right = 40.0
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="VBoxContainer" parent="CenterContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="onePlayerHold" type="AspectRatioContainer" parent="CenterContainer/HBoxContainer"]
+layout_mode = 2
+ratio = 3.0
+
+[node name="Panel" type="Panel" parent="CenterContainer/HBoxContainer/onePlayerHold"]
+custom_minimum_size = Vector2(359, 113)
+layout_mode = 2
+theme_override_styles/panel = ExtResource("2_bxuxf")
+
+[node name="DeckName" type="Label" parent="CenterContainer/HBoxContainer/onePlayerHold/Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "one player holding phone"
+
+[node name="Label" type="Label" parent="CenterContainer/HBoxContainer/onePlayerHold/Panel"]
+visible = false
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -40.0
 offset_bottom = 24.0
-text = "to też kideyś się zrobi ¯\\_(ツ)_/¯"
+grow_horizontal = 0
+text = "Selected"
+
+[node name="passPhone" type="AspectRatioContainer" parent="CenterContainer/HBoxContainer"]
+layout_mode = 2
+ratio = 3.0
+
+[node name="Panel" type="Panel" parent="CenterContainer/HBoxContainer/passPhone"]
+custom_minimum_size = Vector2(359, 113)
+layout_mode = 2
+theme_override_styles/panel = ExtResource("2_bxuxf")
+
+[node name="DeckName" type="Label" parent="CenterContainer/HBoxContainer/passPhone/Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "passing phone among players"
+
+[node name="Label" type="Label" parent="CenterContainer/HBoxContainer/passPhone/Panel"]
+visible = false
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -40.0
+offset_bottom = 24.0
+grow_horizontal = 0
+text = "Selected"
+
+[connection signal="gui_input" from="CenterContainer/HBoxContainer/onePlayerHold/Panel" to="." method="_on_panel_gui_input" binds= ["hold"]]
+[connection signal="gui_input" from="CenterContainer/HBoxContainer/passPhone/Panel" to="." method="_on_panel_gui_input" binds= ["pass"]]

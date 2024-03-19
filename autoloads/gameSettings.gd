@@ -1,12 +1,17 @@
 extends Node
 
 var gameModes: Array;
-var decks = [];
-var gameType = [];
+var decks: Array;
+var gameType: String;
 
-func setGameModes(gameModesArr: Array) -> void:
-	gameModes = gameModesArr;
-	
-func getGameModes() -> Array:
-	return gameModes;
+func getSettings():
+	return {
+		"gameModes": gameModes,
+		"decks": decks,
+		"gameType": gameType
+	}
 
+func saveSettings(modes: Array, decksPass: Array, gameTypePass: String):
+	gameModes = modes;
+	decks = decksPass;
+	gameType = gameTypePass;

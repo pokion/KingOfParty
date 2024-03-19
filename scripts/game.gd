@@ -51,12 +51,13 @@ func _ready():
 	}
 	cardsController = get_node("/root/Cards");
 	playersController = get_node("/root/Players");
-	gameSettings = get_node("/root/GameSettings");
-	cards = cardsController.shuffleAndReturn(gameSettings.getGameModes());
-	players = playersController.getAllPlayers();
-	addPlayersChips(players)
-	onNextPlayer()
-	changePlayerChipViewToCurrentPlayer()
+	gameSettings = get_node("/root/GameSettings").getSettings();
+	print(gameSettings)
+	#cards = cardsController.shuffleAndReturn(gameSettings.getGameModes());
+	#players = playersController.getAllPlayers();
+	#addPlayersChips(players)
+	#onNextPlayer()
+	#changePlayerChipViewToCurrentPlayer()
 
 func changeVisibilityOfNodes(state):
 	hideAllNodes();

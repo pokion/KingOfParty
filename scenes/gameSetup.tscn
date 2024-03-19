@@ -86,6 +86,7 @@ text = "start"
 
 [connection signal="deckName" from="CanvasLayer/VBoxContainer/Control/Decks" to="." method="_on_decks_deck_name"]
 [connection signal="onGameModeToggle" from="CanvasLayer/VBoxContainer/Control/gameModePicker" to="." method="_on_game_mode_picker_on_game_mode_toggle"]
+[connection signal="sendSelected" from="CanvasLayer/VBoxContainer/Control/gameType" to="." method="_on_game_type_send_selected"]
 [connection signal="pressed" from="CanvasLayer/VBoxContainer/MarginContainer/HBoxContainer/goToMenu" to="." method="backToMenu"]
 [connection signal="pressed" from="CanvasLayer/VBoxContainer/MarginContainer/HBoxContainer/previousButton" to="." method="ruleToStep" binds= ["prev"]]
 [connection signal="pressed" from="CanvasLayer/VBoxContainer/MarginContainer/HBoxContainer/nextButton" to="." method="ruleToStep" binds= ["next"]]
