@@ -4,6 +4,8 @@ extends AspectRatioContainer
 @export var content: String = "Content"
 @export var author: String = "author"
 
+signal click;
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$"Panel/VBoxContainer/Game mode".text = gameMode
@@ -18,3 +20,8 @@ func setGameMode(gameMode: String)->void:
 	
 func setAuthor(author: String)->void:
 	$Panel/VBoxContainer/Author.text = author
+
+
+func _on_gui_input(event):
+	if event is InputEventMouseButton and event.pressed:
+		click.emit()

@@ -8,6 +8,8 @@ var colorIndex = 0;
 func _ready():
 	colorsShuffled = colors.duplicate();
 	colors.shuffle();
+	if OS.is_debug_build():
+		putTestPlayers()
 
 func addPlayer(name: String) -> Dictionary:
 	var player = {
@@ -33,8 +35,8 @@ func clearPlayers() -> void:
 	playersArray = {}
 	
 func putTestPlayers():
-	playersArray["test"] = {"name": "name","points": 0,"firstLetter": "N","color": getRandomColor()}
-	playersArray["test2"] = {"name": "admin","points": 0,"firstLetter": "A","color": getRandomColor()}
+	playersArray["czarek"] = {"name": "czarek","points": 0,"firstLetter": "C","color": getRandomColor()}
+	playersArray["patrycja"] = {"name": "patrycja","points": 0,"firstLetter": "P","color": getRandomColor()}
 	
 func getAllPlayers() -> Dictionary:
 	return playersArray

@@ -8,6 +8,8 @@ custom_minimum_size = Vector2(177, 303)
 offset_right = 40.0
 offset_bottom = 40.0
 size_flags_vertical = 3
+ratio = 0.5403
+stretch_mode = 1
 script = ExtResource("1_ojpo5")
 
 [node name="Panel" type="Panel" parent="."]
@@ -39,5 +41,7 @@ autowrap_mode = 2
 
 [node name="Author" type="Label" parent="Panel/VBoxContainer"]
 layout_mode = 2
-text = "Kinf od Party"
+text = "King of Party"
 horizontal_alignment = 1
+
+[connection signal="gui_input" from="Panel" to="." method="_on_gui_input"]

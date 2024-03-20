@@ -24,7 +24,7 @@ func shuffleAndReturn(nameOfGamemodes: Array, decks: Array = ["travel", "nerds"]
 			tempArray = cards[deck]
 		else:
 			for gamemode in cards[deck]:
-				tempArray[gamemode].append(cards[deck][gamemode])
+				tempArray[gamemode] += cards[deck][gamemode]
 
 	for name in nameOfGamemodes:
 		if name is Array:

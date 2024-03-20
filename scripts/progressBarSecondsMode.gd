@@ -7,4 +7,4 @@ func _on_seconds_timer_timeout():
 	if self.value == 0:
 		timerEmpty.emit();
 	else:
-		get_parent().get_node("secondsTimer").start();
+		$Timer.start();

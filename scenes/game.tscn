@@ -1,188 +1,115 @@
-[gd_scene load_steps=7 format=3 uid="uid://dohwppgl1ps23"]
+[gd_scene load_steps=5 format=3 uid="uid://dohwppgl1ps23"]
 
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_yuuu2"]
 [ext_resource type="Script" path="res://scripts/progressBarSecondsMode.gd" id="2_1dpkd"]
 [ext_resource type="PackedScene" uid="uid://b081xeiswvxja" path="res://components/card.tscn" id="2_l6n1r"]
 [ext_resource type="PackedScene" uid="uid://cmsffux1oq54t" path="res://components/button.tscn" id="3_msh85"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mq07n"]
-bg_color = Color(0.6, 0.6, 0.6, 0)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uo5ld"]
-bg_color = Color(0.6, 0.6, 0.6, 0)
-
 [node name="Game" type="Node2D"]
 script = ExtResource("1_yuuu2")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="gameScene" type="VBoxContainer" parent="CanvasLayer"]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -288.0
-offset_top = -511.0
-offset_right = 288.0
-offset_bottom = 513.0
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="gameScene" type="VBoxContainer" parent="CanvasLayer/MarginContainer"]
+layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/gameScene"]
+[node name="playerContainer" type="HBoxContainer" parent="CanvasLayer/MarginContainer/gameScene"]
 layout_mode = 2
 alignment = 1
 
-[node name="pointsLabel" type="Label" parent="CanvasLayer/gameScene/HBoxContainer"]
-layout_mode = 2
-text = "points:"
-horizontal_alignment = 1
-
-[node name="pointsDisplay" type="Label" parent="CanvasLayer/gameScene/HBoxContainer"]
-layout_mode = 2
-text = "20"
-
-[node name="playerContainer" type="HBoxContainer" parent="CanvasLayer/gameScene"]
-layout_mode = 2
-alignment = 1
-
-[node name="gameModeSectionStart" type="Control" parent="CanvasLayer/gameScene"]
-layout_mode = 2
-size_flags_vertical = 3
-
-[node name="secondsMode" type="VBoxContainer" parent="CanvasLayer/gameScene"]
+[node name="secondsProgressBar" type="ProgressBar" parent="CanvasLayer/MarginContainer/gameScene"]
 visible = false
-layout_mode = 2
-size_flags_vertical = 3
-size_flags_stretch_ratio = 4.47
-alignment = 1
-
-[node name="secondsProgressBar" type="ProgressBar" parent="CanvasLayer/gameScene/secondsMode"]
 layout_mode = 2
 max_value = 10.0
 step = 1.0
 value = 10.0
 script = ExtResource("2_1dpkd")
 
-[node name="separator" type="Control" parent="CanvasLayer/gameScene/secondsMode"]
-layout_mode = 2
-size_flags_vertical = 3
-
-[node name="secondContainer" type="CenterContainer" parent="CanvasLayer/gameScene/secondsMode"]
-layout_mode = 2
-
-[node name="secondsCard" parent="CanvasLayer/gameScene/secondsMode/secondContainer" instance=ExtResource("2_l6n1r")]
-layout_mode = 2
-gameMode = "Time trial"
-author = "King Of Party"
-
-[node name="separator2" type="Control" parent="CanvasLayer/gameScene/secondsMode"]
-layout_mode = 2
-size_flags_vertical = 3
-
-[node name="secondsTimer" type="Timer" parent="CanvasLayer/gameScene/secondsMode"]
+[node name="Timer" type="Timer" parent="CanvasLayer/MarginContainer/gameScene/secondsProgressBar"]
 one_shot = true
 
-[node name="whoAmIMode" type="CenterContainer" parent="CanvasLayer/gameScene"]
+[node name="gameModeSectionStart" type="Control" parent="CanvasLayer/MarginContainer/gameScene"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.5
+
+[node name="mainCard" parent="CanvasLayer/MarginContainer/gameScene" instance=ExtResource("2_l6n1r")]
 visible = false
 layout_mode = 2
-
-[node name="whoAmICard" parent="CanvasLayer/gameScene/whoAmIMode" instance=ExtResource("2_l6n1r")]
-layout_mode = 2
-gameMode = "Who Am I"
+gameMode = ""
+content = ""
 author = ""
 
-[node name="truthDareMode" type="HBoxContainer" parent="CanvasLayer/gameScene"]
-visible = false
+[node name="truthDareContainer" type="HBoxContainer" parent="CanvasLayer/MarginContainer/gameScene"]
 layout_mode = 2
 alignment = 1
 
-[node name="dare" parent="CanvasLayer/gameScene/truthDareMode" instance=ExtResource("2_l6n1r")]
-clip_contents = true
+[node name="truth" parent="CanvasLayer/MarginContainer/gameScene/truthDareContainer" instance=ExtResource("2_l6n1r")]
 layout_mode = 2
-gameMode = ""
-content = "Dare"
-author = ""
-
-[node name="dareButton" type="Button" parent="CanvasLayer/gameScene/truthDareMode/dare"]
-custom_minimum_size = Vector2(0, 303)
-layout_mode = 2
-theme_override_styles/normal = SubResource("StyleBoxFlat_mq07n")
-theme_override_styles/hover = SubResource("StyleBoxFlat_mq07n")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_mq07n")
-theme_override_styles/disabled = SubResource("StyleBoxFlat_mq07n")
-theme_override_styles/focus = SubResource("StyleBoxFlat_mq07n")
-
-[node name="truth" parent="CanvasLayer/gameScene/truthDareMode" instance=ExtResource("2_l6n1r")]
-layout_mode = 2
+mouse_filter = 0
 gameMode = ""
 content = "Truth"
 author = ""
 
-[node name="truthButton" type="Button" parent="CanvasLayer/gameScene/truthDareMode/truth"]
-custom_minimum_size = Vector2(0, 303)
+[node name="dare" parent="CanvasLayer/MarginContainer/gameScene/truthDareContainer" instance=ExtResource("2_l6n1r")]
 layout_mode = 2
-theme_override_styles/normal = SubResource("StyleBoxFlat_uo5ld")
-theme_override_styles/hover = SubResource("StyleBoxFlat_uo5ld")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_uo5ld")
-theme_override_styles/disabled = SubResource("StyleBoxFlat_uo5ld")
-theme_override_styles/focus = SubResource("StyleBoxFlat_uo5ld")
-
-[node name="truthDareContentCard" parent="CanvasLayer/gameScene/truthDareMode" instance=ExtResource("2_l6n1r")]
-visible = false
-layout_mode = 2
-gameMode = "Truth Or Dare"
-author = "King Of Party"
-
-[node name="neverEverMode" type="CenterContainer" parent="CanvasLayer/gameScene"]
-visible = false
-layout_mode = 2
-
-[node name="neverEverCard" parent="CanvasLayer/gameScene/neverEverMode" instance=ExtResource("2_l6n1r")]
-layout_mode = 2
-gameMode = "Never Ever"
+mouse_filter = 0
+gameMode = ""
+content = "Dare"
 author = ""
 
-[node name="playerAnnoucmentCard" type="VBoxContainer" parent="CanvasLayer/gameScene"]
+[node name="playerTurnAndHint" type="VBoxContainer" parent="CanvasLayer/MarginContainer/gameScene"]
 visible = false
 layout_mode = 2
 alignment = 1
 
-[node name="playerTurn" type="Label" parent="CanvasLayer/gameScene/playerAnnoucmentCard"]
+[node name="playerTrun" type="Label" parent="CanvasLayer/MarginContainer/gameScene/playerTurnAndHint"]
 layout_mode = 2
-text = "Andy's turns"
+text = "test turn"
 horizontal_alignment = 1
 
-[node name="hint" type="Label" parent="CanvasLayer/gameScene/playerAnnoucmentCard"]
+[node name="hint" type="Label" parent="CanvasLayer/MarginContainer/gameScene/playerTurnAndHint"]
 layout_mode = 2
-text = "Put the phone to your forehead and click on the card."
+text = "jakiś hint na gerikę idk co tutaj może być potem"
 horizontal_alignment = 1
 
-[node name="gameModeSectionEnd" type="Control" parent="CanvasLayer/gameScene"]
+[node name="gameModeSectionEnd" type="Control" parent="CanvasLayer/MarginContainer/gameScene"]
 layout_mode = 2
 size_flags_vertical = 3
+size_flags_stretch_ratio = 0.5
 
-[node name="showCardButton" parent="CanvasLayer/gameScene" instance=ExtResource("3_msh85")]
+[node name="showCardButton" parent="CanvasLayer/MarginContainer/gameScene" instance=ExtResource("3_msh85")]
 visible = false
 layout_mode = 2
 text = "Show"
 
-[node name="nextPlayerButton" parent="CanvasLayer/gameScene" instance=ExtResource("3_msh85")]
+[node name="nextPlayerButton" parent="CanvasLayer/MarginContainer/gameScene" instance=ExtResource("3_msh85")]
 visible = false
 layout_mode = 2
 text = "Continue"
 
-[node name="startTimerButton" parent="CanvasLayer/gameScene" instance=ExtResource("3_msh85")]
+[node name="startTimerButton" parent="CanvasLayer/MarginContainer/gameScene" instance=ExtResource("3_msh85")]
 layout_mode = 2
 text = "Start timer
 "
 
-[connection signal="timerEmpty" from="CanvasLayer/gameScene/secondsMode/secondsProgressBar" to="." method="_on_seconds_progress_bar_timer_empty"]
-[connection signal="timeout" from="CanvasLayer/gameScene/secondsMode/secondsTimer" to="CanvasLayer/gameScene/secondsMode/secondsProgressBar" method="_on_seconds_timer_timeout"]
-[connection signal="pressed" from="CanvasLayer/gameScene/truthDareMode/dare/dareButton" to="." method="_on_dare_button" binds= [false]]
-[connection signal="pressed" from="CanvasLayer/gameScene/truthDareMode/truth/truthButton" to="." method="_on_dare_button" binds= [true]]
-[connection signal="pressed" from="CanvasLayer/gameScene/showCardButton" to="." method="_on_show_card_button_pressed"]
-[connection signal="pressed" from="CanvasLayer/gameScene/nextPlayerButton" to="." method="onNextPlayer"]
-[connection signal="pressed" from="CanvasLayer/gameScene/startTimerButton" to="." method="_on_start_timer_button_pressed"]
+[connection signal="timerEmpty" from="CanvasLayer/MarginContainer/gameScene/secondsProgressBar" to="." method="_on_seconds_progress_bar_timer_empty"]
+[connection signal="timeout" from="CanvasLayer/MarginContainer/gameScene/secondsProgressBar/Timer" to="CanvasLayer/MarginContainer/gameScene/secondsProgressBar" method="_on_seconds_timer_timeout"]
+[connection signal="click" from="CanvasLayer/MarginContainer/gameScene/truthDareContainer/truth" to="." method="_on_dare_button" binds= [true]]
+[connection signal="click" from="CanvasLayer/MarginContainer/gameScene/truthDareContainer/dare" to="." method="_on_dare_button" binds= [false]]
+[connection signal="pressed" from="CanvasLayer/MarginContainer/gameScene/showCardButton" to="." method="_on_show_card_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/MarginContainer/gameScene/nextPlayerButton" to="." method="onNextPlayer"]
+[connection signal="pressed" from="CanvasLayer/MarginContainer/gameScene/startTimerButton" to="." method="_on_start_timer_button_pressed"]

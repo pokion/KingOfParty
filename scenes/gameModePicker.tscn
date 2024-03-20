@@ -44,5 +44,5 @@ text = "10 Seconds"
 
 [connection signal="toggled" from="CenterContainer/VBoxContainer/neverEver" to="." method="_on_toggled" binds= ["neverever"]]
 [connection signal="toggled" from="CenterContainer/VBoxContainer/whoami" to="." method="_on_toggled" binds= ["whoami"]]
-[connection signal="toggled" from="CenterContainer/VBoxContainer/truthordare" to="." method="_on_toggled" binds= [["true", "dare"]]]
+[connection signal="toggled" from="CenterContainer/VBoxContainer/truthordare" to="." method="_on_toggled" binds= [["truth", "dare"]]]
 [connection signal="toggled" from="CenterContainer/VBoxContainer/seconds" to="." method="_on_toggled" binds= ["seconds"]]

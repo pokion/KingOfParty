@@ -69,13 +69,13 @@ dare,Perform an impromptu dramatic monologue as your favorite fictional characte
 dare,Attempt to explain Schrödinger’s cat paradox in under 60 seconds. ,nerds
 dare,Create a meme on the spot using only science-related terms. ,nerds
 dare,"Speak like Yoda for the next three rounds of the game, you must! ",nerds
-seconds,Blade Runner ,nerds
-seconds,Dragon ,nerds
-seconds,PlayStation ,nerds
-seconds,Spider-Man ,nerds
-seconds,GPS ,nerds
-seconds,Einstein ,nerds
-seconds,Luffy ,nerds
-seconds,Ruby ,nerds
-seconds,Tatooine ,nerds
-seconds,Chess ,nerds
+seconds,Name 5 MMO RPG games. ,nerds
+seconds,Name 5 games that have dragon. ,nerds
+seconds,Name 5 consoles. ,nerds
+seconds,Name 5 Characters from Star Wars. ,nerds
+seconds,List 5 Planets in our Solar System. ,nerds
+seconds,Name 5 Superheroes from DC. ,nerds
+seconds,Name 5 Pokémon Types. ,nerds
+seconds,Name 5 Superheroes from Marvel. ,nerds
+seconds,Name 3 Famous Video Game Designers ,nerds
+seconds,Give 2 Essential Components of a Gaming PC ,nerds
