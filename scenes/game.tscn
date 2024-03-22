@@ -47,13 +47,13 @@ size_flags_vertical = 3
 size_flags_stretch_ratio = 0.5
 
 [node name="mainCard" parent="CanvasLayer/MarginContainer/gameScene" instance=ExtResource("2_l6n1r")]
-visible = false
 layout_mode = 2
 gameMode = ""
 content = ""
 author = ""
 
 [node name="truthDareContainer" type="HBoxContainer" parent="CanvasLayer/MarginContainer/gameScene"]
+visible = false
 layout_mode = 2
 alignment = 1
 
@@ -108,8 +108,6 @@ text = "Start timer
 
 [connection signal="timerEmpty" from="CanvasLayer/MarginContainer/gameScene/secondsProgressBar" to="." method="_on_seconds_progress_bar_timer_empty"]
 [connection signal="timeout" from="CanvasLayer/MarginContainer/gameScene/secondsProgressBar/Timer" to="CanvasLayer/MarginContainer/gameScene/secondsProgressBar" method="_on_seconds_timer_timeout"]
-[connection signal="click" from="CanvasLayer/MarginContainer/gameScene/truthDareContainer/truth" to="." method="_on_dare_button" binds= [true]]
-[connection signal="click" from="CanvasLayer/MarginContainer/gameScene/truthDareContainer/dare" to="." method="_on_dare_button" binds= [false]]
 [connection signal="pressed" from="CanvasLayer/MarginContainer/gameScene/showCardButton" to="." method="_on_show_card_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/MarginContainer/gameScene/nextPlayerButton" to="." method="onNextPlayer"]
 [connection signal="pressed" from="CanvasLayer/MarginContainer/gameScene/startTimerButton" to="." method="_on_start_timer_button_pressed"]
