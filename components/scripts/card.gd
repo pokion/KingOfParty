@@ -41,13 +41,18 @@ func calculateRotation():
 	self.rotation = deegre * PI / 180
 	
 func calculateReturnStep(timeElapsed):
-	print(remap(timeElapsed, 0, maxTimeToReturn, initialDistance, (vieportSize.x/2)))
-	self.position.x = remap(timeElapsed, 0, maxTimeToReturn, initialDistance, (vieportSize.x/2))
+	var newPosition = remap(timeElapsed, 0, maxTimeToReturn, initialDistance, (vieportSize.x/2));
+	if newPosition > vieportSize.x/2 and self.position.x < vieportSize.x/2:
+		newPosition = vieportSize.x/2
+	if newPosition < vieportSize.x/2 and self.position.x > vieportSize.x/2:
+		newPosition = vieportSize.x/2
+	self.position.x = newPosition
 
 func _on_gui_input(event):
 	if event.button_mask == 1:
 		isPressed = true;
-	if event.button_mask != 1:
+	if event.button_mask == 0 and isPressed:
+		print("hujs")
 		timeElapse = 0;
 		initialDistance = self.position.x;
 		isPressed = false;
