@@ -1,0 +1,64 @@
+[gd_scene load_steps=4 format=3 uid="uid://bnjxfcpaoykba"]
+
+[ext_resource type="Script" path="res://components/scripts/cardNode2D.gd" id="1_702ki"]
+[ext_resource type="StyleBox" uid="uid://bhl7rmreqex31" path="res://styles/deckStyle.tres" id="2_7c1en"]
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_xbgiy"]
+
+[node name="AspectRatioContainer" type="Node2D"]
+position = Vector2(121, 203)
+script = ExtResource("1_702ki")
+maxRotation = 40
+
+[node name="Panel" type="Panel" parent="."]
+custom_minimum_size = Vector2(0, 303)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -118.0
+offset_top = -202.0
+offset_right = 118.0
+offset_bottom = 202.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 4
+theme_override_styles/panel = ExtResource("2_7c1en")
+metadata/_edit_group_ = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Game mode" type="Label" parent="Panel/VBoxContainer"]
+layout_mode = 2
+text = "Time trial"
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="Content" type="Label" parent="Panel/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Name 3 things that you can find in a classroom"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Author" type="Label" parent="Panel/VBoxContainer"]
+layout_mode = 2
+text = "King of Party"
+horizontal_alignment = 1
+
+[node name="cardPointOfTip" type="Area2D" parent="Panel"]
+position = Vector2(113, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Panel/cardPointOfTip"]
+scale = Vector2(1.96, 1)
+shape = SubResource("SegmentShape2D_xbgiy")
+
+[connection signal="gui_input" from="Panel" to="." method="_on_gui_input"]

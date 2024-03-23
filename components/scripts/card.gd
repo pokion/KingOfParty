@@ -24,4 +24,5 @@ func setAuthor(author: String)->void:
 
 func _on_gui_input(event):
 	if event is InputEventMouseButton and event.pressed:
+		print('asd')
 		click.emit()
