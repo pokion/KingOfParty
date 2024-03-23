@@ -10,7 +10,6 @@ var gameModes = {
 
 func _ready():
 	importDataFromCsv("res://cards/cards.txt")
-	#print(shuffleAndReturn(["neverever", "whoami", ["truth", "dare"],"seconds"]))
 	
 func getAllCards():
 	return cards;

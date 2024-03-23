@@ -1,9 +1,13 @@
-[gd_scene load_steps=5 format=3 uid="uid://dohwppgl1ps23"]
+[gd_scene load_steps=7 format=3 uid="uid://dohwppgl1ps23"]
 
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_yuuu2"]
 [ext_resource type="Script" path="res://scripts/progressBarSecondsMode.gd" id="2_1dpkd"]
 [ext_resource type="PackedScene" uid="uid://b081xeiswvxja" path="res://components/card.tscn" id="2_l6n1r"]
 [ext_resource type="PackedScene" uid="uid://cmsffux1oq54t" path="res://components/button.tscn" id="3_msh85"]
+[ext_resource type="PackedScene" uid="uid://bnjxfcpaoykba" path="res://components/cardSwipe.tscn" id="4_dln64"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_oscr7"]
+size = Vector2(431, 1023)
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_yuuu2")
@@ -45,12 +49,7 @@ one_shot = true
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.5
-
-[node name="mainCard" parent="CanvasLayer/MarginContainer/gameScene" instance=ExtResource("2_l6n1r")]
-layout_mode = 2
-gameMode = ""
-content = ""
-author = ""
+mouse_filter = 1
 
 [node name="truthDareContainer" type="HBoxContainer" parent="CanvasLayer/MarginContainer/gameScene"]
 visible = false
@@ -90,6 +89,10 @@ horizontal_alignment = 1
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.5
+mouse_filter = 1
+
+[node name="mainCard" parent="CanvasLayer/MarginContainer/gameScene" instance=ExtResource("4_dln64")]
+position = Vector2(281, 516)
 
 [node name="showCardButton" parent="CanvasLayer/MarginContainer/gameScene" instance=ExtResource("3_msh85")]
 visible = false
@@ -106,8 +109,54 @@ layout_mode = 2
 text = "Start timer
 "
 
+[node name="Line2D" type="Line2D" parent="CanvasLayer"]
+width = 3.0
+default_color = Color(0.2, 0.721569, 0.392157, 1)
+joint_mode = 1
+
+[node name="rejectArea" type="Area2D" parent="."]
+position = Vector2(-834, -1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="rejectArea"]
+position = Vector2(719, 512)
+shape = SubResource("RectangleShape2D_oscr7")
+
+[node name="Line2D" type="Line2D" parent="rejectArea"]
+points = PackedVector2Array(752, 974, 934, 974, 933, 48, 768, 48)
+width = 3.0
+default_color = Color(0.658824, 0.0431373, 0.266667, 1)
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="rejectArea"]
+position = Vector2(858, 525)
+rotation = 1.5708
+scale = Vector2(454.824, 2.06964)
+amount = 200
+emission_shape = 3
+emission_rect_extents = Vector2(1, 1)
+gravity = Vector2(980, 0)
+scale_amount_max = 5.0
+
+[node name="completeArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="completeArea"]
+position = Vector2(719, 512)
+shape = SubResource("RectangleShape2D_oscr7")
+
+[node name="Line2D" type="Line2D" parent="completeArea"]
+position = Vector2(1441, 1017)
+rotation = 3.14159
+points = PackedVector2Array(752, 974, 934, 974, 933, 48, 768, 48)
+width = 3.0
+default_color = Color(0.2, 0.721569, 0.392157, 1)
+
 [connection signal="timerEmpty" from="CanvasLayer/MarginContainer/gameScene/secondsProgressBar" to="." method="_on_seconds_progress_bar_timer_empty"]
 [connection signal="timeout" from="CanvasLayer/MarginContainer/gameScene/secondsProgressBar/Timer" to="CanvasLayer/MarginContainer/gameScene/secondsProgressBar" method="_on_seconds_timer_timeout"]
+[connection signal="click" from="CanvasLayer/MarginContainer/gameScene/truthDareContainer/truth" to="." method="_on_dare_button" binds= [true]]
+[connection signal="click" from="CanvasLayer/MarginContainer/gameScene/truthDareContainer/dare" to="." method="_on_dare_button" binds= [false]]
 [connection signal="pressed" from="CanvasLayer/MarginContainer/gameScene/showCardButton" to="." method="_on_show_card_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/MarginContainer/gameScene/nextPlayerButton" to="." method="onNextPlayer"]
 [connection signal="pressed" from="CanvasLayer/MarginContainer/gameScene/startTimerButton" to="." method="_on_start_timer_button_pressed"]
+[connection signal="area_entered" from="rejectArea" to="." method="_on_entered" binds= [true]]
+[connection signal="area_exited" from="rejectArea" to="." method="_on_exited" binds= [true]]
+[connection signal="area_entered" from="completeArea" to="." method="_on_entered" binds= [false]]
+[connection signal="area_exited" from="completeArea" to="." method="_on_exited"]

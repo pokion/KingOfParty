@@ -5,7 +5,7 @@ var decks: Array;
 var gameType: String;
 
 func getSettings():
-	if OS.is_debug_build():
+	if OS.is_debug_build() and decks.size() == 0 or gameModes.size() == 0:
 		return {
 			"gameModes": ["neverever", "whoami", ["truth", "dare"], "seconds"],
 			#"gameModes": [["truth", "dare"]],

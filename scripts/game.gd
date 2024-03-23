@@ -30,6 +30,7 @@ var currentCard;
 var currentPlayer: int = -1;
 var nodes
 var gameSettings;
+var isRejectedAreaNow = null;
 
 var playerChip = preload("res://components/playerChip.tscn");
 
@@ -53,6 +54,13 @@ func _ready():
 	addPlayersChips(players)
 	onNextPlayer()
 	changePlayerChipViewToCurrentPlayer()
+	centerMainCard()
+
+func _process(delta):
+	if isRejectedAreaNow != null and Input.is_action_just_released("mouseClick"):
+		isRejectedAreaNow = null
+		onNextPlayer()
+			
 
 func changeVisibilityOfNodes(state):
 	hideAllNodes();
@@ -71,7 +79,7 @@ func changeVisibilityOfNodes(state):
 			showWhoAmIMode();
 		SHOW_SECONDS_SCENE:
 			showSecondsMode();
-
+			
 #Mode changers
 func showSecondsMode():
 	showNodes(["progressBar", "startTimerButton", "mainCard"]);
@@ -116,6 +124,9 @@ func showNodes(nodesName: Array[String]):
 	for nodeName in nodesName:
 		nodes[nodeName].visible = true;
 		
+func centerMainCard():
+	nodes["mainCard"].position = get_viewport().size/2
+	
 func hideAllNodes():
 	for node in nodes:
 		nodes[node].visible = false
@@ -171,3 +182,10 @@ func _on_start_timer_button_pressed():
 
 func _on_seconds_progress_bar_timer_empty():
 	showNodes(["nextPlayerButton"]);
+
+#isRejectedArea returns true only if its a rejected area
+func _on_entered(area, isRejectedArea):
+	isRejectedAreaNow = isRejectedArea
+
+func _on_exited(area):
+	isRejectedAreaNow = null;
