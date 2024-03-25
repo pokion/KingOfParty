@@ -30,5 +30,4 @@ func changeColor(color: Color):
 
 func _on_gui_input(event):
 	if event is InputEventMouseButton and event.pressed and event.button_index == 1:
-		print(event)
 		chipPressed.emit(self);

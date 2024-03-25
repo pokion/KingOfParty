@@ -34,19 +34,24 @@ theme_override_constants/margin_top = 20
 theme_override_constants/margin_right = 20
 theme_override_constants/margin_bottom = 20
 
-[node name="FlowContainer" type="FlowContainer" parent="MarginContainer"]
+[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer"]
 layout_mode = 2
+
+[node name="FlowContainer" type="FlowContainer" parent="MarginContainer/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
 theme_override_constants/h_separation = 40
 theme_override_constants/v_separation = 40
 alignment = 1
 script = ExtResource("1_t7m7k")
 
-[node name="testPanel" type="Panel" parent="MarginContainer/FlowContainer"]
+[node name="testPanel" type="Panel" parent="MarginContainer/ScrollContainer/FlowContainer"]
 visible = false
 custom_minimum_size = Vector2(80, 80)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_hq0il")
 script = ExtResource("3_ybpvy")
 
-[connection signal="colorPicked" from="MarginContainer/FlowContainer/testPanel" to="." method="_on_test_panel_color_picked"]
-[connection signal="gui_input" from="MarginContainer/FlowContainer/testPanel" to="MarginContainer/FlowContainer/testPanel" method="_on_gui_input"]
+[connection signal="colorPicked" from="MarginContainer/ScrollContainer/FlowContainer/testPanel" to="." method="_on_test_panel_color_picked"]
+[connection signal="gui_input" from="MarginContainer/ScrollContainer/FlowContainer/testPanel" to="MarginContainer/ScrollContainer/FlowContainer/testPanel" method="_on_gui_input"]

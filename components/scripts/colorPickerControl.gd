@@ -5,10 +5,15 @@ extends Control
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	$ScrollContainer/Control.colorPickedPropagate.connect(onColorPicked)
+	$Control.colorPickedPropagate.connect(onColorPicked)
 
 func onColorPicked(color):
 	if not (objectRef.is_empty()):
 		objectRef.color = color
 		sceneRef.changeColor(color)
 		self.visible = false
+
+
+func _on_gui_input(event):
+	if event is InputEventMouseButton and event.pressed and event.button_index == 1:
+		self.visible = false;
