@@ -5,7 +5,7 @@ extends Control
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	$ScrollContainer/Control.colorPickedPropagate.connect(onColorPicked)
+	$Control.colorPickedPropagate.connect(onColorPicked)
 
 func onColorPicked(color):
 	if not (objectRef.is_empty()):
