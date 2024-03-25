@@ -126,16 +126,6 @@ points = PackedVector2Array(752, 974, 934, 974, 933, 48, 768, 48)
 width = 3.0
 default_color = Color(0.658824, 0.0431373, 0.266667, 1)
 
-[node name="CPUParticles2D" type="CPUParticles2D" parent="rejectArea"]
-position = Vector2(858, 525)
-rotation = 1.5708
-scale = Vector2(454.824, 2.06964)
-amount = 200
-emission_shape = 3
-emission_rect_extents = Vector2(1, 1)
-gravity = Vector2(980, 0)
-scale_amount_max = 5.0
-
 [node name="completeArea" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="completeArea"]
