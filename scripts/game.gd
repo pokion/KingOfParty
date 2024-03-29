@@ -45,6 +45,9 @@ func _ready():
 		"showCardButton": $CanvasLayer/MarginContainer/gameScene/showCardButton,
 		"startTimerButton": $CanvasLayer/MarginContainer/gameScene/startTimerButton,
 		"nextPlayerButton": $CanvasLayer/MarginContainer/gameScene/nextPlayerButton,
+		#swipe section
+		"rejectArea": $rejectArea,
+		"completeArea": $completeArea
 	}
 	cardsController = get_node("/root/Cards");
 	playersController = get_node("/root/Players");
@@ -64,6 +67,7 @@ func _process(delta):
 
 func changeVisibilityOfNodes(state):
 	hideAllNodes();
+	nodes["mainCard"].isSwipeActive = true;
 	match state:
 		SHOW_PLAYER_TURN:
 			showPlayerMode();
@@ -86,14 +90,15 @@ func showSecondsMode():
 	nodes["progressBar"].value = 10;
 	nodes["mainCard"].setContent(currentCard["content"])
 	nodes["mainCard"].setGameMode(currentCard["gameMode"])
+	nodes["mainCard"].isSwipeActive = false
 
 func showWhoAmIMode():
-	showNodes(["mainCard", "nextPlayerButton"])
+	showNodes(["mainCard", "nextPlayerButton", "rejectArea", "completeArea"])
 	nodes["mainCard"].setContent(currentCard["content"])
 	nodes["mainCard"].setGameMode(currentCard["gameMode"])
 
 func showTruthDareMode(truthOrDare):
-	showNodes(["mainCard", "nextPlayerButton"])
+	showNodes(["mainCard", "nextPlayerButton", "rejectArea", "completeArea"])
 	if currentCard[0]["gameMode"] == truthOrDare:
 		nodes["mainCard"].setContent(currentCard[0]["content"])
 		nodes["mainCard"].setGameMode(currentCard[0]["gameMode"])
@@ -105,7 +110,7 @@ func showTruthDarePickingMode():
 	showNodes(["truthDareContainer"])
 
 func showNeverEverMode():
-	showNodes(["nextPlayerButton", "mainCard"])
+	showNodes(["nextPlayerButton", "mainCard", "rejectArea", "completeArea"])
 	nodes["mainCard"].setContent(currentCard["content"])
 	nodes["mainCard"].setGameMode(currentCard["gameMode"])
 

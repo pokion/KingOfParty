@@ -109,11 +109,6 @@ layout_mode = 2
 text = "Start timer
 "
 
-[node name="Line2D" type="Line2D" parent="CanvasLayer"]
-width = 3.0
-default_color = Color(0.2, 0.721569, 0.392157, 1)
-joint_mode = 1
-
 [node name="rejectArea" type="Area2D" parent="."]
 position = Vector2(-834, -1)
 
