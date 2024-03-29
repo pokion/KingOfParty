@@ -42,9 +42,6 @@ func _ready():
 		"progressBar": $CanvasLayer/MarginContainer/gameScene/secondsProgressBar,
 		"playerTurnAndHint": $CanvasLayer/MarginContainer/gameScene/playerTurnAndHint,
 		#buttons
-		"showCardButton": $CanvasLayer/MarginContainer/gameScene/showCardButton,
-		"startTimerButton": $CanvasLayer/MarginContainer/gameScene/startTimerButton,
-		"nextPlayerButton": $CanvasLayer/MarginContainer/gameScene/nextPlayerButton,
 		#swipe section
 		"rejectArea": $rejectArea,
 		"completeArea": $completeArea
@@ -86,19 +83,19 @@ func changeVisibilityOfNodes(state):
 			
 #Mode changers
 func showSecondsMode():
-	showNodes(["progressBar", "startTimerButton", "mainCard"]);
+	showNodes(["progressBar", "mainCard"]);
 	nodes["progressBar"].value = 10;
 	nodes["mainCard"].setContent(currentCard["content"])
 	nodes["mainCard"].setGameMode(currentCard["gameMode"])
 	nodes["mainCard"].isSwipeActive = false
 
 func showWhoAmIMode():
-	showNodes(["mainCard", "nextPlayerButton", "rejectArea", "completeArea"])
+	showNodes(["mainCard", "rejectArea", "completeArea"])
 	nodes["mainCard"].setContent(currentCard["content"])
 	nodes["mainCard"].setGameMode(currentCard["gameMode"])
 
 func showTruthDareMode(truthOrDare):
-	showNodes(["mainCard", "nextPlayerButton", "rejectArea", "completeArea"])
+	showNodes(["mainCard", "rejectArea", "completeArea"])
 	if currentCard[0]["gameMode"] == truthOrDare:
 		nodes["mainCard"].setContent(currentCard[0]["content"])
 		nodes["mainCard"].setGameMode(currentCard[0]["gameMode"])
@@ -110,7 +107,7 @@ func showTruthDarePickingMode():
 	showNodes(["truthDareContainer"])
 
 func showNeverEverMode():
-	showNodes(["nextPlayerButton", "mainCard", "rejectArea", "completeArea"])
+	showNodes(["mainCard", "rejectArea", "completeArea"])
 	nodes["mainCard"].setContent(currentCard["content"])
 	nodes["mainCard"].setGameMode(currentCard["gameMode"])
 
@@ -122,7 +119,7 @@ func showPlayerMode():
 		
 	$CanvasLayer/MarginContainer/gameScene/playerTurnAndHint/playerTrun.text = players[players.keys()[currentPlayer]]["name"] + " turn";
 	$CanvasLayer/MarginContainer/gameScene/playerTurnAndHint/hint.text = hintForGameMode;
-	showNodes(["showCardButton", "playerTurnAndHint"])
+	showNodes(["playerTurnAndHint"])
 
 #Utilities
 func showNodes(nodesName: Array[String]):
@@ -181,12 +178,13 @@ func _on_dare_button(isTruth):
 
 
 func _on_start_timer_button_pressed():
-	nodes["startTimerButton"].visible = false;
+	#nodes["startTimerButton"].visible = false;
 	$CanvasLayer/MarginContainer/gameScene/secondsProgressBar/Timer.start();
 
 
 func _on_seconds_progress_bar_timer_empty():
-	showNodes(["nextPlayerButton"]);
+	#showNodes(["nextPlayerButton"]);
+	pass
 
 #isRejectedArea returns true only if its a rejected area
 func _on_entered(area, isRejectedArea):
@@ -194,3 +192,13 @@ func _on_entered(area, isRejectedArea):
 
 func _on_exited(area):
 	isRejectedAreaNow = null;
+
+
+func _on_ui_buttons(mode):
+	match mode:
+		"accept":
+			print("acc")
+		"skip":
+			print("sk")
+		"decline":
+			print("dec")

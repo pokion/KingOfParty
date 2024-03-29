@@ -3,14 +3,16 @@
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_yuuu2"]
 [ext_resource type="Script" path="res://scripts/progressBarSecondsMode.gd" id="2_1dpkd"]
 [ext_resource type="PackedScene" uid="uid://b081xeiswvxja" path="res://components/card.tscn" id="2_l6n1r"]
-[ext_resource type="PackedScene" uid="uid://cmsffux1oq54t" path="res://components/button.tscn" id="3_msh85"]
 [ext_resource type="PackedScene" uid="uid://bnjxfcpaoykba" path="res://components/cardSwipe.tscn" id="4_dln64"]
+[ext_resource type="PackedScene" uid="uid://bewy02ptv85v8" path="res://components/uiButtonsInGame.tscn" id="5_lc68w"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_oscr7"]
 size = Vector2(431, 1023)
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_yuuu2")
+metadata/_edit_horizontal_guides_ = [-237.0, -271.0]
+metadata/_edit_vertical_guides_ = [-499.0]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -94,20 +96,8 @@ mouse_filter = 1
 [node name="mainCard" parent="CanvasLayer/MarginContainer/gameScene" instance=ExtResource("4_dln64")]
 position = Vector2(281, 516)
 
-[node name="showCardButton" parent="CanvasLayer/MarginContainer/gameScene" instance=ExtResource("3_msh85")]
-visible = false
-layout_mode = 2
-text = "Show"
-
-[node name="nextPlayerButton" parent="CanvasLayer/MarginContainer/gameScene" instance=ExtResource("3_msh85")]
-visible = false
-layout_mode = 2
-text = "Continue"
-
-[node name="startTimerButton" parent="CanvasLayer/MarginContainer/gameScene" instance=ExtResource("3_msh85")]
-layout_mode = 2
-text = "Start timer
-"
+[node name="uiButtonsInGame" parent="CanvasLayer" instance=ExtResource("5_lc68w")]
+setsButton = "showCard"
 
 [node name="rejectArea" type="Area2D" parent="."]
 position = Vector2(-834, -1)
@@ -116,31 +106,17 @@ position = Vector2(-834, -1)
 position = Vector2(719, 512)
 shape = SubResource("RectangleShape2D_oscr7")
 
-[node name="Line2D" type="Line2D" parent="rejectArea"]
-points = PackedVector2Array(752, 974, 934, 974, 933, 48, 768, 48)
-width = 3.0
-default_color = Color(0.658824, 0.0431373, 0.266667, 1)
-
 [node name="completeArea" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="completeArea"]
 position = Vector2(719, 512)
 shape = SubResource("RectangleShape2D_oscr7")
 
-[node name="Line2D" type="Line2D" parent="completeArea"]
-position = Vector2(1441, 1017)
-rotation = 3.14159
-points = PackedVector2Array(752, 974, 934, 974, 933, 48, 768, 48)
-width = 3.0
-default_color = Color(0.2, 0.721569, 0.392157, 1)
-
 [connection signal="timerEmpty" from="CanvasLayer/MarginContainer/gameScene/secondsProgressBar" to="." method="_on_seconds_progress_bar_timer_empty"]
 [connection signal="timeout" from="CanvasLayer/MarginContainer/gameScene/secondsProgressBar/Timer" to="CanvasLayer/MarginContainer/gameScene/secondsProgressBar" method="_on_seconds_timer_timeout"]
 [connection signal="click" from="CanvasLayer/MarginContainer/gameScene/truthDareContainer/truth" to="." method="_on_dare_button" binds= [true]]
 [connection signal="click" from="CanvasLayer/MarginContainer/gameScene/truthDareContainer/dare" to="." method="_on_dare_button" binds= [false]]
-[connection signal="pressed" from="CanvasLayer/MarginContainer/gameScene/showCardButton" to="." method="_on_show_card_button_pressed"]
-[connection signal="pressed" from="CanvasLayer/MarginContainer/gameScene/nextPlayerButton" to="." method="onNextPlayer"]
-[connection signal="pressed" from="CanvasLayer/MarginContainer/gameScene/startTimerButton" to="." method="_on_start_timer_button_pressed"]
+[connection signal="uiButton" from="CanvasLayer/uiButtonsInGame" to="." method="_on_ui_buttons"]
 [connection signal="area_entered" from="rejectArea" to="." method="_on_entered" binds= [true]]
 [connection signal="area_exited" from="rejectArea" to="." method="_on_exited" binds= [true]]
 [connection signal="area_entered" from="completeArea" to="." method="_on_entered" binds= [false]]
