@@ -69,13 +69,56 @@ dare,Perform an impromptu dramatic monologue as your favorite fictional characte
 dare,Attempt to explain Schrödinger’s cat paradox in under 60 seconds. ,nerds
 dare,Create a meme on the spot using only science-related terms. ,nerds
 dare,"Speak like Yoda for the next three rounds of the game, you must! ",nerds
-seconds,Name 5 MMO RPG games. ,nerds
-seconds,Name 5 games that have dragon. ,nerds
-seconds,Name 5 consoles. ,nerds
-seconds,Name 5 Characters from Star Wars. ,nerds
-seconds,List 5 Planets in our Solar System. ,nerds
-seconds,Name 5 Superheroes from DC. ,nerds
-seconds,Name 5 Pokémon Types. ,nerds
-seconds,Name 5 Superheroes from Marvel. ,nerds
-seconds,Name 3 Famous Video Game Designers ,nerds
-seconds,Give 2 Essential Components of a Gaming PC ,nerds
+seconds,Name 5 MMO RPG games.,nerds
+seconds,Name 5 games that have dragon.,nerds
+seconds,Name 5 consoles.,nerds
+seconds,Name 5 Characters from Star Wars.,nerds
+seconds,List 5 Planets in our Solar System.,nerds
+seconds,Name 5 Superheroes from DC.,nerds
+seconds,Name 5 Pokémon Types.,nerds
+seconds,Name 5 Superheroes from Marvel.,nerds
+seconds,Name 3 Famous Video Game Designers,nerds
+seconds,Give 2 Essential Components of a Gaming PC,nerds
+neverever,Nigdy przenigdy nie zrzygałem się w samochodzie,przyjaciele
+neverever,Nigdy przenigdy nie piłam w pracy,przyjaciele
+neverever,Nigdy przenigdy nie zgubiłem portfela,przyjaciele
+neverever,Nigdy przenigdy nie zniszczyłem drzwi,przyjaciele
+neverever,Nigdy przenigdy nie byłem w Jaświłach,przyjaciele
+neverever,Nigdy przenigdy nie byłam w klubie,przyjaciele
+neverever,Nigdy przenigdy nie farbowałam włosów,przyjaciele
+neverever,Nigdy przenigdy nie uciekałem pijany od znajomych,przyjaciele
+neverever,Nigdy przenigdy nie byłem na siłowni,przyjaciele
+neverever,Nigdy przenigdy nie spóźniłem się na pociąg,przyjaciele
+neverever,Nigdy przenigdy nie dostałem mandatu za picie w miejscu publicznym,przyjaciele
+neverever,Nigdy przenigdy nie dostałem mandatu za jazdę bez biletu,przyjaciele
+neverever,Nigdy przenigdy nie zrzygałem się na stół,przyjaciele
+neverever,Nigdy przenigdy nie brałem narkotyków,przyjaciele
+whoami,Paweł Szymon Pigiel,przyjaciele
+whoami,Anka Wysocka,przyjaciele
+whoami,Patrycja Rećko,przyjaciele
+whoami,Cezary Bubieniec,przyjaciele
+whoami,Angelika Klej,przyjaciele
+whoami,Karolina Grygorczyk,przyjaciele
+whoami,Paulina Rećko,przyjaciele
+whoami,Natalia Buczyńska,przyjaciele
+whoami,Pies Pawła „Mimi”,przyjaciele
+whoami,Pies Anki „Betica”,przyjaciele
+whoami,Bimber,przyjaciele
+truth,Kto jest najbardziej irytujący z tego grona?,przyjaciele
+truth,Jaki jest Twój najbardziej upokarzający moment w życiu?,przyjaciele
+truth,Komu najmniej ufasz z tego grona?,przyjaciele
+truth,Kogo byś zabił z tego grona?,przyjaciele
+truth,Jakie kłamstwo powiedziałeś rodzeństwu?,przyjaciele
+dare,Osoba po prawej niszczy ci fryzurę,przyjaciele
+dare,Spróbuj każdego alkoholu ze stołu,przyjaciele
+dare,Odegraj złą mamę Pawła,przyjaciele
+dare,Dotknij brzuszka osoby po lewej,przyjaciele
+dare,Zrób jaskółkę,przyjaciele
+seconds,Wymień 5 marek piw,przyjaciele
+seconds,Wymień 3 przypały w Sokółce,przyjaciele
+seconds,Wymień 3 przypały u Anki,przyjaciele
+seconds,Powiedz 4 „toasty” do picia,przyjaciele
+seconds,Wymień 4 imiona rodzeństwa z tego grona,przyjaciele
+seconds,Wymień 5 bary w białymstoku,przyjaciele
+seconds,Wymień 3 kebaby w Białymstoku,przyjaciele
+seconds,Wymień 3 shot bary w Białmystoku,przyjaciele

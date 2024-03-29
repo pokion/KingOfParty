@@ -12,7 +12,8 @@ var gameType = null
 func _ready():
 	gameSettings = get_node("/root/GameSettings")
 	players = get_node("/root/Players")
-	step = [$CanvasLayer/VBoxContainer/Control/gameModePicker,$CanvasLayer/VBoxContainer/Control/Decks,$CanvasLayer/VBoxContainer/Control/playerScene,$CanvasLayer/VBoxContainer/Control/gameType]
+	#,$CanvasLayer/VBoxContainer/Control/gameType pamiętać żeby to dodać to tablicy step
+	step = [$CanvasLayer/VBoxContainer/Control/gameModePicker,$CanvasLayer/VBoxContainer/Control/Decks,$CanvasLayer/VBoxContainer/Control/playerScene]
 	$CanvasLayer/VBoxContainer/Control/gameModePicker.onGameModeToggle.connect(_on_game_mode_picker_on_game_mode_toggle)
 	
 func checkIfPlayerCheckedAtLeastOneGameMode():
@@ -90,7 +91,7 @@ func startGame():
 	if not (ruleText is bool):
 		setErrorMessage(ruleText);
 		return;
-	gameSettings.saveSettings(pickedGameModes, decks, gameType)
+	gameSettings.saveSettings(pickedGameModes, decks, "gameType")#usunąć string tutaj
 	get_tree().change_scene_to_file("res://scenes/game.tscn")
 
 func _on_game_mode_picker_on_game_mode_toggle(isTrue, gameMode):
