@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://scripts/progressBarSecondsMode.gd" id="2_1dpkd"]
 [ext_resource type="PackedScene" uid="uid://b081xeiswvxja" path="res://components/card.tscn" id="2_l6n1r"]
 [ext_resource type="PackedScene" uid="uid://bnjxfcpaoykba" path="res://components/cardSwipe.tscn" id="4_dln64"]
-[ext_resource type="PackedScene" uid="uid://bewy02ptv85v8" path="res://components/uiButtonsInGame.tscn" id="5_lc68w"]
+[ext_resource type="PackedScene" uid="uid://b0s4hl7u5qa5r" path="res://components/uiButtonsInGame.tscn" id="5_lc68w"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_oscr7"]
 size = Vector2(431, 1023)

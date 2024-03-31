@@ -88,11 +88,13 @@ func showSecondsMode():
 	nodes["mainCard"].setContent(currentCard["content"])
 	nodes["mainCard"].setGameMode(currentCard["gameMode"])
 	nodes["mainCard"].isSwipeActive = false
+	$CanvasLayer/uiButtonsInGame.setButtons("startTimer")
 
 func showWhoAmIMode():
 	showNodes(["mainCard", "rejectArea", "completeArea"])
 	nodes["mainCard"].setContent(currentCard["content"])
 	nodes["mainCard"].setGameMode(currentCard["gameMode"])
+	$CanvasLayer/uiButtonsInGame.setButtons("showCardWithoudSkipButton")
 
 func showTruthDareMode(truthOrDare):
 	showNodes(["mainCard", "rejectArea", "completeArea"])
@@ -102,6 +104,7 @@ func showTruthDareMode(truthOrDare):
 	else:
 		nodes["mainCard"].setContent(currentCard[1]["content"])
 		nodes["mainCard"].setGameMode(currentCard[1]["gameMode"])
+	$CanvasLayer/uiButtonsInGame.setButtons("showCard")
 
 func showTruthDarePickingMode():
 	showNodes(["truthDareContainer"])
@@ -110,6 +113,7 @@ func showNeverEverMode():
 	showNodes(["mainCard", "rejectArea", "completeArea"])
 	nodes["mainCard"].setContent(currentCard["content"])
 	nodes["mainCard"].setGameMode(currentCard["gameMode"])
+	$CanvasLayer/uiButtonsInGame.setButtons("showCard")
 
 func showPlayerMode():
 	var hintForGameMode = "";
@@ -120,6 +124,7 @@ func showPlayerMode():
 	$CanvasLayer/MarginContainer/gameScene/playerTurnAndHint/playerTrun.text = players[players.keys()[currentPlayer]]["name"] + " turn";
 	$CanvasLayer/MarginContainer/gameScene/playerTurnAndHint/hint.text = hintForGameMode;
 	showNodes(["playerTurnAndHint"])
+	$CanvasLayer/uiButtonsInGame.setButtons("hiddenCard")
 
 #Utilities
 func showNodes(nodesName: Array[String]):
@@ -169,6 +174,12 @@ func onNextPlayer():
 	changeVisibilityOfNodes(SHOW_PLAYER_TURN);
 	changePlayerChipViewToCurrentPlayer()
 
+func _on_skip_card():
+	cards.append(currentCard)
+	cards.shuffle()
+	currentCard = cards.pop_back();
+	changeVisibilityOfNodes(SHOW_PLAYER_TURN);
+
 #this function catch signal form truth/dare card
 func _on_dare_button(isTruth):
 	if isTruth:
@@ -183,8 +194,7 @@ func _on_start_timer_button_pressed():
 
 
 func _on_seconds_progress_bar_timer_empty():
-	#showNodes(["nextPlayerButton"]);
-	pass
+	$CanvasLayer/uiButtonsInGame.setButtons("showCardWithoudSkipButton")
 
 #isRejectedArea returns true only if its a rejected area
 func _on_entered(area, isRejectedArea):
@@ -195,10 +205,15 @@ func _on_exited(area):
 
 
 func _on_ui_buttons(mode):
+	print(mode)
 	match mode:
 		"accept":
-			print("acc")
+			onNextPlayer()
 		"skip":
-			print("sk")
+			_on_skip_card()
 		"decline":
-			print("dec")
+			onNextPlayer()
+		"show":
+			_on_show_card_button_pressed()
+		"startTimer":
+			_on_start_timer_button_pressed()
