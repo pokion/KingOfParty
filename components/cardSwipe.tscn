@@ -6,7 +6,6 @@
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_xbgiy"]
 
 [node name="AspectRatioContainer" type="Node2D"]
-position = Vector2(121, 203)
 script = ExtResource("1_702ki")
 maxRotation = 40
 
@@ -55,7 +54,7 @@ text = "King of Party"
 horizontal_alignment = 1
 
 [node name="cardPointOfTip" type="Area2D" parent="Panel"]
-position = Vector2(113, 0)
+position = Vector2(118, 0)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Panel/cardPointOfTip"]
 scale = Vector2(1.96, 1)

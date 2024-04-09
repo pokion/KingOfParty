@@ -37,7 +37,7 @@ var playerChip = preload("res://components/playerChip.tscn");
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	nodes = {
-		"mainCard": $CanvasLayer/MarginContainer/gameScene/mainCard,
+		"mainCard": $CanvasLayer/mainCard,
 		"truthDareContainer": $CanvasLayer/MarginContainer/gameScene/truthDareContainer,
 		"progressBar": $CanvasLayer/MarginContainer/gameScene/secondsProgressBar,
 		"playerTurnAndHint": $CanvasLayer/MarginContainer/gameScene/playerTurnAndHint,
@@ -54,6 +54,7 @@ func _ready():
 	addPlayersChips(players)
 	onNextPlayer()
 	changePlayerChipViewToCurrentPlayer()
+	centerNode(nodes["mainCard"])
 
 func _process(delta):
 	if isRejectedAreaNow != null and Input.is_action_just_released("mouseClick"):
@@ -126,6 +127,9 @@ func showPlayerMode():
 	$CanvasLayer/uiButtonsInGame.setButtons("hiddenCard")
 
 #Utilities
+func centerNode(node: Node2D):
+	node.position = get_viewport_rect().size/2
+	
 func showNodes(nodesName: Array[String]):
 	for nodeName in nodesName:
 		nodes[nodeName].visible = true;

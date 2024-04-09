@@ -12,7 +12,7 @@ size = Vector2(431, 1023)
 [node name="Game" type="Node2D"]
 script = ExtResource("1_yuuu2")
 metadata/_edit_horizontal_guides_ = [-237.0, -271.0]
-metadata/_edit_vertical_guides_ = [-499.0]
+metadata/_edit_vertical_guides_ = [-530.0]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -93,11 +93,11 @@ size_flags_vertical = 3
 size_flags_stretch_ratio = 0.5
 mouse_filter = 1
 
-[node name="mainCard" parent="CanvasLayer/MarginContainer/gameScene" instance=ExtResource("4_dln64")]
-position = Vector2(266, 491)
-
 [node name="uiButtonsInGame" parent="CanvasLayer" instance=ExtResource("5_lc68w")]
 setsButton = "showCard"
+
+[node name="mainCard" parent="CanvasLayer" instance=ExtResource("4_dln64")]
+z_index = 2
 
 [node name="rejectArea" type="Area2D" parent="."]
 position = Vector2(-834, -1)
