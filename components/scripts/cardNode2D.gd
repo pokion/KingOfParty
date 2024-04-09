@@ -5,6 +5,7 @@ extends Node2D
 @export var author: String = "author"
 @export var maxRotation: int = 20
 @export var maxTimeToReturn: float = 0.5;
+@export var isSwipeActive: bool = true;
 var vieportSize;
 var isPressed = false;
 var timeElapse = 0;
@@ -19,7 +20,7 @@ func _ready():
 	
 func _process(delta):
 	timeElapse += delta
-	if self.position.x != vieportSize.x/2 and not isPressed:
+	if not isPressed and self.position.x != vieportSize.x/2:
 		calculateReturnStep(timeElapse)
 	calculateRotation()
 
@@ -56,7 +57,7 @@ func _on_gui_input(event):
 		initialDistance = self.position.x;
 		isPressed = false;
 		
-	if event is InputEventMouseMotion and event.button_mask == 1:
+	if isSwipeActive and event is InputEventMouseMotion and event.button_mask == 1:
 		var positionMouse = event.position
 		self.position.x = get_global_mouse_position().x
 		
