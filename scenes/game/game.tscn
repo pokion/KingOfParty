@@ -1,16 +1,16 @@
 [gd_scene load_steps=7 format=3 uid="uid://dohwppgl1ps23"]
 
-[ext_resource type="Script" path="res://scripts/game.gd" id="1_yuuu2"]
-[ext_resource type="Script" path="res://scripts/progressBarSecondsMode.gd" id="2_1dpkd"]
-[ext_resource type="PackedScene" uid="uid://b081xeiswvxja" path="res://components/card.tscn" id="2_l6n1r"]
-[ext_resource type="PackedScene" uid="uid://bnjxfcpaoykba" path="res://components/cardSwipe.tscn" id="4_dln64"]
-[ext_resource type="PackedScene" uid="uid://b0s4hl7u5qa5r" path="res://components/uiButtonsInGame.tscn" id="5_lc68w"]
+[ext_resource type="Script" path="res://scenes/game/game.gd" id="1_wfdny"]
+[ext_resource type="Script" path="res://scenes/game/progressBarSecondsMode.gd" id="2_5472w"]
+[ext_resource type="PackedScene" uid="uid://bi6v8tickren2" path="res://components/card/card.tscn" id="3_5epv8"]
+[ext_resource type="PackedScene" uid="uid://b0s4hl7u5qa5r" path="res://components/uiButton/uiButtonsInGame.tscn" id="4_0nje2"]
+[ext_resource type="PackedScene" uid="uid://bnjxfcpaoykba" path="res://components/cardSwipe/cardSwipe.tscn" id="5_pl3wq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_oscr7"]
 size = Vector2(431, 1023)
 
 [node name="Game" type="Node2D"]
-script = ExtResource("1_yuuu2")
+script = ExtResource("1_wfdny")
 metadata/_edit_horizontal_guides_ = [-237.0, -271.0]
 metadata/_edit_vertical_guides_ = [-530.0]
 
@@ -42,7 +42,7 @@ layout_mode = 2
 max_value = 10.0
 step = 1.0
 value = 10.0
-script = ExtResource("2_1dpkd")
+script = ExtResource("2_5472w")
 
 [node name="Timer" type="Timer" parent="CanvasLayer/MarginContainer/gameScene/secondsProgressBar"]
 one_shot = true
@@ -58,14 +58,14 @@ visible = false
 layout_mode = 2
 alignment = 1
 
-[node name="truth" parent="CanvasLayer/MarginContainer/gameScene/truthDareContainer" instance=ExtResource("2_l6n1r")]
+[node name="truth" parent="CanvasLayer/MarginContainer/gameScene/truthDareContainer" instance=ExtResource("3_5epv8")]
 layout_mode = 2
 mouse_filter = 0
 gameMode = ""
 content = "Truth"
 author = ""
 
-[node name="dare" parent="CanvasLayer/MarginContainer/gameScene/truthDareContainer" instance=ExtResource("2_l6n1r")]
+[node name="dare" parent="CanvasLayer/MarginContainer/gameScene/truthDareContainer" instance=ExtResource("3_5epv8")]
 layout_mode = 2
 mouse_filter = 0
 gameMode = ""
@@ -93,11 +93,12 @@ size_flags_vertical = 3
 size_flags_stretch_ratio = 0.5
 mouse_filter = 1
 
-[node name="uiButtonsInGame" parent="CanvasLayer" instance=ExtResource("5_lc68w")]
+[node name="uiButtonsInGame" parent="CanvasLayer" instance=ExtResource("4_0nje2")]
 setsButton = "showCard"
 
-[node name="mainCard" parent="CanvasLayer" instance=ExtResource("4_dln64")]
+[node name="mainCard" parent="CanvasLayer" instance=ExtResource("5_pl3wq")]
 z_index = 2
+position = Vector2(312, 511)
 
 [node name="rejectArea" type="Area2D" parent="."]
 position = Vector2(-834, -1)

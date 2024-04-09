@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=3 uid="uid://cal5ok8nygcem"]
 
-[ext_resource type="Script" path="res://components/scripts/colorsPicker_control.gd" id="1_escx1"]
-[ext_resource type="Script" path="res://components/scripts/colorPicker_createColorBalls.gd" id="1_t7m7k"]
-[ext_resource type="Script" path="res://components/scripts/colorsPicker_testPanel.gd" id="3_ybpvy"]
+[ext_resource type="Script" path="res://components/colorPicker/colorsPicker_control.gd" id="1_x2rgc"]
+[ext_resource type="Script" path="res://components/colorPicker/colorPicker_createColorBalls.gd" id="2_e0ppj"]
+[ext_resource type="Script" path="res://components/colorPicker/colorsPicker_testPanel.gd" id="3_rkaf4"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hq0il"]
 bg_color = Color(0.901961, 0.368627, 0.721569, 1)
@@ -20,7 +20,7 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-script = ExtResource("1_escx1")
+script = ExtResource("1_x2rgc")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
@@ -44,14 +44,14 @@ size_flags_vertical = 3
 theme_override_constants/h_separation = 40
 theme_override_constants/v_separation = 40
 alignment = 1
-script = ExtResource("1_t7m7k")
+script = ExtResource("2_e0ppj")
 
 [node name="testPanel" type="Panel" parent="MarginContainer/ScrollContainer/FlowContainer"]
 visible = false
 custom_minimum_size = Vector2(80, 80)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_hq0il")
-script = ExtResource("3_ybpvy")
+script = ExtResource("3_rkaf4")
 
 [connection signal="colorPicked" from="MarginContainer/ScrollContainer/FlowContainer/testPanel" to="." method="_on_test_panel_color_picked"]
 [connection signal="gui_input" from="MarginContainer/ScrollContainer/FlowContainer/testPanel" to="MarginContainer/ScrollContainer/FlowContainer/testPanel" method="_on_gui_input"]

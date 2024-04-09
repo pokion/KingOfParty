@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://cg5p06qt33w4a"]
 
-[ext_resource type="Script" path="res://components/scripts/deck.gd" id="1_i836v"]
+[ext_resource type="Script" path="res://scenes/decks/deck.gd" id="1_i836v"]
 
 [node name="Deck" type="AspectRatioContainer"]
 offset_right = 359.0

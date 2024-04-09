@@ -1,7 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://b081xeiswvxja"]
+[gd_scene load_steps=3 format=3 uid="uid://bi6v8tickren2"]
 
+[ext_resource type="Script" path="res://components/card/card.gd" id="1_78pkm"]
 [ext_resource type="StyleBox" uid="uid://bhl7rmreqex31" path="res://styles/deckStyle.tres" id="1_mh16k"]
-[ext_resource type="Script" path="res://components/scripts/card.gd" id="1_ojpo5"]
 
 [node name="AspectRatioContainer" type="AspectRatioContainer"]
 custom_minimum_size = Vector2(177, 303)
@@ -10,7 +10,7 @@ offset_bottom = 40.0
 size_flags_vertical = 3
 ratio = 0.5403
 stretch_mode = 1
-script = ExtResource("1_ojpo5")
+script = ExtResource("1_78pkm")
 
 [node name="Panel" type="Panel" parent="."]
 custom_minimum_size = Vector2(0, 303)

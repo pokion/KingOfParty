@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://b0s4hl7u5qa5r"]
 
-[ext_resource type="Script" path="res://components/scripts/uiButtonsInGame.gd" id="1_pujkc"]
+[ext_resource type="Script" path="res://components/uiButton/uiButtonsInGame.gd" id="1_hjl6a"]
 [ext_resource type="Script" path="res://addons/fontawesome/FontAwesome.gd" id="2_mywkn"]
 [ext_resource type="FontFile" uid="uid://c1x37tqs8bpaa" path="res://addons/fontawesome/fonts/fa-solid-900.woff2" id="3_ewia8"]
 
@@ -28,7 +28,7 @@ anchor_bottom = 1.0
 offset_top = -232.0
 grow_horizontal = 2
 grow_vertical = 0
-script = ExtResource("1_pujkc")
+script = ExtResource("1_hjl6a")
 setsButton = "startTimer"
 metadata/_edit_group_ = true
 

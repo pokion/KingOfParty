@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://cy08qocf2meim"]
 
-[ext_resource type="Script" path="res://components/scripts/gameModePicker.gd" id="1_7ml36"]
+[ext_resource type="Script" path="res://scenes/gameModePicker/gameModePicker.gd" id="1_hju4h"]
 
 [node name="gameModePicker" type="Control"]
 layout_mode = 3
@@ -9,7 +9,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_7ml36")
+script = ExtResource("1_hju4h")
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
 layout_mode = 1

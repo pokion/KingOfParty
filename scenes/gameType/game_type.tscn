@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://dg74xv5tutaex"]
 
-[ext_resource type="Script" path="res://components/scripts/game_type.gd" id="1_48w4v"]
-[ext_resource type="StyleBox" uid="uid://bhl7rmreqex31" path="res://styles/deckStyle.tres" id="2_bxuxf"]
+[ext_resource type="Script" path="res://scenes/gameType/game_type.gd" id="1_jbjys"]
+[ext_resource type="StyleBox" uid="uid://bhl7rmreqex31" path="res://styles/deckStyle.tres" id="2_m3t4w"]
 
 [node name="gameType" type="Control"]
 layout_mode = 3
@@ -10,7 +10,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_48w4v")
+script = ExtResource("1_jbjys")
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
 layout_mode = 1
@@ -37,7 +37,7 @@ ratio = 3.0
 [node name="Panel" type="Panel" parent="CenterContainer/HBoxContainer/onePlayerHold"]
 custom_minimum_size = Vector2(359, 113)
 layout_mode = 2
-theme_override_styles/panel = ExtResource("2_bxuxf")
+theme_override_styles/panel = ExtResource("2_m3t4w")
 
 [node name="DeckName" type="Label" parent="CenterContainer/HBoxContainer/onePlayerHold/Panel"]
 layout_mode = 1
@@ -72,7 +72,7 @@ ratio = 3.0
 [node name="Panel" type="Panel" parent="CenterContainer/HBoxContainer/passPhone"]
 custom_minimum_size = Vector2(359, 113)
 layout_mode = 2
-theme_override_styles/panel = ExtResource("2_bxuxf")
+theme_override_styles/panel = ExtResource("2_m3t4w")
 
 [node name="DeckName" type="Label" parent="CenterContainer/HBoxContainer/passPhone/Panel"]
 layout_mode = 1

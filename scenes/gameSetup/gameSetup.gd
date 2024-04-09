@@ -84,7 +84,7 @@ func prev():
 	step[currentStep].visible = true;
 	
 func backToMenu():
-	get_tree().change_scene_to_file("res://scenes/menu.tscn")
+	get_tree().change_scene_to_file("res://scenes/menu/menu.tscn")
 	
 func startGame():
 	var ruleText = rules[currentStep].call()
@@ -92,7 +92,7 @@ func startGame():
 		setErrorMessage(ruleText);
 		return;
 	gameSettings.saveSettings(pickedGameModes, decks, "gameType")#usunąć string tutaj
-	get_tree().change_scene_to_file("res://scenes/game.tscn")
+	get_tree().change_scene_to_file("res://scenes/game/game.tscn")
 
 func _on_game_mode_picker_on_game_mode_toggle(isTrue, gameMode):
 	if isTrue:

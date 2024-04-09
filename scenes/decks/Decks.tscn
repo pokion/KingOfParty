@@ -1,8 +1,8 @@
 [gd_scene load_steps=4 format=3 uid="uid://ct6vkityq225n"]
 
-[ext_resource type="Script" path="res://scripts/renderDecks.gd" id="1_2ltln"]
-[ext_resource type="Script" path="res://components/scripts/deck.gd" id="2_wbqqg"]
-[ext_resource type="StyleBox" uid="uid://bhl7rmreqex31" path="res://styles/deckStyle.tres" id="3_52f24"]
+[ext_resource type="Script" path="res://scenes/decks/renderDecks.gd" id="1_iyamc"]
+[ext_resource type="Script" path="res://scenes/decks/deck.gd" id="2_c4vyq"]
+[ext_resource type="StyleBox" uid="uid://bhl7rmreqex31" path="res://styles/deckStyle.tres" id="3_5ghyv"]
 
 [node name="Decks" type="Control"]
 layout_mode = 3
@@ -13,7 +13,7 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-script = ExtResource("1_2ltln")
+script = ExtResource("1_iyamc")
 
 [node name="HiddenDeck" type="AspectRatioContainer" parent="."]
 visible = false
@@ -22,12 +22,12 @@ offset_top = 30.0
 offset_right = 576.0
 offset_bottom = 143.0
 ratio = 3.0
-script = ExtResource("2_wbqqg")
+script = ExtResource("2_c4vyq")
 
 [node name="Panel" type="Panel" parent="HiddenDeck"]
 custom_minimum_size = Vector2(359, 113)
 layout_mode = 2
-theme_override_styles/panel = ExtResource("3_52f24")
+theme_override_styles/panel = ExtResource("3_5ghyv")
 
 [node name="DeckName" type="Label" parent="HiddenDeck/Panel"]
 layout_mode = 1

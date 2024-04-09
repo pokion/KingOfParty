@@ -1,8 +1,8 @@
 [gd_scene load_steps=6 format=3 uid="uid://b0ivuwpcqlqjt"]
 
-[ext_resource type="Script" path="res://scripts/playersPicker.gd" id="1_o5ex7"]
-[ext_resource type="Script" path="res://components/scripts/colorPickerControl.gd" id="3_ibtk2"]
-[ext_resource type="PackedScene" uid="uid://cal5ok8nygcem" path="res://components/colorsPicker.tscn" id="4_imtll"]
+[ext_resource type="Script" path="res://scenes/playerScene/playersPicker.gd" id="1_h3ad4"]
+[ext_resource type="Script" path="res://scenes/playerScene/colorPickerControl.gd" id="2_sr0pc"]
+[ext_resource type="PackedScene" uid="uid://cal5ok8nygcem" path="res://components/colorPicker/colorsPicker.tscn" id="4_imtll"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_iwr8t"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -26,7 +26,7 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-script = ExtResource("1_o5ex7")
+script = ExtResource("1_h3ad4")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 clip_contents = true
@@ -80,7 +80,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_vertical = 8
-script = ExtResource("3_ibtk2")
+script = ExtResource("2_sr0pc")
 
 [node name="Panel" type="Panel" parent="colorPickerControl"]
 layout_mode = 1

@@ -1,6 +1,6 @@
 extends Control
 
-var playerDisplayComponent = preload("res://components/playerDisplay.tscn")
+var playerDisplayComponent = preload("res://components/playerDisplay/playerDisplay.tscn")
 var players;
 var colorPicker;
 # Called when the node enters the scene tree for the first time.
@@ -21,10 +21,6 @@ func _on_add_player_pressed():
 	var playerName = $VBoxContainer/HBoxContainer/playerName.text
 	addPlayerToContainer(players.addPlayer(playerName))
 	$VBoxContainer/HBoxContainer/playerName.text = ""
-
-
-func _on_button_pressed():
-	get_tree().change_scene_to_file("res://scenes/game.tscn")
 
 func _on_changeColorButton(objectRef, sceneRef):
 	colorPicker.visible = true;

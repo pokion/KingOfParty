@@ -1,14 +1,14 @@
 [gd_scene load_steps=7 format=3 uid="uid://druns7la3gbh5"]
 
-[ext_resource type="PackedScene" uid="uid://b0ivuwpcqlqjt" path="res://scenes/playerScene.tscn" id="1_2j38f"]
-[ext_resource type="PackedScene" uid="uid://cmsffux1oq54t" path="res://components/button.tscn" id="1_i1wt6"]
-[ext_resource type="Script" path="res://components/scripts/gameSetup.gd" id="1_uow7c"]
-[ext_resource type="PackedScene" uid="uid://ct6vkityq225n" path="res://scenes/Decks.tscn" id="3_ltpui"]
-[ext_resource type="PackedScene" uid="uid://cy08qocf2meim" path="res://scenes/gameModePicker.tscn" id="3_owr8o"]
-[ext_resource type="PackedScene" uid="uid://dg74xv5tutaex" path="res://scenes/game_type.tscn" id="5_ylg1o"]
+[ext_resource type="PackedScene" uid="uid://b0ivuwpcqlqjt" path="res://scenes/playerScene/playerScene.tscn" id="1_2j38f"]
+[ext_resource type="Script" path="res://scenes/gameSetup/gameSetup.gd" id="1_6tcfj"]
+[ext_resource type="PackedScene" uid="uid://cmsffux1oq54t" path="res://components/button/button.tscn" id="1_i1wt6"]
+[ext_resource type="PackedScene" uid="uid://ct6vkityq225n" path="res://scenes/decks/Decks.tscn" id="3_ltpui"]
+[ext_resource type="PackedScene" uid="uid://cy08qocf2meim" path="res://scenes/gameModePicker/gameModePicker.tscn" id="3_owr8o"]
+[ext_resource type="PackedScene" uid="uid://dg74xv5tutaex" path="res://scenes/gameType/game_type.tscn" id="5_ylg1o"]
 
 [node name="gameSetup" type="Node2D"]
-script = ExtResource("1_uow7c")
+script = ExtResource("1_6tcfj")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 

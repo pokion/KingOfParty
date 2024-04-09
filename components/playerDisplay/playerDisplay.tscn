@@ -1,14 +1,14 @@
 [gd_scene load_steps=3 format=3 uid="uid://bn0xlnfuxys0v"]
 
-[ext_resource type="Script" path="res://components/scripts/playerDisplay.gd" id="1_euy00"]
-[ext_resource type="PackedScene" uid="uid://c6ms2a512vxpt" path="res://components/playerChip.tscn" id="2_a58v5"]
+[ext_resource type="Script" path="res://components/playerDisplay/playerDisplay.gd" id="1_0immb"]
+[ext_resource type="PackedScene" uid="uid://c6ms2a512vxpt" path="res://components/playerChip/playerChip.tscn" id="2_nvut4"]
 
 [node name="playerDisplay" type="HBoxContainer"]
 offset_right = 40.0
 offset_bottom = 40.0
 size_flags_horizontal = 3
 alignment = 1
-script = ExtResource("1_euy00")
+script = ExtResource("1_0immb")
 
 [node name="Control2" type="Control" parent="."]
 layout_mode = 2
@@ -21,7 +21,7 @@ text = "Andy"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="PanelContainer" parent="." instance=ExtResource("2_a58v5")]
+[node name="PanelContainer" parent="." instance=ExtResource("2_nvut4")]
 layout_mode = 2
 
 [node name="Control" type="Control" parent="."]
