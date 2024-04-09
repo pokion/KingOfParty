@@ -17,8 +17,12 @@ func _ready():
 
 func _on_button_pressed(mode):
 	uiButton.emit(mode)
+	
+func hideAllGroups():
+	for buttonSetName in buttonSetsConst:
+		get_node(buttonSetsConst[buttonSetName]).visible = false;
 
 func setButtons(newSet: String):
-	get_node(buttonSetsConst[setsButton]).visible = false;
+	hideAllGroups();
 	get_node(buttonSetsConst[newSet]).visible = true;
 	setsButton = newSet;
