@@ -61,7 +61,6 @@ func _process(delta):
 		isRejectedAreaNow = null
 		onNextPlayer()
 			
-
 func changeVisibilityOfNodes(state):
 	Utils.hideNodes(nodes.values() as Array[Node]);
 	nodes["mainCard"].isSwipeActive = true;
@@ -143,14 +142,13 @@ func changePlayerChipViewToCurrentPlayer():
 		playersNodeReference[players.keys()[players.size() - 1]].changeVisibility(false)
 	else:
 		playersNodeReference[players.keys()[currentPlayer - 1]].changeVisibility(false)
-	
+
 #Signals
 func _on_show_card_button_pressed():
 	if currentCard is Array:
 		changeVisibilityOfNodes(SHOW_TRUTH_DARE_SCENE)
 	else:
 		changeVisibilityOfNodes(gameModeToEnums[currentCard["gameMode"]])
-
 
 func onNextPlayer():
 	if cards.size() <= 1:
@@ -175,7 +173,6 @@ func _on_dare_button(isTruth):
 		changeVisibilityOfNodes(SHOW_TRUTH_SCENE);
 	else:
 		changeVisibilityOfNodes(SHOW_DARE_SCENE);
-
 
 func _on_start_timer_button_pressed():
 	$CanvasLayer/MarginContainer/gameScene/secondsProgressBar/Timer.start();
