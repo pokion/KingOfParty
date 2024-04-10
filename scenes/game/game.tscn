@@ -97,8 +97,6 @@ mouse_filter = 1
 setsButton = "showCard"
 
 [node name="mainCard" parent="CanvasLayer" instance=ExtResource("5_pl3wq")]
-z_index = 2
-position = Vector2(312, 511)
 
 [node name="rejectArea" type="Area2D" parent="."]
 position = Vector2(-834, -1)

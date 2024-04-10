@@ -16,9 +16,9 @@ func _ready():
 	$"Panel/VBoxContainer/Game mode".text = gameMode
 	$Panel/VBoxContainer/Content.text = content
 	$Panel/VBoxContainer/Author.text = author
-	vieportSize = get_viewport().size
+	vieportSize = DisplayServer.window_get_size()
 	vieportSizeXHalf = vieportSize.x/2
-	self.position.x = vieportSizeXHalf
+	self.position.y = vieportSize.y/2
 	
 func _process(delta):
 	timeElapse += delta

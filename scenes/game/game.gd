@@ -54,7 +54,6 @@ func _ready():
 	addPlayersChips(players)
 	onNextPlayer()
 	changePlayerChipViewToCurrentPlayer()
-	Utils.centerNode(nodes["mainCard"])
 
 func _process(delta):
 	if isRejectedAreaNow != null and Input.is_action_just_released("mouseClick"):
