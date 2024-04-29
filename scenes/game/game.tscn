@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://dohwppgl1ps23"]
+[gd_scene load_steps=8 format=3 uid="uid://dohwppgl1ps23"]
 
 [ext_resource type="Script" path="res://scenes/game/game.gd" id="1_wfdny"]
 [ext_resource type="Script" path="res://scenes/game/progressBarSecondsMode.gd" id="2_5472w"]
@@ -6,13 +6,14 @@
 [ext_resource type="PackedScene" uid="uid://b0s4hl7u5qa5r" path="res://components/uiButton/uiButtonsInGame.tscn" id="4_0nje2"]
 [ext_resource type="PackedScene" uid="uid://bnjxfcpaoykba" path="res://components/cardSwipe/cardSwipe.tscn" id="5_pl3wq"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jfped"]
+bg_color = Color(0, 0, 0, 0)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_oscr7"]
 size = Vector2(431, 1023)
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_wfdny")
-metadata/_edit_horizontal_guides_ = [-237.0, -271.0]
-metadata/_edit_vertical_guides_ = [-530.0]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -98,6 +99,32 @@ setsButton = "showCard"
 
 [node name="mainCard" parent="CanvasLayer" instance=ExtResource("5_pl3wq")]
 
+[node name="skipButton" type="Button" parent="CanvasLayer"]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 0)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 0)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 0)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 0)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 0)
+theme_override_colors/font_disabled_color = Color(0, 0, 0, 0)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 0)
+theme_override_colors/icon_normal_color = Color(0, 0, 0, 0)
+theme_override_colors/icon_pressed_color = Color(0, 0, 0, 0)
+theme_override_colors/icon_hover_color = Color(0, 0, 0, 0)
+theme_override_colors/icon_hover_pressed_color = Color(0, 0, 0, 0)
+theme_override_colors/icon_focus_color = Color(0, 0, 0, 0)
+theme_override_colors/icon_disabled_color = Color(0, 0, 0, 0)
+theme_override_styles/normal = SubResource("StyleBoxFlat_jfped")
+theme_override_styles/hover = SubResource("StyleBoxFlat_jfped")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_jfped")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_jfped")
+theme_override_styles/focus = SubResource("StyleBoxFlat_jfped")
+
 [node name="rejectArea" type="Area2D" parent="."]
 position = Vector2(-834, -1)
 
@@ -116,6 +143,7 @@ shape = SubResource("RectangleShape2D_oscr7")
 [connection signal="click" from="CanvasLayer/MarginContainer/gameScene/truthDareContainer/truth" to="." method="_on_dare_button" binds= [true]]
 [connection signal="click" from="CanvasLayer/MarginContainer/gameScene/truthDareContainer/dare" to="." method="_on_dare_button" binds= [false]]
 [connection signal="uiButton" from="CanvasLayer/uiButtonsInGame" to="." method="_on_ui_buttons"]
+[connection signal="pressed" from="CanvasLayer/skipButton" to="." method="_on_skip_button_pressed"]
 [connection signal="area_entered" from="rejectArea" to="." method="_on_entered" binds= [true]]
 [connection signal="area_exited" from="rejectArea" to="." method="_on_exited" binds= [true]]
 [connection signal="area_entered" from="completeArea" to="." method="_on_entered" binds= [false]]
