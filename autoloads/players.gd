@@ -35,6 +35,8 @@ func clearPlayers() -> void:
 func putTestPlayers():
 	playersArray["czarek"] = {"name": "czarek","points": 0,"firstLetter": "C","color": getRandomColor()}
 	playersArray["patrycja"] = {"name": "patrycja","points": 0,"firstLetter": "P","color": getRandomColor()}
+	playersArray["patryk"] = {"name": "patryk","points": 0,"firstLetter": "P","color": getRandomColor()}
+	playersArray["andrzej"] = {"name": "andrzej","points": 0,"firstLetter": "A","color": getRandomColor()}
 	
 func getAllPlayers() -> Dictionary:
 	if OS.is_debug_build() and playersArray.size() == 0:
