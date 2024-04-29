@@ -21,7 +21,7 @@ var gameModeToEnums = {
 
 var hintsForNextMode = {
 	"seconds": "Pass phone to next player.",
-	"whoami": "Put the phone to your forehead and click screen."
+	"whoami": "Put the phone to your forehead and click the screen."
 }
 #autoloads
 var cardsController;
@@ -44,7 +44,8 @@ func _ready():
 		"progressBar": $CanvasLayer/MarginContainer/gameScene/secondsProgressBar,
 		"playerTurnAndHint": $CanvasLayer/MarginContainer/gameScene/playerTurnAndHint,
 		"rejectArea": $rejectArea,
-		"completeArea": $completeArea
+		"completeArea": $completeArea,
+		"skipButton": $CanvasLayer/skipButton
 	}
 	cardsController = get_node("/root/Cards");
 	playersController = get_node("/root/Players");
@@ -117,6 +118,8 @@ func showPlayerMode():
 	var hintForGameMode = "";
 	if not (currentCard is Array):
 		if hintsForNextMode.has(currentCard.gameMode):
+			if currentCard.gameMode == "whoami":
+				nodes["skipButton"].visible = true;
 			hintForGameMode = hintsForNextMode[currentCard.gameMode];
 		
 	$CanvasLayer/MarginContainer/gameScene/playerTurnAndHint/playerTrun.text = players[players.keys()[currentPlayer]]["name"] + " turn";
@@ -200,3 +203,8 @@ func _on_ui_buttons(mode):
 		"startTimer":
 			_on_start_timer_button_pressed()
 			$CanvasLayer/uiButtonsInGame.visible = false;
+
+
+func _on_skip_button_pressed():
+	_on_show_card_button_pressed();
+	nodes["skipButton"].visible = false
