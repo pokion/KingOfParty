@@ -13,7 +13,6 @@ var gameModes = {
 func _ready():
 	importDataFromCsv("res://cards/cards.txt")
 	loadCustomCards()
-	print()
 	
 func getAllCards():
 	return cards;
@@ -70,10 +69,11 @@ func importDataFromCsv(filePath):
 func getCustomCards():
 	return customCards;
 
-func save(gameMode: String, object):
-	if not customCards.has(gameMode):
-		customCards[gameMode] = []
-	customCards[gameMode].append(object)
+func save(gameMode: String = "", object = null):
+	if not gameMode.is_empty() and not object == null:
+		if not customCards.has(gameMode):
+			customCards[gameMode] = []
+		customCards[gameMode].append(object)
 	
 	var saveCards = FileAccess.open(savePath, FileAccess.WRITE)
 	var jsonData = JSON.stringify(customCards)
@@ -90,3 +90,7 @@ func loadCustomCards():
 	var parseResult = json.parse(jsonString)
 	customCards = json.get_data()
 	cards["custom"] = customCards
+
+func removeCard(gameMode: String, object):
+	customCards[gameMode].erase(object)
+	self.save()

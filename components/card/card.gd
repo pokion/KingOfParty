@@ -3,8 +3,9 @@ extends AspectRatioContainer
 @export var gameMode: String = "Game mode"
 @export var content: String = "Content"
 @export var author: String = "author"
+@export var returnArgument: Dictionary = {}
 
-signal click;
+signal click(exportArg);
 
 func _ready():
 	$"Panel/VBoxContainer/Game mode".text = gameMode
@@ -22,4 +23,4 @@ func setAuthor(author: String)->void:
 
 func _on_gui_input(event):
 	if event is InputEventMouseButton and event.pressed:
-		click.emit()
+		click.emit(returnArgument)
