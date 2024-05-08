@@ -1,6 +1,8 @@
 extends Node
 
+const savePath = "user://saveCard.save"
 var cards = {}
+var customCards = {}
 var gameModes = {
 	"neverever": "Never Ever",
 	"whoami": "Who am I?",
@@ -10,11 +12,13 @@ var gameModes = {
 
 func _ready():
 	importDataFromCsv("res://cards/cards.txt")
+	loadCustomCards()
+	print()
 	
 func getAllCards():
 	return cards;
 	
-func shuffleAndReturn(nameOfGamemodes: Array, decks: Array = ["travel", "nerds"]) -> Array:
+func shuffleAndReturn(nameOfGamemodes: Array, decks: Array) -> Array:
 	var newArray = [];
 	var tempArray = null;
 	
@@ -43,7 +47,6 @@ func shuffleAndReturn(nameOfGamemodes: Array, decks: Array = ["travel", "nerds"]
 			
 	newArray.shuffle();
 	return newArray;
-
 	
 func importDataFromCsv(filePath):
 	var file = FileAccess.open(filePath, FileAccess.READ)
@@ -63,3 +66,27 @@ func importDataFromCsv(filePath):
 				cards[objectCard["deck"]][objectCard["gameMode"]] = []
 			cards[objectCard["deck"]][objectCard["gameMode"]].append(objectCard)
 	file.close()
+
+func getCustomCards():
+	return customCards;
+
+func save(gameMode: String, object):
+	if not customCards.has(gameMode):
+		customCards[gameMode] = []
+	customCards[gameMode].append(object)
+	
+	var saveCards = FileAccess.open(savePath, FileAccess.WRITE)
+	var jsonData = JSON.stringify(customCards)
+	saveCards.store_line(jsonData)
+	cards["custom"] = customCards
+	
+func loadCustomCards():
+	if not FileAccess.file_exists(savePath):
+		return;
+		
+	var saveCards = FileAccess.open(savePath, FileAccess.READ)
+	var jsonString = saveCards.get_line()
+	var json = JSON.new();
+	var parseResult = json.parse(jsonString)
+	customCards = json.get_data()
+	cards["custom"] = customCards

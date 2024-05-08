@@ -41,6 +41,15 @@ size_flags_vertical = 6
 mouse_default_cursor_shape = 2
 text = "Play"
 
+[node name="customCards" type="Button" parent="CanvasLayer/VBoxContainer"]
+custom_minimum_size = Vector2(163, 52)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+mouse_default_cursor_shape = 2
+text = "Custom Cards
+"
+
 [node name="Author" type="Button" parent="CanvasLayer/VBoxContainer"]
 custom_minimum_size = Vector2(163, 52)
 layout_mode = 2
@@ -60,4 +69,5 @@ size_flags_vertical = 3
 size_flags_stretch_ratio = 3.0
 
 [connection signal="pressed" from="CanvasLayer/VBoxContainer/Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="CanvasLayer/VBoxContainer/customCards" to="." method="_on_custom_cards_pressed"]
 [connection signal="pressed" from="CanvasLayer/VBoxContainer/Author" to="." method="_on_author_pressed"]

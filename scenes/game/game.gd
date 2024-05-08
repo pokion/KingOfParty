@@ -191,6 +191,7 @@ func _on_exited(area):
 	isRejectedAreaNow = null;
 
 func _on_ui_buttons(mode):
+	print(mode)
 	match mode:
 		"accept":
 			onNextPlayer()
@@ -203,7 +204,6 @@ func _on_ui_buttons(mode):
 		"startTimer":
 			_on_start_timer_button_pressed()
 			$CanvasLayer/uiButtonsInGame.visible = false;
-
 
 func _on_skip_button_pressed():
 	_on_show_card_button_pressed();
