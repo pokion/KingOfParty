@@ -100,11 +100,8 @@ func _on_game_mode_picker_on_game_mode_toggle(isTrue, gameMode):
 	else:
 		pickedGameModes.erase(gameMode)
 
-
 func _on_decks_deck_name(deck):
 	decks = deck;
-
-
 
 func _on_game_type_send_selected(gameTypeName):
 	gameType = gameTypeName;

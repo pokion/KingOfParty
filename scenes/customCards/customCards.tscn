@@ -1,0 +1,127 @@
+[gd_scene load_steps=3 format=3 uid="uid://bkcig5rg1nmwd"]
+
+[ext_resource type="Theme" uid="uid://ccby6u78vqqyn" path="res://styles/buttonRadio.tres" id="1_5431j"]
+[ext_resource type="Script" path="res://scenes/customCards/customCards.gd" id="1_yuctq"]
+
+[node name="Control" type="Node2D"]
+script = ExtResource("1_yuctq")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="buttons" type="MarginContainer" parent="CanvasLayer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/VBoxContainer/buttons"]
+layout_mode = 2
+theme_override_constants/separation = 40
+alignment = 1
+
+[node name="neverever" type="Button" parent="CanvasLayer/VBoxContainer/buttons/HBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_5431j")
+disabled = true
+text = "Never Ever"
+
+[node name="whoami" type="Button" parent="CanvasLayer/VBoxContainer/buttons/HBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_5431j")
+text = "Who am I?"
+
+[node name="truth|dare" type="Button" parent="CanvasLayer/VBoxContainer/buttons/HBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_5431j")
+text = "Truth or Dare"
+
+[node name="seconds" type="Button" parent="CanvasLayer/VBoxContainer/buttons/HBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_5431j")
+text = "10 Seconds"
+
+[node name="addCard" type="MarginContainer" parent="CanvasLayer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="addCard" type="HBoxContainer" parent="CanvasLayer/VBoxContainer/addCard"]
+layout_mode = 2
+alignment = 1
+
+[node name="Control2" type="Control" parent="CanvasLayer/VBoxContainer/addCard/addCard"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="LineEdit" type="LineEdit" parent="CanvasLayer/VBoxContainer/addCard/addCard"]
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "Card content"
+alignment = 1
+
+[node name="Button" type="Button" parent="CanvasLayer/VBoxContainer/addCard/addCard"]
+layout_mode = 2
+text = "Add card"
+
+[node name="Control" type="Control" parent="CanvasLayer/VBoxContainer/addCard/addCard"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="truthDare" type="HBoxContainer" parent="CanvasLayer/VBoxContainer/addCard"]
+visible = false
+layout_mode = 2
+alignment = 1
+
+[node name="Control2" type="Control" parent="CanvasLayer/VBoxContainer/addCard/truthDare"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="truth" type="LineEdit" parent="CanvasLayer/VBoxContainer/addCard/truthDare"]
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "Truth content"
+alignment = 1
+
+[node name="dare" type="LineEdit" parent="CanvasLayer/VBoxContainer/addCard/truthDare"]
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "Dare content"
+alignment = 1
+
+[node name="Button" type="Button" parent="CanvasLayer/VBoxContainer/addCard/truthDare"]
+layout_mode = 2
+text = "Add card"
+
+[node name="Control" type="Control" parent="CanvasLayer/VBoxContainer/addCard/truthDare"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="allCustomCards" type="MarginContainer" parent="CanvasLayer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 20
+
+[node name="ScrollContainer" type="ScrollContainer" parent="CanvasLayer/VBoxContainer/allCustomCards"]
+layout_mode = 2
+
+[node name="cardContent" type="GridContainer" parent="CanvasLayer/VBoxContainer/allCustomCards/ScrollContainer"]
+layout_mode = 2
+theme_override_constants/h_separation = 10
+theme_override_constants/v_separation = 20
+columns = 3
+
+[connection signal="pressed" from="CanvasLayer/VBoxContainer/buttons/HBoxContainer/neverever" to="." method="_on_button_pressed" binds= ["neverever"]]
+[connection signal="pressed" from="CanvasLayer/VBoxContainer/buttons/HBoxContainer/whoami" to="." method="_on_button_pressed" binds= ["whoami"]]
+[connection signal="pressed" from="CanvasLayer/VBoxContainer/buttons/HBoxContainer/truth|dare" to="." method="_on_button_pressed" binds= ["truth|dare"]]
+[connection signal="pressed" from="CanvasLayer/VBoxContainer/buttons/HBoxContainer/seconds" to="." method="_on_button_pressed" binds= ["seconds"]]
+[connection signal="pressed" from="CanvasLayer/VBoxContainer/addCard/addCard/Button" to="." method="save"]
+[connection signal="pressed" from="CanvasLayer/VBoxContainer/addCard/truthDare/Button" to="." method="saveTruthDare"]
