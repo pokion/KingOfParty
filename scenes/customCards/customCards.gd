@@ -12,13 +12,15 @@ func _ready():
 	displayCards(cards[buttonPressed])
 
 func displayCards(cardsArray: Array):
+	utils.removeAllNodes($CanvasLayer/VBoxContainer/allCustomCards/ScrollContainer/cardContent)
 	for card in cardsArray:
 		var cardTemplateNew = cardTemplate.duplicate()
 		cardTemplateNew.content = card.content
+		cardTemplateNew.returnArgument = card;
+		cardTemplateNew.click.connect(removeCard)
 		$CanvasLayer/VBoxContainer/allCustomCards/ScrollContainer/cardContent.add_child(cardTemplateNew)
 
 func _on_button_pressed(buttonName):
-	utils.removeAllNodes($CanvasLayer/VBoxContainer/allCustomCards/ScrollContainer/cardContent)
 	$CanvasLayer/VBoxContainer/buttons/HBoxContainer.find_child(buttonName).disabled = true;
 	$CanvasLayer/VBoxContainer/buttons/HBoxContainer.find_child(buttonPressed).disabled = false;
 	buttonPressed = buttonName;
@@ -26,6 +28,8 @@ func _on_button_pressed(buttonName):
 	if buttonName != "truth|dare":
 		if cards.has(buttonPressed):
 			displayCards(cards[buttonPressed])
+		else:
+			utils.removeAllNodes($CanvasLayer/VBoxContainer/allCustomCards/ScrollContainer/cardContent)
 		$CanvasLayer/VBoxContainer/addCard/truthDare.visible = false;
 		$CanvasLayer/VBoxContainer/addCard/addCard.visible = true;
 	else:
@@ -42,6 +46,7 @@ func save():
 	if not text.is_empty():
 		cardsController.save(buttonPressed, {"gameMode": buttonPressed, "content": text, "deck": "custom"})
 	_on_button_pressed(buttonPressed)
+	$CanvasLayer/VBoxContainer/addCard/addCard/LineEdit.text = ""
 	
 func saveTruthDare():
 	var truth = $CanvasLayer/VBoxContainer/addCard/truthDare/truth.text
@@ -50,3 +55,14 @@ func saveTruthDare():
 		cardsController.save("truth", {"gameMode": "truth", "content": truth, "deck": "custom"})
 		cardsController.save("dare", {"gameMode": "dare", "content": dare, "deck": "custom"})
 	_on_button_pressed(buttonPressed)
+	$CanvasLayer/VBoxContainer/addCard/truthDare/truth.text = ""
+	$CanvasLayer/VBoxContainer/addCard/truthDare/dare.text = ""
+
+func removeCard(object):
+	cardsController.removeCard(object.gameMode, object)
+	if buttonPressed == "truth|dare":
+		var tempArray = cards["truth"];
+		tempArray += cards["dare"];
+		displayCards(tempArray)
+	else:
+		displayCards(cards[buttonPressed])
