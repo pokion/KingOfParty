@@ -36,7 +36,6 @@ var currentPlayer: int = -1;
 var nodes
 var isRejectedAreaNow = null;
 
-# Called when the node enters the scene tree for the first time.
 func _ready():
 	nodes = {
 		"mainCard": $CanvasLayer/mainCard,
@@ -170,7 +169,7 @@ func _on_skip_card():
 	changeVisibilityOfNodes(SHOW_PLAYER_TURN);
 
 #this function catch signal form truth/dare card
-func _on_dare_button(isTruth):
+func _on_dare_button(object, isTruth):
 	if isTruth:
 		changeVisibilityOfNodes(SHOW_TRUTH_SCENE);
 	else:
@@ -191,7 +190,6 @@ func _on_exited(area):
 	isRejectedAreaNow = null;
 
 func _on_ui_buttons(mode):
-	print(mode)
 	match mode:
 		"accept":
 			onNextPlayer()
