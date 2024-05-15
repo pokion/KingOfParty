@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://dohwppgl1ps23"]
+[gd_scene load_steps=9 format=3 uid="uid://dohwppgl1ps23"]
 
 [ext_resource type="Script" path="res://scenes/game/game.gd" id="1_wfdny"]
 [ext_resource type="Script" path="res://scenes/game/progressBarSecondsMode.gd" id="2_5472w"]
 [ext_resource type="PackedScene" uid="uid://bi6v8tickren2" path="res://components/card/card.tscn" id="3_5epv8"]
 [ext_resource type="PackedScene" uid="uid://b0s4hl7u5qa5r" path="res://components/uiButton/uiButtonsInGame.tscn" id="4_0nje2"]
 [ext_resource type="PackedScene" uid="uid://bnjxfcpaoykba" path="res://components/cardSwipe/cardSwipe.tscn" id="5_pl3wq"]
+[ext_resource type="Script" path="res://scenes/game/area.gd" id="6_y7kic"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jfped"]
 bg_color = Color(0, 0, 0, 0)
@@ -127,17 +128,19 @@ theme_override_styles/focus = SubResource("StyleBoxFlat_jfped")
 
 [node name="rejectArea" type="Area2D" parent="."]
 visible = false
-position = Vector2(-834, -1)
+script = ExtResource("6_y7kic")
+offsetFromCenter = 400
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="rejectArea"]
-position = Vector2(719, 512)
 shape = SubResource("RectangleShape2D_oscr7")
 
 [node name="completeArea" type="Area2D" parent="."]
 visible = false
+script = ExtResource("6_y7kic")
+isLeft = true
+offsetFromCenter = 400
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="completeArea"]
-position = Vector2(719, 512)
 shape = SubResource("RectangleShape2D_oscr7")
 
 [connection signal="timerEmpty" from="CanvasLayer/MarginContainer/gameScene/secondsProgressBar" to="." method="_on_seconds_progress_bar_timer_empty"]
