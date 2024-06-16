@@ -2,6 +2,7 @@ extends Node2D
 
 const Utils = preload("res://scripts/utils.gd")
 const playerChip = preload("res://components/playerChip/playerChip.tscn");
+const manuScene = preload("res://scenes/menu/menu.tscn")
 
 enum {
 	SHOW_PLAYER_TURN,
@@ -84,24 +85,20 @@ func showSecondsMode():
 	Utils.showNodes([nodes["progressBar"], nodes["mainCard"]]);
 	nodes["progressBar"].value = 10;
 	nodes["mainCard"].setContent(currentCard["content"])
-	nodes["mainCard"].setGameMode(currentCard["gameMode"])
 	nodes["mainCard"].isSwipeActive = false
 	$CanvasLayer/uiButtonsInGame.setButtons("startTimer")
 
 func showWhoAmIMode():
 	Utils.showNodes([nodes["mainCard"], nodes["rejectArea"], nodes["completeArea"]])
 	nodes["mainCard"].setContent(currentCard["content"])
-	nodes["mainCard"].setGameMode(currentCard["gameMode"])
-	$CanvasLayer/uiButtonsInGame.setButtons("showCardWithoudSkipButton")
+	$CanvasLayer/uiButtonsInGame.setButtons("showCard")
 
 func showTruthDareMode(truthOrDare):
 	Utils.showNodes([nodes["mainCard"], nodes["rejectArea"], nodes["completeArea"]])
 	if currentCard[0]["gameMode"] == truthOrDare:
 		nodes["mainCard"].setContent(currentCard[0]["content"])
-		nodes["mainCard"].setGameMode(currentCard[0]["gameMode"])
 	else:
 		nodes["mainCard"].setContent(currentCard[1]["content"])
-		nodes["mainCard"].setGameMode(currentCard[1]["gameMode"])
 	$CanvasLayer/uiButtonsInGame.setButtons("showCard")
 
 func showTruthDarePickingMode():
@@ -110,7 +107,6 @@ func showTruthDarePickingMode():
 func showNeverEverMode():
 	Utils.showNodes([nodes["mainCard"], nodes["rejectArea"], nodes["completeArea"]])
 	nodes["mainCard"].setContent(currentCard["content"])
-	nodes["mainCard"].setGameMode(currentCard["gameMode"])
 	$CanvasLayer/uiButtonsInGame.setButtons("showCard")
 
 func showPlayerMode():
@@ -124,7 +120,7 @@ func showPlayerMode():
 	$CanvasLayer/MarginContainer/gameScene/playerTurnAndHint/playerTrun.text = players[players.keys()[currentPlayer]]["name"] + " turn";
 	$CanvasLayer/MarginContainer/gameScene/playerTurnAndHint/hint.text = hintForGameMode;
 	Utils.showNodes([nodes["playerTurnAndHint"]])
-	$CanvasLayer/uiButtonsInGame.setButtons("hiddenCard")
+	$CanvasLayer/uiButtonsInGame.setButtons("show")
 
 #Utilities
 func addPlayersChips(players):
@@ -153,7 +149,7 @@ func _on_show_card_button_pressed():
 
 func onNextPlayer():
 	if cards.size() <= 1:
-		get_tree().change_scene_to_file("res://scenes/menu.tscn")
+		get_tree().change_scene_to_packed(manuScene)
 		return;
 	currentCard = cards.pop_back();
 	currentPlayer += 1;
@@ -180,7 +176,7 @@ func _on_start_timer_button_pressed():
 
 func _on_seconds_progress_bar_timer_empty():
 	$CanvasLayer/uiButtonsInGame.visible = true;
-	$CanvasLayer/uiButtonsInGame.setButtons("showCardWithoudSkipButton")
+	$CanvasLayer/uiButtonsInGame.setButtons("showCard")
 
 #isRejectedArea returns true only if its a rejected area
 func _on_entered(area, isRejectedArea):
@@ -195,8 +191,6 @@ func _on_ui_buttons(mode):
 			onNextPlayer()
 		"skip":
 			_on_skip_card()
-		"decline":
-			onNextPlayer()
 		"show":
 			_on_show_card_button_pressed()
 		"startTimer":

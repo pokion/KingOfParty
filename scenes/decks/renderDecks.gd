@@ -3,14 +3,13 @@ extends Control;
 var decks = []
 var selectedDecks = []
 signal deckName(deck)
-# Called when the node enters the scene tree for the first time.
+
 func _ready():
 	var decksNames = get_node("/root/Cards").getAllCards();
 	for deckname in decksNames:
 		decks.append(deckname)
-
 	var hiddenDeck = $HiddenDeck
-	var deckDispaly = $VBoxContainer/ScrollContainer/decksDisplay
+	var deckDispaly = $VBoxContainer/ScrollContainer/MarginContainer/decksDisplay
 	for deckName in decks:
 		var newDeck = hiddenDeck.duplicate()
 		newDeck.deckName = deckName

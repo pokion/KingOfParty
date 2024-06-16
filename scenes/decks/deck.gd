@@ -5,7 +5,6 @@ var selected = false
 
 signal deckNamePropagate(name, isSelected)
 
-# Called when the node enters the scene tree for the first time.
 func _ready():
 	$Panel/DeckName.text = deckName
 

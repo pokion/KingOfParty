@@ -5,8 +5,13 @@
 
 [node name="AspectRatioContainer" type="AspectRatioContainer"]
 custom_minimum_size = Vector2(177, 303)
-offset_right = 40.0
-offset_bottom = 40.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -110.0
+offset_bottom = -196.0
+grow_horizontal = 2
+grow_vertical = 2
 size_flags_vertical = 3
 ratio = 0.5403
 stretch_mode = 1
@@ -25,23 +30,13 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Game mode" type="Label" parent="Panel/VBoxContainer"]
-layout_mode = 2
-text = "Time trial"
-horizontal_alignment = 1
-vertical_alignment = 2
-
 [node name="Content" type="Label" parent="Panel/VBoxContainer"]
+custom_minimum_size = Vector2(0, 344)
 layout_mode = 2
 size_flags_vertical = 3
 text = "Name 3 things that you can find in a classroom"
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
-
-[node name="Author" type="Label" parent="Panel/VBoxContainer"]
-layout_mode = 2
-text = "King of Party"
-horizontal_alignment = 1
 
 [connection signal="gui_input" from="Panel" to="." method="_on_gui_input"]

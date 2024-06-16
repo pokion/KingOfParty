@@ -13,10 +13,8 @@ var timeElapse = 0;
 var initialDistance = 0;
 
 func _ready():
-	$"Panel/VBoxContainer/Game mode".text = gameMode
-	$Panel/VBoxContainer/Content.text = content
-	$Panel/VBoxContainer/Author.text = author
-	vieportSize = DisplayServer.window_get_size()
+	$Panel/MarginContainer/VBoxContainer/Content.text = content
+	vieportSize = get_viewport().get_visible_rect().size
 	vieportSizeXHalf = vieportSize.x/2
 	self.position.y = vieportSize.y/2
 	
@@ -27,13 +25,7 @@ func _process(delta):
 	calculateRotation()
 
 func setContent(text: String)->void:
-	$Panel/VBoxContainer/Content.text = text;
-
-func setGameMode(gameMode: String)->void:
-	$"Panel/VBoxContainer/Game mode".text = gameMode
-	
-func setAuthor(author: String)->void:
-	$Panel/VBoxContainer/Author.text = author
+	$Panel/MarginContainer/VBoxContainer/Content.text = text;
 
 func calculateRotation():
 	var deegre = 0;

@@ -18,14 +18,13 @@ script = ExtResource("1_iyamc")
 [node name="HiddenDeck" type="AspectRatioContainer" parent="."]
 visible = false
 layout_mode = 0
-offset_top = 30.0
-offset_right = 576.0
-offset_bottom = 143.0
-ratio = 3.0
+offset_right = 280.0
+offset_bottom = 113.0
+ratio = 5.0
 script = ExtResource("2_c4vyq")
 
 [node name="Panel" type="Panel" parent="HiddenDeck"]
-custom_minimum_size = Vector2(359, 113)
+custom_minimum_size = Vector2(280, 113)
 layout_mode = 2
 theme_override_styles/panel = ExtResource("3_5ghyv")
 
@@ -62,6 +61,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/separation = 30
 
 [node name="Label" type="Label" parent="VBoxContainer"]
 layout_mode = 2
@@ -72,10 +72,15 @@ horizontal_alignment = 1
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="decksDisplay" type="VBoxContainer" parent="VBoxContainer/ScrollContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/ScrollContainer"]
+layout_mode = 2
+theme_override_constants/margin_right = 10
+
+[node name="decksDisplay" type="VBoxContainer" parent="VBoxContainer/ScrollContainer/MarginContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 4
+theme_override_constants/separation = 30
 
 [connection signal="deckNamePropagate" from="HiddenDeck" to="." method="_on_hidden_deck_deck_name_propagate"]
 [connection signal="gui_input" from="HiddenDeck/Panel" to="HiddenDeck" method="_on_panel_gui_input"]

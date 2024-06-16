@@ -41,17 +41,18 @@ size_flags_vertical = 3
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
+theme_override_constants/separation = 10
 alignment = 1
 
 [node name="playerName" type="LineEdit" parent="VBoxContainer/HBoxContainer"]
-custom_minimum_size = Vector2(212, 0)
+custom_minimum_size = Vector2(260, 0)
 layout_mode = 2
 placeholder_text = "Enter name"
 caret_blink = true
 caret_blink_interval = 0.5
 
 [node name="addPlayer" type="Button" parent="VBoxContainer/HBoxContainer"]
-custom_minimum_size = Vector2(31, 31)
+custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
 text = "+"
 
@@ -87,21 +88,14 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = 488.0
+offset_top = 139.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_d7ljd")
 
 [node name="Control" parent="colorPickerControl" instance=ExtResource("4_imtll")]
 layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-offset_left = -284.0
-offset_top = -525.0
-offset_right = 284.0
-grow_vertical = 0
+offset_top = 147.0
 
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/addPlayer" to="." method="_on_add_player_pressed"]
 [connection signal="gui_input" from="colorPickerControl" to="colorPickerControl" method="_on_gui_input"]

@@ -58,24 +58,21 @@ mouse_filter = 1
 [node name="truthDareContainer" type="HBoxContainer" parent="CanvasLayer/MarginContainer/gameScene"]
 visible = false
 layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 10
 alignment = 1
 
 [node name="truth" parent="CanvasLayer/MarginContainer/gameScene/truthDareContainer" instance=ExtResource("3_5epv8")]
 layout_mode = 2
 mouse_filter = 0
-gameMode = ""
 content = "Truth"
-author = ""
 
 [node name="dare" parent="CanvasLayer/MarginContainer/gameScene/truthDareContainer" instance=ExtResource("3_5epv8")]
 layout_mode = 2
 mouse_filter = 0
-gameMode = ""
 content = "Dare"
-author = ""
 
 [node name="playerTurnAndHint" type="VBoxContainer" parent="CanvasLayer/MarginContainer/gameScene"]
-visible = false
 layout_mode = 2
 alignment = 1
 
@@ -85,9 +82,11 @@ text = "test turn"
 horizontal_alignment = 1
 
 [node name="hint" type="Label" parent="CanvasLayer/MarginContainer/gameScene/playerTurnAndHint"]
+custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
 text = "jakiś hint na gerikę idk co tutaj może być potem"
 horizontal_alignment = 1
+autowrap_mode = 2
 
 [node name="gameModeSectionEnd" type="Control" parent="CanvasLayer/MarginContainer/gameScene"]
 layout_mode = 2

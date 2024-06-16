@@ -1,7 +1,8 @@
 [gd_scene format=3 uid="uid://cmsffux1oq54t"]
 
 [node name="Button" type="Button"]
-custom_minimum_size = Vector2(163, 52)
-offset_right = 40.0
-offset_bottom = 40.0
+custom_minimum_size = Vector2(160, 80)
+offset_right = 156.0
+offset_bottom = 50.0
 size_flags_horizontal = 4
+text = "Go to menu"

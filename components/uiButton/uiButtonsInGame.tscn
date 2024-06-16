@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://b0s4hl7u5qa5r"]
+[gd_scene load_steps=5 format=3 uid="uid://b0s4hl7u5qa5r"]
 
 [ext_resource type="Script" path="res://components/uiButton/uiButtonsInGame.gd" id="1_hjl6a"]
 [ext_resource type="Script" path="res://addons/fontawesome/FontAwesome.gd" id="2_mywkn"]
@@ -6,14 +6,11 @@
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_s2fu7"]
 bg_color = Color(0.00784314, 0.121569, 0.188235, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j6r4c"]
-bg_color = Color(0.00784314, 0.121569, 0.188235, 1)
-border_width_left = 5
-border_width_top = 5
-border_width_right = 5
-border_width_bottom = 5
-border_color = Color(0.00392157, 0.0941176, 0.14902, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.85098, 0.423529, 0.423529, 1)
 corner_radius_top_left = 100
 corner_radius_top_right = 100
 corner_radius_bottom_right = 100
@@ -21,12 +18,11 @@ corner_radius_bottom_left = 100
 
 [node name="uiButtonsInGame" type="Control"]
 layout_mode = 3
-anchors_preset = 12
+anchors_preset = 2
 anchor_top = 1.0
-anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -232.0
-grow_horizontal = 2
+offset_top = -100.0
+offset_right = 360.0
 grow_vertical = 0
 script = ExtResource("1_hjl6a")
 setsButton = "startTimer"
@@ -43,13 +39,21 @@ grow_vertical = 2
 
 [node name="HBoxContainer" type="HBoxContainer" parent="onShowCard"]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -62.0
+offset_top = -30.0
+offset_right = 62.0
+offset_bottom = 30.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/separation = 30
 
-[node name="decline" type="Button" parent="onShowCard/HBoxContainer"]
+[node name="skip" type="Button" parent="onShowCard/HBoxContainer"]
+custom_minimum_size = Vector2(60, 60)
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_styles/normal = SubResource("StyleBoxFlat_s2fu7")
@@ -58,7 +62,7 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_s2fu7")
 theme_override_styles/disabled = SubResource("StyleBoxFlat_s2fu7")
 theme_override_styles/focus = SubResource("StyleBoxFlat_s2fu7")
 
-[node name="FontAwesome" type="Label" parent="onShowCard/HBoxContainer/decline"]
+[node name="FontAwesome" type="Label" parent="onShowCard/HBoxContainer/skip"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -75,15 +79,16 @@ auto_translate = false
 localize_numeral_system = false
 theme_override_colors/font_color = Color(0.658824, 0.0431373, 0.266667, 1)
 theme_override_fonts/font = ExtResource("3_ewia8")
-theme_override_font_sizes/font_size = 64
-text = ""
+theme_override_font_sizes/font_size = 30
+text = ""
 horizontal_alignment = 1
 vertical_alignment = 1
 script = ExtResource("2_mywkn")
-icon_size = 64
-icon_name = "xmark"
+icon_size = 30
+icon_name = "forward-step"
 
 [node name="accept" type="Button" parent="onShowCard/HBoxContainer"]
+custom_minimum_size = Vector2(60, 60)
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_styles/normal = SubResource("StyleBoxFlat_s2fu7")
@@ -109,196 +114,17 @@ auto_translate = false
 localize_numeral_system = false
 theme_override_colors/font_color = Color(0.2, 0.721569, 0.392157, 1)
 theme_override_fonts/font = ExtResource("3_ewia8")
-theme_override_font_sizes/font_size = 64
+theme_override_font_sizes/font_size = 30
 text = ""
 horizontal_alignment = 1
 vertical_alignment = 1
 script = ExtResource("2_mywkn")
-icon_size = 64
+icon_size = 30
 icon_name = "check"
-
-[node name="skip" type="Button" parent="onShowCard"]
-custom_minimum_size = Vector2(150, 150)
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -75.0
-offset_top = -75.0
-offset_right = 75.0
-offset_bottom = 75.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_styles/normal = SubResource("StyleBoxFlat_j6r4c")
-theme_override_styles/hover = SubResource("StyleBoxFlat_j6r4c")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_j6r4c")
-theme_override_styles/disabled = SubResource("StyleBoxFlat_j6r4c")
-theme_override_styles/focus = SubResource("StyleBoxFlat_j6r4c")
-
-[node name="FontAwesome" type="Label" parent="onShowCard/skip"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -8.0
-offset_top = -13.0
-offset_right = 8.0
-offset_bottom = 13.0
-grow_horizontal = 2
-grow_vertical = 2
-auto_translate = false
-localize_numeral_system = false
-theme_override_colors/font_color = Color(0.364706, 0.247059, 0.827451, 1)
-theme_override_fonts/font = ExtResource("3_ewia8")
-theme_override_font_sizes/font_size = 54
-text = ""
-horizontal_alignment = 1
-vertical_alignment = 1
-script = ExtResource("2_mywkn")
-icon_size = 54
-icon_name = "angles-right"
-
-[node name="onShowCardWithoutSkip" type="Control" parent="."]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="HBoxContainer" type="HBoxContainer" parent="onShowCardWithoutSkip"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="decline" type="Button" parent="onShowCardWithoutSkip/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-theme_override_styles/normal = SubResource("StyleBoxFlat_s2fu7")
-theme_override_styles/hover = SubResource("StyleBoxFlat_s2fu7")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_s2fu7")
-theme_override_styles/disabled = SubResource("StyleBoxFlat_s2fu7")
-theme_override_styles/focus = SubResource("StyleBoxFlat_s2fu7")
-
-[node name="FontAwesome" type="Label" parent="onShowCardWithoutSkip/HBoxContainer/decline"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -24.0
-offset_top = -37.0
-offset_right = 24.0
-offset_bottom = 37.0
-grow_horizontal = 2
-grow_vertical = 2
-auto_translate = false
-localize_numeral_system = false
-theme_override_colors/font_color = Color(0.658824, 0.0431373, 0.266667, 1)
-theme_override_fonts/font = ExtResource("3_ewia8")
-theme_override_font_sizes/font_size = 64
-text = ""
-horizontal_alignment = 1
-vertical_alignment = 1
-script = ExtResource("2_mywkn")
-icon_size = 64
-icon_name = "xmark"
-
-[node name="accept" type="Button" parent="onShowCardWithoutSkip/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-theme_override_styles/normal = SubResource("StyleBoxFlat_s2fu7")
-theme_override_styles/hover = SubResource("StyleBoxFlat_s2fu7")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_s2fu7")
-theme_override_styles/disabled = SubResource("StyleBoxFlat_s2fu7")
-theme_override_styles/focus = SubResource("StyleBoxFlat_s2fu7")
-
-[node name="FontAwesome" type="Label" parent="onShowCardWithoutSkip/HBoxContainer/accept"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -32.0
-offset_top = -37.0
-offset_right = 32.0
-offset_bottom = 37.0
-grow_horizontal = 2
-grow_vertical = 2
-auto_translate = false
-localize_numeral_system = false
-theme_override_colors/font_color = Color(0.2, 0.721569, 0.392157, 1)
-theme_override_fonts/font = ExtResource("3_ewia8")
-theme_override_font_sizes/font_size = 64
-text = ""
-horizontal_alignment = 1
-vertical_alignment = 1
-script = ExtResource("2_mywkn")
-icon_size = 64
-icon_name = "check"
-
-[node name="onHiddenCard" type="Control" parent="."]
-visible = false
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="HBoxContainer" type="HBoxContainer" parent="onHiddenCard"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="show" type="Button" parent="onHiddenCard/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-theme_override_styles/normal = SubResource("StyleBoxFlat_s2fu7")
-theme_override_styles/hover = SubResource("StyleBoxFlat_s2fu7")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_s2fu7")
-theme_override_styles/disabled = SubResource("StyleBoxFlat_s2fu7")
-theme_override_styles/focus = SubResource("StyleBoxFlat_s2fu7")
-
-[node name="FontAwesome" type="Label" parent="onHiddenCard/HBoxContainer/show"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -24.0
-offset_top = -37.0
-offset_right = 24.0
-offset_bottom = 37.0
-grow_horizontal = 2
-grow_vertical = 2
-auto_translate = false
-localize_numeral_system = false
-theme_override_colors/font_color = Color(0.658824, 0.0431373, 0.266667, 1)
-theme_override_fonts/font = ExtResource("3_ewia8")
-theme_override_font_sizes/font_size = 64
-text = ""
-horizontal_alignment = 1
-vertical_alignment = 1
-script = ExtResource("2_mywkn")
-icon_size = 64
-icon_name = "eye"
 
 [node name="onStartTimer" type="Control" parent="."]
 visible = false
+custom_minimum_size = Vector2(60, 60)
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -308,15 +134,21 @@ grow_vertical = 2
 
 [node name="HBoxContainer" type="HBoxContainer" parent="onStartTimer"]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -30.0
+offset_top = -30.0
+offset_right = 30.0
+offset_bottom = 30.0
 grow_horizontal = 2
 grow_vertical = 2
 
 [node name="show" type="Button" parent="onStartTimer/HBoxContainer"]
+custom_minimum_size = Vector2(60, 60)
 layout_mode = 2
-size_flags_horizontal = 3
 theme_override_styles/normal = SubResource("StyleBoxFlat_s2fu7")
 theme_override_styles/hover = SubResource("StyleBoxFlat_s2fu7")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_s2fu7")
@@ -331,25 +163,26 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -24.0
-offset_top = -37.0
+offset_top = -25.0
 offset_right = 24.0
-offset_bottom = 37.0
+offset_bottom = 25.0
 grow_horizontal = 2
 grow_vertical = 2
 auto_translate = false
 localize_numeral_system = false
 theme_override_colors/font_color = Color(0.658824, 0.0431373, 0.266667, 1)
 theme_override_fonts/font = ExtResource("3_ewia8")
-theme_override_font_sizes/font_size = 64
+theme_override_font_sizes/font_size = 30
 text = ""
 horizontal_alignment = 1
 vertical_alignment = 1
 script = ExtResource("2_mywkn")
-icon_size = 64
+icon_size = 30
 icon_name = "hourglass-start"
 
-[node name="onNextPlayer" type="Control" parent="."]
+[node name="onShow" type="Control" parent="."]
 visible = false
+custom_minimum_size = Vector2(60, 60)
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -357,24 +190,30 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="onNextPlayer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="onShow"]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -30.0
+offset_top = -30.0
+offset_right = 30.0
+offset_bottom = 30.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="show" type="Button" parent="onNextPlayer/HBoxContainer"]
+[node name="show" type="Button" parent="onShow/HBoxContainer"]
+custom_minimum_size = Vector2(60, 60)
 layout_mode = 2
-size_flags_horizontal = 3
 theme_override_styles/normal = SubResource("StyleBoxFlat_s2fu7")
 theme_override_styles/hover = SubResource("StyleBoxFlat_s2fu7")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_s2fu7")
 theme_override_styles/disabled = SubResource("StyleBoxFlat_s2fu7")
 theme_override_styles/focus = SubResource("StyleBoxFlat_s2fu7")
 
-[node name="FontAwesome" type="Label" parent="onNextPlayer/HBoxContainer/show"]
+[node name="FontAwesome" type="Label" parent="onShow/HBoxContainer/show"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -382,28 +221,24 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -24.0
-offset_top = -37.0
+offset_top = -25.0
 offset_right = 24.0
-offset_bottom = 37.0
+offset_bottom = 25.0
 grow_horizontal = 2
 grow_vertical = 2
 auto_translate = false
 localize_numeral_system = false
 theme_override_colors/font_color = Color(0.658824, 0.0431373, 0.266667, 1)
 theme_override_fonts/font = ExtResource("3_ewia8")
-theme_override_font_sizes/font_size = 64
-text = ""
+theme_override_font_sizes/font_size = 30
+text = ""
 horizontal_alignment = 1
 vertical_alignment = 1
 script = ExtResource("2_mywkn")
-icon_size = 64
-icon_name = "angles-right"
+icon_size = 30
+icon_name = "eye"
 
-[connection signal="pressed" from="onShowCard/HBoxContainer/decline" to="." method="_on_button_pressed" binds= ["decline"]]
+[connection signal="pressed" from="onShowCard/HBoxContainer/skip" to="." method="_on_button_pressed" binds= ["skip"]]
 [connection signal="pressed" from="onShowCard/HBoxContainer/accept" to="." method="_on_button_pressed" binds= ["accept"]]
-[connection signal="pressed" from="onShowCard/skip" to="." method="_on_button_pressed" binds= ["skip"]]
-[connection signal="pressed" from="onShowCardWithoutSkip/HBoxContainer/decline" to="." method="_on_button_pressed" binds= [&"decline"]]
-[connection signal="pressed" from="onShowCardWithoutSkip/HBoxContainer/accept" to="." method="_on_button_pressed" binds= [&"accept"]]
-[connection signal="pressed" from="onHiddenCard/HBoxContainer/show" to="." method="_on_button_pressed" binds= ["show"]]
 [connection signal="pressed" from="onStartTimer/HBoxContainer/show" to="." method="_on_button_pressed" binds= ["startTimer"]]
-[connection signal="pressed" from="onNextPlayer/HBoxContainer/show" to="." method="_on_button_pressed" binds= ["next"]]
+[connection signal="pressed" from="onShow/HBoxContainer/show" to="." method="_on_button_pressed" binds= ["show"]]

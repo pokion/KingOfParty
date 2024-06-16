@@ -1,13 +1,18 @@
-[gd_scene load_steps=7 format=3 uid="uid://druns7la3gbh5"]
+[gd_scene load_steps=6 format=3 uid="uid://druns7la3gbh5"]
 
 [ext_resource type="PackedScene" uid="uid://b0ivuwpcqlqjt" path="res://scenes/playerScene/playerScene.tscn" id="1_2j38f"]
 [ext_resource type="Script" path="res://scenes/gameSetup/gameSetup.gd" id="1_6tcfj"]
 [ext_resource type="PackedScene" uid="uid://cmsffux1oq54t" path="res://components/button/button.tscn" id="1_i1wt6"]
 [ext_resource type="PackedScene" uid="uid://ct6vkityq225n" path="res://scenes/decks/Decks.tscn" id="3_ltpui"]
 [ext_resource type="PackedScene" uid="uid://cy08qocf2meim" path="res://scenes/gameModePicker/gameModePicker.tscn" id="3_owr8o"]
-[ext_resource type="PackedScene" uid="uid://dg74xv5tutaex" path="res://scenes/gameType/game_type.tscn" id="5_ylg1o"]
 
-[node name="gameSetup" type="Node2D"]
+[node name="gameSetup" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("1_6tcfj")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
@@ -18,6 +23,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
 
 [node name="labelMargin" type="MarginContainer" parent="CanvasLayer/VBoxContainer"]
 layout_mode = 2
@@ -34,41 +41,43 @@ vertical_alignment = 1
 
 [node name="ErrorMessage" type="Label" parent="CanvasLayer/VBoxContainer"]
 layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 1
 horizontal_alignment = 1
 
-[node name="Control" type="Control" parent="CanvasLayer/VBoxContainer"]
+[node name="Control" type="MarginContainer" parent="CanvasLayer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_right = 20
 
 [node name="playerScene" parent="CanvasLayer/VBoxContainer/Control" instance=ExtResource("1_2j38f")]
 visible = false
-layout_mode = 1
+layout_mode = 2
 
 [node name="Decks" parent="CanvasLayer/VBoxContainer/Control" instance=ExtResource("3_ltpui")]
 visible = false
-layout_mode = 1
+layout_mode = 2
 
 [node name="gameModePicker" parent="CanvasLayer/VBoxContainer/Control" instance=ExtResource("3_owr8o")]
-layout_mode = 1
-
-[node name="gameType" parent="CanvasLayer/VBoxContainer/Control" instance=ExtResource("5_ylg1o")]
-visible = false
-layout_mode = 1
+layout_mode = 2
 
 [node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/VBoxContainer"]
 layout_mode = 2
-theme_override_constants/margin_left = 20
+theme_override_constants/margin_left = 15
 theme_override_constants/margin_top = 20
-theme_override_constants/margin_right = 20
+theme_override_constants/margin_right = 15
 theme_override_constants/margin_bottom = 20
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/VBoxContainer/MarginContainer"]
 layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 10
 alignment = 1
 
 [node name="goToMenu" parent="CanvasLayer/VBoxContainer/MarginContainer/HBoxContainer" instance=ExtResource("1_i1wt6")]
 layout_mode = 2
-text = "Go to menu"
 
 [node name="previousButton" parent="CanvasLayer/VBoxContainer/MarginContainer/HBoxContainer" instance=ExtResource("1_i1wt6")]
 visible = false
@@ -86,7 +95,6 @@ text = "start"
 
 [connection signal="deckName" from="CanvasLayer/VBoxContainer/Control/Decks" to="." method="_on_decks_deck_name"]
 [connection signal="onGameModeToggle" from="CanvasLayer/VBoxContainer/Control/gameModePicker" to="." method="_on_game_mode_picker_on_game_mode_toggle"]
-[connection signal="sendSelected" from="CanvasLayer/VBoxContainer/Control/gameType" to="." method="_on_game_type_send_selected"]
 [connection signal="pressed" from="CanvasLayer/VBoxContainer/MarginContainer/HBoxContainer/goToMenu" to="." method="backToMenu"]
 [connection signal="pressed" from="CanvasLayer/VBoxContainer/MarginContainer/HBoxContainer/previousButton" to="." method="ruleToStep" binds= ["prev"]]
 [connection signal="pressed" from="CanvasLayer/VBoxContainer/MarginContainer/HBoxContainer/nextButton" to="." method="ruleToStep" binds= ["next"]]

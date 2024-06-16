@@ -89,6 +89,8 @@ func loadCustomCards():
 	var json = JSON.new();
 	var parseResult = json.parse(jsonString)
 	customCards = json.get_data()
+	if customCards["dare"].size() <= 0 or customCards["neverever"].size() <= 0 or customCards["seconds"].size() <= 0 or customCards["truth"].size() <= 0 or customCards["whoami"].size() > 0:
+		return;
 	cards["custom"] = customCards
 
 func removeCard(gameMode: String, object):

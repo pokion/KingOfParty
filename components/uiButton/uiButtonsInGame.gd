@@ -1,13 +1,11 @@
 extends Control
 
-@export_enum("showCard","hiddenCard","startTimer","nextPlayer","showCardWithoudSkipButton") var setsButton: String = "showCard" 
+@export_enum("showCard","startTimer","show") var setsButton: String = "showCard" 
 
 var buttonSetsConst: Dictionary= {
 		"showCard": "onShowCard",
-		"hiddenCard": "onHiddenCard",
 		"startTimer": "onStartTimer",
-		"nextPlayer": "onNextPlayer",
-		"showCardWithoudSkipButton": "onShowCardWithoutSkip",
+		"show": "onShow"
 	}
 
 signal uiButton(mode: String)
@@ -26,3 +24,4 @@ func setButtons(newSet: String):
 	hideAllGroups();
 	get_node(buttonSetsConst[newSet]).visible = true;
 	setsButton = newSet;
+

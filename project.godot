@@ -15,6 +15,7 @@ run/main_scene="res://scenes/menu/menu.tscn"
 config/use_custom_user_dir=true
 config/custom_user_dir_name="KOP"
 config/features=PackedStringArray("4.2", "GL Compatibility")
+boot_splash/bg_color=Color(0.101961, 0.176471, 0.223529, 1)
 
 [autoload]
 
@@ -24,9 +25,11 @@ GameSettings="*res://autoloads/gameSettings.gd"
 
 [display]
 
-window/size/viewport_width=576
-window/size/viewport_height=1024
+window/size/viewport_width=360
+window/size/viewport_height=640
+window/stretch/mode="viewport"
 window/stretch/aspect="expand"
+window/stretch/scale_mode="integer"
 window/handheld/orientation=1
 
 [editor_plugins]
