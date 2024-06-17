@@ -12,7 +12,6 @@ var gameType = null
 func _ready():
 	gameSettings = get_node("/root/GameSettings")
 	players = get_node("/root/Players")
-	#,$CanvasLayer/VBoxContainer/Control/gameType pamiętać żeby to dodać to tablicy step
 	step = [$CanvasLayer/VBoxContainer/Control/gameModePicker,$CanvasLayer/VBoxContainer/Control/Decks,$CanvasLayer/VBoxContainer/Control/playerScene]
 	$CanvasLayer/VBoxContainer/Control/gameModePicker.onGameModeToggle.connect(_on_game_mode_picker_on_game_mode_toggle)
 	

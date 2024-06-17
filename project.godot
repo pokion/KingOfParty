@@ -22,11 +22,13 @@ boot_splash/bg_color=Color(0.101961, 0.176471, 0.223529, 1)
 Players="*res://autoloads/players.gd"
 Cards="*res://autoloads/cards.gd"
 GameSettings="*res://autoloads/gameSettings.gd"
+ApplicationSetting="*res://autoloads/applicationSetting.gd"
 
 [display]
 
 window/size/viewport_width=360
 window/size/viewport_height=640
+window/size/mode=4
 window/stretch/mode="viewport"
 window/stretch/aspect="expand"
 window/stretch/scale_mode="integer"
