@@ -28,7 +28,6 @@ ApplicationSetting="*res://autoloads/applicationSetting.gd"
 
 window/size/viewport_width=360
 window/size/viewport_height=640
-window/size/mode=4
 window/stretch/mode="viewport"
 window/stretch/aspect="expand"
 window/stretch/scale_mode="integer"

@@ -2,7 +2,7 @@ extends Node2D
 
 const Utils = preload("res://scripts/utils.gd")
 const playerChip = preload("res://components/playerChip/playerChip.tscn");
-const manuScene = preload("res://scenes/menu/menu.tscn")
+const endScene = preload("res://scenes/endScene/endScene.tscn")
 
 enum {
 	SHOW_PLAYER_TURN,
@@ -149,7 +149,7 @@ func _on_show_card_button_pressed():
 
 func onNextPlayer():
 	if cards.size() <= 1:
-		get_tree().change_scene_to_packed(manuScene)
+		get_tree().change_scene_to_packed(endScene)
 		return;
 	currentCard = cards.pop_back();
 	currentPlayer += 1;
