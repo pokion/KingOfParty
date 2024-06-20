@@ -1,33 +1,68 @@
-[gd_scene format=3 uid="uid://c5i8woqh55xge"]
+[gd_scene load_steps=4 format=3 uid="uid://c5i8woqh55xge"]
+
+[ext_resource type="Script" path="res://scenes/credicts.gd" id="1_jwahn"]
+[ext_resource type="FontFile" uid="uid://c1x37tqs8bpaa" path="res://addons/fontawesome/fonts/fa-solid-900.woff2" id="1_tv1so"]
+[ext_resource type="Script" path="res://addons/fontawesome/FontAwesome.gd" id="2_uau5h"]
 
 [node name="Credicts" type="Node2D"]
+script = ExtResource("1_jwahn")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer"]
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/MarginContainer"]
+layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 alignment = 1
 
-[node name="Control" type="Control" parent="CanvasLayer/VBoxContainer"]
+[node name="Control" type="Control" parent="CanvasLayer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="CenterContainer" type="CenterContainer" parent="CanvasLayer/VBoxContainer"]
+[node name="CenterContainer" type="CenterContainer" parent="CanvasLayer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 
-[node name="Label" type="Label" parent="CanvasLayer/VBoxContainer/CenterContainer"]
+[node name="Label" type="Label" parent="CanvasLayer/MarginContainer/VBoxContainer/CenterContainer"]
 layout_mode = 2
 text = "Author: Cezary Bubieniec
 Game engine: Godot"
 
-[node name="Control2" type="Control" parent="CanvasLayer/VBoxContainer"]
+[node name="Control2" type="Control" parent="CanvasLayer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
+
+[node name="marginBack" type="MarginContainer" parent="CanvasLayer"]
+offset_right = 75.0
+offset_bottom = 80.0
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="FontAwesome" type="Label" parent="CanvasLayer/marginBack"]
+layout_mode = 2
+size_flags_horizontal = 0
+auto_translate = false
+localize_numeral_system = false
+theme_override_fonts/font = ExtResource("1_tv1so")
+theme_override_font_sizes/font_size = 40
+text = ""
+vertical_alignment = 1
+script = ExtResource("2_uau5h")
+icon_size = 40
+icon_name = "arrow-left"
+
+[connection signal="gui_input" from="CanvasLayer/marginBack" to="." method="_on_margin_back_gui_input"]
