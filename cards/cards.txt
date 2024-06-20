@@ -1,124 +1,121 @@
 gameMode,content,deck
-neverever,Never have I ever traveled to a country without knowing any of the local language.,travel
-neverever,Never have I ever lost my luggage during a trip.,travel
-neverever,Never have I ever missed a flight.,travel
-neverever,Never have I ever traveled alone to a foreign country.,travel
-neverever,Never have I ever slept in an airport overnight.,travel
-neverever,Never have I ever hitchhiked.,travel
-neverever,Never have I ever taken a spontaneous road trip without a destination in mind.,travel
-neverever,Never have I ever been on a cruise.,travel
-neverever,Never have I ever visited all seven continents.,travel
-neverever,Never have I ever gone backpacking through multiple countries.,travel
-whoami,San Francisco,travel
-whoami,Egypt,travel
-whoami,Japan,travel
-whoami,Pisa,travel
-whoami,Iceland,travel
-whoami,Rome,travel
+neverever,Nigdy przenigdy nie poleciałem do innego kraju bez znajomości języka,travel
+neverever,Nigdy przenigdy nie zgubiłem swojego bagażu podczas podróży,travel
+neverever,Nigdy przenigdy nie przegapiłem lotu,travel
+neverever,Nigdy przenigdy nie poleciałem do innego kraju samemu,travel
+neverever,Nigdy przenigdy nie spałem na lotnisku,travel
+neverever,Nigdy przenigdy nie jechałem na gapę,travel
+neverever,Nigdy przenigdy nie miałem spontanicznej wycieczki bez zaplanowanego celu,travel
+neverever,Nigdy przenigdy nie byłem na rejsie ,travel
+neverever,Nigdy przenigdy nie byłem w sąsiednim kraju,travel
+neverever,Nigdy przenigdy nie podróżowałem z plecakiem przez wiele krajów,travel
+whoami,Paryż,travel
+whoami,Egipt,travel
+whoami,Japonia,travel
+whoami,Polska,travel
+whoami,Islandia,travel
+whoami,Rzym,travel
 whoami,Australia,travel
 whoami,Rio de Janeiro,travel
-whoami,Norway,travel
+whoami,Norwegia,travel
 whoami,Amsterdam,travel
-truth,Have you ever traveled to a place just because you saw it in a movie or on TV?,travel
-truth,What’s the most unusual food you’ve eaten while traveling?,travel
-truth,Have you ever pretended to be a local to avoid looking like a tourist?,travel
-truth,What’s the scariest experience you’ve had while traveling?,travel
-truth,Have you ever taken something from a hotel room?,travel
-dare,Speak in a foreign language for the next two rounds.,travel
-dare,Act out a scene from a famous travel movie.,travel
-dare,Show the most embarrassing photo from your travels.,travel
-dare,Imitate an accent from a country you’ve visited.,travel
-dare,Plan a hypothetical trip to a random country in 2 minutes.,travel
-seconds,Name 5 European capitals.,travel
-seconds,List 5 islands.,travel
-seconds,Name 5 countries that start with the letter ‘M’.,travel
-seconds,"Recall 5 types of traditional transport (like rickshaws, gondolas).",travel
-seconds,Mention 5 famous landmarks.,travel
-seconds,"Name 5 countries that have a red, white, and blue flag.",travel
-seconds,List 5 desert destinations.,travel
-seconds,Name 5 cities with an underground metro system.,travel
-seconds,Recall 5 beach destinations.,travel
-seconds,List 5 countries in Africa.,travel
-neverever,Never have I ever finished a coding challenge in less than an hour.,nerds
-neverever,Never have I ever attended a comic con in full cosplay.,nerds
-neverever,Never have I ever solved a Rubik’s cube in under 2 minutes.,nerds
-neverever,Never have I ever binge-watched an entire sci-fi series in one weekend.,nerds
-neverever,Never have I ever read more than 3 technical books in a month.,nerds
-neverever,Never have I ever built my own computer from scratch.,nerds
-neverever,Never have I ever memorized the periodic table for fun.,nerds
-neverever,Never have I ever participated in a hackathon.,nerds
-neverever,Never have I ever learned a programming language in less than a week.,nerds
-neverever,Never have I ever owned more than 5 different gaming consoles.,nerds
-whoami,The DeLorean from Back to the Future,nerds
-whoami,C-3PO,nerds
-whoami,Harry Potter,nerds
-whoami,Captain James T. Kirk of the USS Enterprise,nerds
-whoami,The One Ring from The Lord of the Rings,nerds
-whoami,Siri,nerds
-whoami,Superman,nerds
-whoami,The Doctor from Doctor Who,nerds
-whoami,Yoda,nerds
-whoami,Sherlock Holmes,nerds
-truth,"If you could be invisible for a day, what’s the first thing you would do? ",nerds
-truth,What’s the most embarrassing piece of fanfiction you’ve ever written or read? ,nerds
-truth,"Which Hogwarts house do you secretly wish you were sorted into, and why? ",nerds
-truth,What’s the nerdiest pickup line you’ve ever used or heard? ,nerds
-truth,Have you ever rage-quit a video game? Which one and why? ,nerds
-dare,Recite the first 10 digits of π (pi) without looking it up! ,nerds
-dare,Perform an impromptu dramatic monologue as your favorite fictional character. ,nerds
-dare,Attempt to explain Schrödinger’s cat paradox in under 60 seconds. ,nerds
-dare,Create a meme on the spot using only science-related terms. ,nerds
-dare,"Speak like Yoda for the next three rounds of the game, you must! ",nerds
-seconds,Name 5 MMO RPG games.,nerds
-seconds,Name 5 games that have dragon.,nerds
-seconds,Name 5 consoles.,nerds
-seconds,Name 5 Characters from Star Wars.,nerds
-seconds,List 5 Planets in our Solar System.,nerds
-seconds,Name 5 Superheroes from DC.,nerds
-seconds,Name 5 Pokémon Types.,nerds
-seconds,Name 5 Superheroes from Marvel.,nerds
-seconds,Name 3 Famous Video Game Designers,nerds
-seconds,Give 2 Essential Components of a Gaming PC,nerds
-neverever,Nigdy przenigdy nie zrzygałem się w samochodzie,przyjaciele
-neverever,Nigdy przenigdy nie piłam w pracy,przyjaciele
-neverever,Nigdy przenigdy nie zgubiłem portfela,przyjaciele
-neverever,Nigdy przenigdy nie zniszczyłem drzwi,przyjaciele
-neverever,Nigdy przenigdy nie byłem w Jaświłach,przyjaciele
-neverever,Nigdy przenigdy nie byłam w klubie,przyjaciele
-neverever,Nigdy przenigdy nie farbowałam włosów,przyjaciele
-neverever,Nigdy przenigdy nie uciekałem pijany od znajomych,przyjaciele
-neverever,Nigdy przenigdy nie byłem na siłowni,przyjaciele
-neverever,Nigdy przenigdy nie spóźniłem się na pociąg,przyjaciele
-neverever,Nigdy przenigdy nie dostałem mandatu za picie w miejscu publicznym,przyjaciele
-neverever,Nigdy przenigdy nie dostałem mandatu za jazdę bez biletu,przyjaciele
-neverever,Nigdy przenigdy nie zrzygałem się na stół,przyjaciele
-neverever,Nigdy przenigdy nie brałem narkotyków,przyjaciele
-whoami,Paweł Szymon Pigiel,przyjaciele
-whoami,Anka Wysocka,przyjaciele
-whoami,Patrycja Rećko,przyjaciele
-whoami,Cezary Bubieniec,przyjaciele
-whoami,Angelika Klej,przyjaciele
-whoami,Karolina Grygorczyk,przyjaciele
-whoami,Paulina Rećko,przyjaciele
-whoami,Natalia Buczyńska,przyjaciele
-whoami,Pies Pawła „Mimi”,przyjaciele
-whoami,Pies Anki „Betica”,przyjaciele
-whoami,Bimber,przyjaciele
-truth,Kto jest najbardziej irytujący z tego grona?,przyjaciele
-truth,Jaki jest Twój najbardziej upokarzający moment w życiu?,przyjaciele
-truth,Komu najmniej ufasz z tego grona?,przyjaciele
-truth,Kogo byś zabił z tego grona?,przyjaciele
-truth,Jakie kłamstwo powiedziałeś rodzeństwu?,przyjaciele
-dare,Osoba po prawej niszczy ci fryzurę,przyjaciele
-dare,Spróbuj każdego alkoholu ze stołu,przyjaciele
-dare,Odegraj złą mamę Pawła,przyjaciele
-dare,Dotknij brzuszka osoby po lewej,przyjaciele
-dare,Zrób jaskółkę,przyjaciele
-seconds,Wymień 5 marek piw,przyjaciele
-seconds,Wymień 3 przypały w Sokółce,przyjaciele
-seconds,Wymień 3 przypały u Anki,przyjaciele
-seconds,Powiedz 4 „toasty” do picia,przyjaciele
-seconds,Wymień 4 imiona rodzeństwa z tego grona,przyjaciele
-seconds,Wymień 5 bary w białymstoku,przyjaciele
-seconds,Wymień 3 kebaby w Białymstoku,przyjaciele
-seconds,Wymień 3 shot bary w Białmystoku,przyjaciele
+truth,"Czy kiedykolwiek podróżowałeś do jakiegoś miejsca tylko dlatego, że widziałeś je w filmie lub internecie?",travel
+truth,Jakie najdziwniejsze jedzenie zjadłeś podczas podróży?,travel
+truth,"Czy kiedykolwiek udawałeś miejscowego, aby nie wyglądać jak turysta?",travel
+truth,Jakie było najstraszniejsze doświadczenie podczas podróży?,travel
+truth,Czy kiedykolwiek zabrałeś coś z pokoju hotelowego?,travel
+dare,Mów w obcym języku przez następne dwie rundy,travel
+dare,Odegraj scenę ze słynnego filmu lub serialu podróżniczego,travel
+dare,Pokaż najbardziej żenujące zdjęcie z podróży,travel
+dare,"Naśladuj akcent z kraju, który odwiedziłeś",travel
+dare,Zaplanuj hipotetyczną podróż do losowego kraju,travel
+seconds,Wymień 3 europejskich stolic,travel
+seconds,Wymień 3 wysp,travel
+seconds,"Wymień 3 krajów, których nazwy zaczynają się na literę ""M""",travel
+seconds,Wymień 3 rodzajów tradycyjnego transportu,travel
+seconds,Wymień 3 słynnych zabytków,travel
+seconds,"Wymień 3 krajów, które mają czerwono-biało-niebieską flagę",travel
+seconds,Wymień 3 gorących miejsc ,travel
+seconds,Wymień 3 miast z podziemnym systemem metra,travel
+seconds,Wymień 3 miejsc z plażą ,travel
+seconds,Wymień 3 krajów w Afryce,travel
+neverever,Nigdy przenigdy nie zabiłem kogoś w grze,video games
+neverever,Nigdy przenigdy nie grałem przeciwną płcią,video games
+neverever,Nigdy przenigdy nie obraziłem kogoś w grze,video games
+neverever,Nigdy przenigdy nie grałem całą noc,video games
+neverever,Nigdy przenigdy nie brałem udziału w turnieju gry,video games
+neverever,Nigdy przenigdy nie kupiłem gry i nie zagrałem w nią,video games
+neverever,Nigdy przenigdy nie wydałem pieniędzy na mikropłatności,video games
+neverever,Nigdy przenigdy nie zostałem okradziony w grze,video games
+neverever,Nigdy przenigdy nie straciłem nerwów na grze,video games
+neverever,Nigdy przenigdy nie spóźniłem się bo grałem w grę,video games
+whoami,Lara Croft,video games
+whoami,Geralt z Rivii,video games
+whoami,Dying Light ,video games
+whoami,Diablo,video games
+whoami,Fallout,video games
+whoami,Bezimienny,video games
+whoami,Hitman,video games
+whoami,Counter-Strike,video games
+whoami,Gordon Freeman,video games
+whoami,Kyle Crane,video games
+truth,Czy kiedykolwiek udawałeś rzucanie umiejętności z gry?,video games
+truth,Czy kiedykolwiek płakałeś podczas grania?,video games
+truth,Jakie są twoje najczęściej grane gry?,video games
+truth,Jakie są twoje ulubione gry?,video games
+truth,Czy kiedykolwiek rozbierałeś postać z gry?,video games
+dare,Wymień przynajmniej dwa kody do gry (np..HESOYAM),video games
+dare,Powiedz cytat postaci z jakiejkolwiek gry,video games
+dare,Powiedz nazwę swojej postaci z gry,video games
+dare,Podaj swoją ulubioną rasę z gry,video games
+dare,Udawaj jakąś postać do końca tury,video games
+seconds,Wymień 3 npc z gier,video games
+seconds,Wymień 3 nazw gier,video games
+seconds,Wymień 3 miast z gier,video games
+seconds,Wymień 3 broni z gier,video games
+seconds,Wymień 3 konsol do gier,video games
+seconds,Wymień 3 broni z gier,video games
+seconds,Wymień 3 gry mobilne,video games
+seconds,Wymień 3 gry wyprodukowane przez firmę Blizzard,video games
+seconds,Wymień 3 gry na VR,video games
+seconds,Wymień 3 gry wyścigowe ,video games
+neverever,Nigdy przenigdy nie byłem na koncercie na stadionie ,music
+neverever,Nigdy przenigdy nie kupiłem płyty winylowej ,music
+neverever,Nigdy przenigdy nie miałem plakatu ulubionego zespołu na ścianie ,music
+neverever,Nigdy przenigdy nie napisałem własnej piosenki ,music
+neverever,Nigdy przenigdy nie grałem na instrumencie muzycznym ,music
+neverever,Nigdy przenigdy nie spotkałem osobiście znanego muzyka ,music
+neverever,Nigdy przenigdy nie byłem w studio nagrań ,music
+neverever,Nigdy przenigdy nie słuchałem piosenek w innym języku niż mój ojczysty ,music
+neverever,Nigdy przenigdy nie śpiewałem karaoke przed publicznością ,music
+neverever,Nigdy przenigdy nie byłem na festiwalu muzycznym ,music
+whoami,Bob Marley,music
+whoami,Amy Winehouse ,music
+whoami,Margaret ,music
+whoami,Eminem,music
+whoami,BTS,music
+whoami,bbno$,music
+whoami,Jack Harlow,music
+whoami,Pete Davidson ,music
+whoami,Taylor Swift ,music
+whoami,Cellar Darling,music
+truth,Czy kiedykolwiek zakochałeś się w kimś z powodu jego gustu muzycznego? ,music
+truth,"Jaki był pierwszy koncert, na którym byłeś? ",music
+truth,Czy kiedykolwiek próbowałeś skomponować własną muzykę? Jak ci poszło? ,music
+truth,Który utwór najbardziej cię wzrusza i dlaczego? ,music
+truth,Jaka jest twoja ulubiona piosenka wszech czasów i dlaczego? ,music
+dare,Zaśpiewaj fragment swojej ulubionej piosenki ,music
+dare,Zatańcz przez minutę do wybranej przez kogoś piosenki ,music
+dare,Zagraj na wyimaginowanym instrumencie przez 30 sekund ,music
+dare,"Napisz krótką, zabawną piosenkę i zaśpiewaj ją na głos ",music
+dare,"Udawaj przez minutę, że jesteś gwiazdą rocka na koncercie ",music
+seconds,Wymień 3 słynne opery ,music
+seconds,Wymień 3 popularne piosenki z lat 80 ,music
+seconds,Wymień 3 festiwale muzyczne ,music
+seconds,Wymień 3 piosenki Michaela Jacksona ,music
+seconds,Wymień 3 instrumenty dęte ,music
+seconds,"Wymień 3 piosenki, które są aktualnie w top 10 listy przebojów ",music
+seconds,Wymień 3 piosenki z musicalu ,music
+seconds,Wymień 3 popularne aplikacje do streamingu muzyki ,music
+seconds,Wymień 3 utwory klasyczne ,music
+seconds,Wymień trzy znane wokalistki popowe ,music
