@@ -42,3 +42,4 @@ func set_icon_name(new_name: String):
 	if icon_name in cheatsheet[icon_type]:
 		iconcode = cheatsheet[icon_type][icon_name]
 		set_text(iconcode)
+

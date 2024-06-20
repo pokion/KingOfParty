@@ -1,4 +1,4 @@
-extends Node2D
+extends CanvasLayer
 
 var buttonPressed = "neverever";
 var cards;
@@ -12,17 +12,18 @@ func _ready():
 	displayCards(cards[buttonPressed])
 
 func displayCards(cardsArray: Array):
-	utils.removeAllNodes($CanvasLayer/VBoxContainer/allCustomCards/ScrollContainer/cardContent)
+	utils.removeAllNodes($VBoxContainer/allCustomCards/ScrollContainer/cardContent)
+		
 	for card in cardsArray:
 		var cardTemplateNew = cardTemplate.duplicate()
 		cardTemplateNew.content = card.content
 		cardTemplateNew.returnArgument = card;
 		cardTemplateNew.click.connect(removeCard)
-		$CanvasLayer/VBoxContainer/allCustomCards/ScrollContainer/cardContent.add_child(cardTemplateNew)
+		$VBoxContainer/allCustomCards/ScrollContainer/cardContent.add_child(cardTemplateNew)
 
 func _on_button_pressed(buttonName):
-	$CanvasLayer/VBoxContainer/buttons/HBoxContainer.find_child(buttonName).disabled = true;
-	$CanvasLayer/VBoxContainer/buttons/HBoxContainer.find_child(buttonPressed).disabled = false;
+	$VBoxContainer/ScrollContainer/buttons/HBoxContainer.find_child(buttonPressed).disabled = false;
+	$VBoxContainer/ScrollContainer/buttons/HBoxContainer.find_child(buttonName).disabled = true;
 	buttonPressed = buttonName;
 	
 	if buttonName != "truth|dare":
@@ -30,33 +31,33 @@ func _on_button_pressed(buttonName):
 			displayCards(cards[buttonPressed])
 		else:
 			utils.removeAllNodes($CanvasLayer/VBoxContainer/allCustomCards/ScrollContainer/cardContent)
-		$CanvasLayer/VBoxContainer/addCard/truthDare.visible = false;
-		$CanvasLayer/VBoxContainer/addCard/addCard.visible = true;
+		$VBoxContainer/addCard/truthDare.visible = false;
+		$VBoxContainer/addCard/addCard.visible = true;
 	else:
 		if cards.has("truth") and cards.has("dare"):
 			var tempArray = cards["truth"];
 			tempArray += cards["dare"];
 			displayCards(tempArray)
-		$CanvasLayer/VBoxContainer/addCard/truthDare.visible = true;
-		$CanvasLayer/VBoxContainer/addCard/addCard.visible = false;
+		$VBoxContainer/addCard/truthDare.visible = true;
+		$VBoxContainer/addCard/addCard.visible = false;
 	buttonPressed = buttonName;
 
 func save():
-	var text = $CanvasLayer/VBoxContainer/addCard/addCard/LineEdit.text
+	var text = $VBoxContainer/addCard/addCard/LineEdit.text
 	if not text.is_empty():
 		cardsController.save(buttonPressed, {"gameMode": buttonPressed, "content": text, "deck": "custom"})
 	_on_button_pressed(buttonPressed)
-	$CanvasLayer/VBoxContainer/addCard/addCard/LineEdit.text = ""
+	$VBoxContainer/addCard/addCard/LineEdit.text = ""
 	
 func saveTruthDare():
-	var truth = $CanvasLayer/VBoxContainer/addCard/truthDare/truth.text
-	var dare = $CanvasLayer/VBoxContainer/addCard/truthDare/dare.text
+	var truth = $VBoxContainer/addCard/truthDare/truth.text
+	var dare = $VBoxContainer/addCard/truthDare/dare.text
 	if not truth.is_empty() and not dare.is_empty():
 		cardsController.save("truth", {"gameMode": "truth", "content": truth, "deck": "custom"})
 		cardsController.save("dare", {"gameMode": "dare", "content": dare, "deck": "custom"})
 	_on_button_pressed(buttonPressed)
-	$CanvasLayer/VBoxContainer/addCard/truthDare/truth.text = ""
-	$CanvasLayer/VBoxContainer/addCard/truthDare/dare.text = ""
+	$VBoxContainer/addCard/truthDare/truth.text = ""
+	$VBoxContainer/addCard/truthDare/dare.text = ""
 
 func removeCard(object):
 	cardsController.removeCard(object.gameMode, object)

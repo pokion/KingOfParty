@@ -9,7 +9,7 @@ func _ready():
 	$Panel/DeckName.text = deckName
 
 func _on_panel_gui_input(event):
-	if event is InputEventMouseButton and event.pressed:
+	if  event is InputEventMouseButton and event.button_mask == 1:
 		selected = !selected
 		deckNamePropagate.emit(deckName, selected)
 		if selected:
