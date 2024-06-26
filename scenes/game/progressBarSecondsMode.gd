@@ -8,3 +8,7 @@ func _on_seconds_timer_timeout():
 		timerEmpty.emit();
 	else:
 		$Timer.start();
+
+
+func _on_value_changed(value):
+	$Label.text = str(value)
