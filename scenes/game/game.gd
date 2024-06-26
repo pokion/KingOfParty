@@ -122,7 +122,7 @@ func showPlayerMode():
 
 #Utilities
 func addPlayersChips(players):
-	var playerContainer = $CanvasLayer/MarginContainer/gameScene/playerContainer;
+	var playerContainer = $CanvasLayer/MarginContainer/gameScene/ScrollContainer/playerContainer;
 	for player in players:
 		var playerChipDuplicated = playerChip.duplicate().instantiate();
 		playerChipDuplicated.fullName = players[player].name
@@ -133,6 +133,7 @@ func addPlayersChips(players):
 
 func changePlayerChipViewToCurrentPlayer():
 	playersNodeReference[players.keys()[currentPlayer]].changeVisibility(true)
+	$CanvasLayer/MarginContainer/gameScene/ScrollContainer.set_h_scroll(playersNodeReference[players.keys()[currentPlayer]].position.x)
 	if currentPlayer == 0:
 		playersNodeReference[players.keys()[players.size() - 1]].changeVisibility(false)
 	else:

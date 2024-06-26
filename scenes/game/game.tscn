@@ -34,8 +34,16 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="playerContainer" type="HBoxContainer" parent="CanvasLayer/MarginContainer/gameScene"]
+[node name="ScrollContainer" type="ScrollContainer" parent="CanvasLayer/MarginContainer/gameScene"]
+custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
+horizontal_scroll_mode = 3
+vertical_scroll_mode = 3
+
+[node name="playerContainer" type="HBoxContainer" parent="CanvasLayer/MarginContainer/gameScene/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 5
 alignment = 1
 
 [node name="secondsProgressBar" type="ProgressBar" parent="CanvasLayer/MarginContainer/gameScene"]
