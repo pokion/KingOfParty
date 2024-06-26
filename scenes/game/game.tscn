@@ -40,14 +40,34 @@ alignment = 1
 
 [node name="secondsProgressBar" type="ProgressBar" parent="CanvasLayer/MarginContainer/gameScene"]
 visible = false
+custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
 max_value = 10.0
 step = 1.0
 value = 10.0
+show_percentage = false
 script = ExtResource("2_5472w")
 
 [node name="Timer" type="Timer" parent="CanvasLayer/MarginContainer/gameScene/secondsProgressBar"]
 one_shot = true
+
+[node name="Label" type="Label" parent="CanvasLayer/MarginContainer/gameScene/secondsProgressBar"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -14.5
+offset_right = 20.0
+offset_bottom = 14.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+text = "10"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="gameModeSectionStart" type="Control" parent="CanvasLayer/MarginContainer/gameScene"]
 layout_mode = 2
@@ -144,6 +164,7 @@ offsetFromCenter = 400
 shape = SubResource("RectangleShape2D_oscr7")
 
 [connection signal="timerEmpty" from="CanvasLayer/MarginContainer/gameScene/secondsProgressBar" to="." method="_on_seconds_progress_bar_timer_empty"]
+[connection signal="value_changed" from="CanvasLayer/MarginContainer/gameScene/secondsProgressBar" to="CanvasLayer/MarginContainer/gameScene/secondsProgressBar" method="_on_value_changed"]
 [connection signal="timeout" from="CanvasLayer/MarginContainer/gameScene/secondsProgressBar/Timer" to="CanvasLayer/MarginContainer/gameScene/secondsProgressBar" method="_on_seconds_timer_timeout"]
 [connection signal="click" from="CanvasLayer/MarginContainer/gameScene/truthDareContainer/truth" to="." method="_on_dare_button" binds= [true]]
 [connection signal="click" from="CanvasLayer/MarginContainer/gameScene/truthDareContainer/dare" to="." method="_on_dare_button" binds= [false]]
