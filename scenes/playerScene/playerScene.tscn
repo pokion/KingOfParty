@@ -48,16 +48,18 @@ alignment = 1
 custom_minimum_size = Vector2(260, 0)
 layout_mode = 2
 placeholder_text = "Enter name"
+alignment = 1
 caret_blink = true
 caret_blink_interval = 0.5
 
 [node name="addPlayer" type="Button" parent="VBoxContainer/HBoxContainer"]
-custom_minimum_size = Vector2(50, 50)
+custom_minimum_size = Vector2(30, 30)
 layout_mode = 2
 text = "+"
 
 [node name="HSeparator" type="HSeparator" parent="VBoxContainer"]
 layout_mode = 2
+theme_override_constants/separation = 20
 theme_override_styles/separator = SubResource("StyleBoxFlat_iwr8t")
 
 [node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer"]
@@ -65,11 +67,13 @@ clip_contents = false
 layout_mode = 2
 size_flags_vertical = 3
 follow_focus = true
+horizontal_scroll_mode = 0
 
 [node name="PlayerContainer" type="VBoxContainer" parent="VBoxContainer/ScrollContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 2
+theme_override_constants/separation = 30
 alignment = 1
 
 [node name="colorPickerControl" type="Control" parent="."]
@@ -97,5 +101,6 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_d7ljd")
 layout_mode = 1
 offset_top = 147.0
 
+[connection signal="text_submitted" from="VBoxContainer/HBoxContainer/playerName" to="." method="_on_add_player_pressed"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/addPlayer" to="." method="_on_add_player_pressed"]
 [connection signal="gui_input" from="colorPickerControl" to="colorPickerControl" method="_on_gui_input"]

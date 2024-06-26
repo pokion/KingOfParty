@@ -53,16 +53,14 @@ text = "10 Seconds"
 
 [node name="addCard" type="MarginContainer" parent="VBoxContainer"]
 layout_mode = 2
+theme_override_constants/margin_left = 20
 theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
 theme_override_constants/margin_bottom = 20
 
 [node name="addCard" type="HBoxContainer" parent="VBoxContainer/addCard"]
 layout_mode = 2
 alignment = 1
-
-[node name="Control2" type="Control" parent="VBoxContainer/addCard/addCard"]
-layout_mode = 2
-size_flags_horizontal = 3
 
 [node name="LineEdit" type="LineEdit" parent="VBoxContainer/addCard/addCard"]
 layout_mode = 2
@@ -71,21 +69,14 @@ placeholder_text = "Card content"
 alignment = 1
 
 [node name="Button" type="Button" parent="VBoxContainer/addCard/addCard"]
+custom_minimum_size = Vector2(30, 30)
 layout_mode = 2
-text = "Add card"
-
-[node name="Control" type="Control" parent="VBoxContainer/addCard/addCard"]
-layout_mode = 2
-size_flags_horizontal = 3
+text = "+"
 
 [node name="truthDare" type="HBoxContainer" parent="VBoxContainer/addCard"]
 visible = false
 layout_mode = 2
 alignment = 1
-
-[node name="Control2" type="Control" parent="VBoxContainer/addCard/truthDare"]
-layout_mode = 2
-size_flags_horizontal = 3
 
 [node name="truth" type="LineEdit" parent="VBoxContainer/addCard/truthDare"]
 layout_mode = 2
@@ -100,12 +91,9 @@ placeholder_text = "Dare content"
 alignment = 1
 
 [node name="Button" type="Button" parent="VBoxContainer/addCard/truthDare"]
+custom_minimum_size = Vector2(30, 30)
 layout_mode = 2
-text = "Add card"
-
-[node name="Control" type="Control" parent="VBoxContainer/addCard/truthDare"]
-layout_mode = 2
-size_flags_horizontal = 3
+text = "+"
 
 [node name="allCustomCards" type="MarginContainer" parent="VBoxContainer"]
 layout_mode = 2
@@ -118,11 +106,8 @@ theme_override_constants/margin_bottom = 20
 [node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer/allCustomCards"]
 layout_mode = 2
 
-[node name="cardContent" type="GridContainer" parent="VBoxContainer/allCustomCards/ScrollContainer"]
+[node name="cardContent" type="HBoxContainer" parent="VBoxContainer/allCustomCards/ScrollContainer"]
 layout_mode = 2
-theme_override_constants/h_separation = 10
-theme_override_constants/v_separation = 20
-columns = 3
 
 [connection signal="pressed" from="VBoxContainer/ScrollContainer/buttons/HBoxContainer/neverever" to="." method="_on_button_pressed" binds= ["neverever"]]
 [connection signal="pressed" from="VBoxContainer/ScrollContainer/buttons/HBoxContainer/whoami" to="." method="_on_button_pressed" binds= ["whoami"]]

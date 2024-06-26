@@ -8,6 +8,7 @@ var rules = [checkIfPlayerCheckedAtLeastOneGameMode, checkIfPlayerSelectAtLeastO
 var players;
 var decks = []
 var gameType = null
+var titleNames = ["Wybierz tryb do gry","Wybierz deki","Wpisz graczy"]
 
 func _ready():
 	gameSettings = get_node("/root/GameSettings")
@@ -16,19 +17,19 @@ func _ready():
 	
 func checkIfPlayerCheckedAtLeastOneGameMode():
 	if pickedGameModes.size() == 0:
-		return "You need check at least one game mode."
+		return "Musisz wybrać przynajmniej jeden tryb gry"
 	else:
 		return false;
 
 func checkIfPlayerSelectAtLeastOnePlayer():
 	if players.getAllPlayers().size() == 0:
-		return "You need add at least one player."
+		return "Musisz dodać przynajmniej jednego gracza"
 	else:
 		return false;
 		
 func checkIfPlayerSelectAtLeastOneDeck():
 	if decks.size() == 0:
-		return "You need select at least one deck."
+		return "Musisz wybrać przynajmniej jeden dek"
 	else:
 		return false;
 		
@@ -40,6 +41,9 @@ func checkIfPlayerSelectGameType():
 	
 func setErrorMessage(message):
 	$CanvasLayer/VBoxContainer/ErrorMessage.text = message;
+	
+func removeErrorMessage():
+	setErrorMessage("")
 	
 func ruleToStep(direction):
 	if direction == "next":
@@ -66,6 +70,7 @@ func next():
 	
 	step[currentStep - 1].visible = false;
 	step[currentStep].visible = true;
+	$CanvasLayer/VBoxContainer/labelMargin/titleLabel.text = titleNames[currentStep]
 		
 		
 func prev():
@@ -80,6 +85,7 @@ func prev():
 	
 	step[currentStep + 1].visible = false;
 	step[currentStep].visible = true;
+	$CanvasLayer/VBoxContainer/labelMargin/titleLabel.text = titleNames[currentStep]
 	
 func backToMenu():
 	get_tree().change_scene_to_file("res://scenes/menu/menu.tscn")

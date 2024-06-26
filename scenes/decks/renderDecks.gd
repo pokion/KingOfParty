@@ -9,7 +9,7 @@ func _ready():
 	for deckname in decksNames:
 		decks.append(deckname)
 	var hiddenDeck = $HiddenDeck
-	var deckDispaly = $VBoxContainer/ScrollContainer/MarginContainer/decksDisplay
+	var deckDispaly = $VBoxContainer/ScrollContainer/decksDisplay
 	for deckName in decks:
 		var newDeck = hiddenDeck.duplicate()
 		newDeck.deckName = deckName
