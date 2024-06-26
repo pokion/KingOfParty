@@ -59,7 +59,6 @@ mouse_filter = 1
 visible = false
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_constants/separation = 10
 alignment = 1
 
 [node name="truth" parent="CanvasLayer/MarginContainer/gameScene/truthDareContainer" instance=ExtResource("3_5epv8")]
@@ -74,6 +73,7 @@ content = "Dare"
 
 [node name="playerTurnAndHint" type="VBoxContainer" parent="CanvasLayer/MarginContainer/gameScene"]
 layout_mode = 2
+theme_override_constants/separation = 20
 alignment = 1
 
 [node name="playerTrun" type="Label" parent="CanvasLayer/MarginContainer/gameScene/playerTurnAndHint"]
@@ -98,6 +98,7 @@ mouse_filter = 1
 setsButton = "showCard"
 
 [node name="mainCard" parent="CanvasLayer" instance=ExtResource("5_pl3wq")]
+isSwipeActive = false
 
 [node name="skipButton" type="Button" parent="CanvasLayer"]
 visible = false

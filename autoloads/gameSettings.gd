@@ -9,7 +9,7 @@ func getSettings():
 		return {
 			"gameModes": ["neverever", "whoami", ["truth", "dare"], "seconds"],
 			#"gameModes": [["truth", "dare"]],
-			"decks": ["nerds", "travel"],
+			"decks": ["video games", "travel"],
 			"gameType": "gameType"
 		}
 	else:

@@ -26,6 +26,9 @@ func _process(delta):
 
 func setContent(text: String)->void:
 	$Panel/MarginContainer/VBoxContainer/Content.text = text;
+	
+func setDeckName(text: String)->void:
+	$Panel/MarginContainer/VBoxContainer/deck.text = text;
 
 func calculateRotation():
 	var deegre = 0;

@@ -60,6 +60,7 @@ localize_numeral_system = false
 theme_override_fonts/font = ExtResource("1_tv1so")
 theme_override_font_sizes/font_size = 40
 text = ""
+horizontal_alignment = 1
 vertical_alignment = 1
 script = ExtResource("2_uau5h")
 icon_size = 40

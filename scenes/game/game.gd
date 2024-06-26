@@ -21,8 +21,8 @@ var gameModeToEnums = {
 }
 
 var hintsForNextMode = {
-	"seconds": "Pass phone to next player.",
-	"whoami": "Put the phone to your forehead and click the screen."
+	"seconds": "Podaj telefon dla kolejnej osoby",
+	"whoami": "Przyłóż telefon do czoła i kliknij w ekran"
 }
 #autoloads
 var cardsController;
@@ -63,7 +63,6 @@ func _process(delta):
 			
 func changeVisibilityOfNodes(state):
 	Utils.hideNodes(nodes.values() as Array[Node]);
-	nodes["mainCard"].isSwipeActive = true;
 	match state:
 		SHOW_PLAYER_TURN:
 			showPlayerMode();
@@ -85,7 +84,6 @@ func showSecondsMode():
 	Utils.showNodes([nodes["progressBar"], nodes["mainCard"]]);
 	nodes["progressBar"].value = 10;
 	nodes["mainCard"].setContent(currentCard["content"])
-	nodes["mainCard"].isSwipeActive = false
 	$CanvasLayer/uiButtonsInGame.setButtons("startTimer")
 
 func showWhoAmIMode():
@@ -144,8 +142,10 @@ func changePlayerChipViewToCurrentPlayer():
 func _on_show_card_button_pressed():
 	if currentCard is Array:
 		changeVisibilityOfNodes(SHOW_TRUTH_DARE_SCENE)
+		nodes["mainCard"].setDeckName(currentCard[0].deck)
 	else:
 		changeVisibilityOfNodes(gameModeToEnums[currentCard["gameMode"]])
+		nodes["mainCard"].setDeckName(currentCard.deck)
 
 func onNextPlayer():
 	if cards.size() <= 1:
