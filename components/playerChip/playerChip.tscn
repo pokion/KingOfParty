@@ -67,8 +67,6 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="explosion" type="CPUParticles2D" parent="FirstLetterChip"]
-light_mask = 2
-visibility_layer = 2
 position = Vector2(25, 25)
 scale = Vector2(1.55537, 1.75873)
 emitting = false
@@ -87,4 +85,9 @@ scale_amount_max = 3.0
 scale_amount_curve = SubResource("Curve_6k6ny")
 script = ExtResource("2_w7u12")
 
+[node name="Timer" type="Timer" parent="FirstLetterChip/explosion"]
+wait_time = 0.1
+one_shot = true
+
 [connection signal="gui_input" from="." to="." method="_on_gui_input"]
+[connection signal="timeout" from="FirstLetterChip/explosion/Timer" to="FirstLetterChip/explosion" method="timerEnd"]
