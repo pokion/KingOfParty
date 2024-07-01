@@ -12,6 +12,6 @@ func _ready():
 	$name.text = playerName
 	$PanelContainer.changeFirstLetter(firstLetter)
 	$PanelContainer.changeColor(color)
-
+	
 func _on_panel_container_chip_pressed(referenceScene):
 	showColorpicker.emit(referenceObject, referenceScene)
