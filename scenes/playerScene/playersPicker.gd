@@ -29,7 +29,11 @@ func _on_add_player_pressed(text : String = "nothing"):
 	if playerName.length() == 0:
 		onErrorMessage.emit("Musisz wpisać przynajmniej jeden znak")
 		return;
-	addPlayerToContainer(players.addPlayer(playerName))
+	var playerDictionary = players.addPlayer(playerName)
+	if playerDictionary is String:
+		onErrorMessage.emit(playerDictionary)
+		return;
+	addPlayerToContainer(playerDictionary)
 	$VBoxContainer/HBoxContainer/playerName.text = ""
 	onRemoveErrorMessage.emit()
 

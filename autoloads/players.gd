@@ -9,7 +9,9 @@ func _ready():
 	colorsShuffled = colors.duplicate();
 	colors.shuffle();
 
-func addPlayer(name: String) -> Dictionary:
+func addPlayer(name: String):
+	if playersArray.has(name):
+		return "Gracz o takiej nazwie już istnieje"
 	var player = {
 		"name": name,
 		"points": 0,
