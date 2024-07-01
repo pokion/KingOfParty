@@ -6,7 +6,7 @@ var colorPicker;
 
 signal onErrorMessage(errorMessage: String)
 signal onRemoveErrorMessage()
-# Called when the node enters the scene tree for the first time.
+
 func _ready():
 	players = get_node("/root/Players");
 	colorPicker = $colorPickerControl;

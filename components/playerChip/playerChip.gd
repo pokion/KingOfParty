@@ -8,7 +8,6 @@ extends PanelContainer
 
 signal chipPressed(referenceScene);
 
-# Called when the node enters the scene tree for the first time.
 func _ready():
 	$fullNameChip/fullName.text = fullName;
 	$FirstLetterChip/firstLetter.text = firstLetter;
@@ -31,7 +30,6 @@ func changeColor(color: Color):
 	self.add_theme_stylebox_override("panel", style)
 	if stopParticle == false:
 		$FirstLetterChip/explosion.changeParticleColor(color)
-
 
 func _on_gui_input(event):
 	if event is InputEventMouseButton and event.pressed and event.button_index == 1:

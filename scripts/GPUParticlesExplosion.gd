@@ -1,9 +1,8 @@
-extends GPUParticles2D
-
+extends CPUParticles2D
 
 func _ready():
-	self.emitting = true;
+	self.restart();
 
 func changeParticleColor(color):
-	self.process_material.color = color;
+	self.color = color;
 	self.restart();
