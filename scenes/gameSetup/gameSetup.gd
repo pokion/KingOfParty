@@ -8,7 +8,7 @@ var rules = [checkIfPlayerCheckedAtLeastOneGameMode, checkIfPlayerSelectAtLeastO
 var players;
 var decks = []
 var gameType = null
-var titleNames = ["Wybierz tryb do gry","Wybierz deki","Wpisz graczy"]
+var titleNames = ["Wybierz tryb gry","Wybierz deki","Wpisz graczy"]
 
 func _ready():
 	gameSettings = get_node("/root/GameSettings")

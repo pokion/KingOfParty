@@ -125,6 +125,7 @@ func addPlayersChips(players):
 	var playerContainer = $CanvasLayer/MarginContainer/gameScene/ScrollContainer/playerContainer;
 	for player in players:
 		var playerChipDuplicated = playerChip.duplicate().instantiate();
+		playerChipDuplicated.stopParticle = true;
 		playerChipDuplicated.fullName = players[player].name
 		playerChipDuplicated.firstLetter = players[player].firstLetter
 		playerChipDuplicated.colorBorder = players[player].color

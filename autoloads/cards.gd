@@ -17,6 +17,9 @@ func _ready():
 func getAllCards():
 	return cards;
 	
+func getAllDecksNames() -> Array:
+	return cards.keys()
+	
 func shuffleAndReturn(nameOfGamemodes: Array, decks: Array) -> Array:
 	var newArray = [];
 	var tempArray = null;
@@ -89,7 +92,7 @@ func loadCustomCards():
 	var json = JSON.new();
 	var parseResult = json.parse(jsonString)
 	customCards = json.get_data()
-	if customCards["dare"].size() <= 0 or customCards["neverever"].size() <= 0 or customCards["seconds"].size() <= 0 or customCards["truth"].size() <= 0 or customCards["whoami"].size() > 0:
+	if customCards["dare"].size() <= 0 and customCards["neverever"].size() <= 0 and customCards["seconds"].size() <= 0 and customCards["truth"].size() <= 0 and customCards["whoami"].size() > 0:
 		return;
 	cards["custom"] = customCards
 
