@@ -26,6 +26,7 @@ script = ExtResource("2_c4vyq")
 [node name="Panel" type="Panel" parent="HiddenDeck"]
 custom_minimum_size = Vector2(280, 113)
 layout_mode = 2
+mouse_filter = 1
 theme_override_styles/panel = ExtResource("3_5ghyv")
 
 [node name="DeckName" type="Label" parent="HiddenDeck/Panel"]
@@ -66,6 +67,7 @@ theme_override_constants/separation = 30
 [node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
+scroll_deadzone = 10
 
 [node name="decksDisplay" type="VBoxContainer" parent="VBoxContainer/ScrollContainer"]
 layout_mode = 2

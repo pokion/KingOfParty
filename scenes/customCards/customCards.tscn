@@ -16,6 +16,7 @@ grow_vertical = 2
 [node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer"]
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
+scroll_deadzone = 10
 
 [node name="buttons" type="MarginContainer" parent="VBoxContainer/ScrollContainer"]
 layout_mode = 2
@@ -32,22 +33,26 @@ alignment = 1
 
 [node name="neverever" type="Button" parent="VBoxContainer/ScrollContainer/buttons/HBoxContainer"]
 layout_mode = 2
+mouse_filter = 1
 theme = ExtResource("1_5431j")
 disabled = true
 text = "Never Ever"
 
 [node name="whoami" type="Button" parent="VBoxContainer/ScrollContainer/buttons/HBoxContainer"]
 layout_mode = 2
+mouse_filter = 1
 theme = ExtResource("1_5431j")
 text = "Who am I?"
 
 [node name="truth|dare" type="Button" parent="VBoxContainer/ScrollContainer/buttons/HBoxContainer"]
 layout_mode = 2
+mouse_filter = 1
 theme = ExtResource("1_5431j")
 text = "Truth or Dare"
 
 [node name="seconds" type="Button" parent="VBoxContainer/ScrollContainer/buttons/HBoxContainer"]
 layout_mode = 2
+mouse_filter = 1
 theme = ExtResource("1_5431j")
 text = "10 Seconds"
 
@@ -105,6 +110,8 @@ theme_override_constants/margin_bottom = 20
 
 [node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer/allCustomCards"]
 layout_mode = 2
+mouse_filter = 0
+scroll_deadzone = 10
 
 [node name="cardContent" type="HBoxContainer" parent="VBoxContainer/allCustomCards/ScrollContainer"]
 layout_mode = 2
@@ -113,5 +120,6 @@ layout_mode = 2
 [connection signal="pressed" from="VBoxContainer/ScrollContainer/buttons/HBoxContainer/whoami" to="." method="_on_button_pressed" binds= ["whoami"]]
 [connection signal="pressed" from="VBoxContainer/ScrollContainer/buttons/HBoxContainer/truth|dare" to="." method="_on_button_pressed" binds= ["truth|dare"]]
 [connection signal="pressed" from="VBoxContainer/ScrollContainer/buttons/HBoxContainer/seconds" to="." method="_on_button_pressed" binds= ["seconds"]]
+[connection signal="text_submitted" from="VBoxContainer/addCard/addCard/LineEdit" to="." method="save"]
 [connection signal="pressed" from="VBoxContainer/addCard/addCard/Button" to="." method="save"]
 [connection signal="pressed" from="VBoxContainer/addCard/truthDare/Button" to="." method="saveTruthDare"]
