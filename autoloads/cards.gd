@@ -31,21 +31,21 @@ func shuffleAndReturn(nameOfGamemodes: Array, decks: Array) -> Array:
 			for gamemode in cards[deck]:
 				tempArray[gamemode] += cards[deck][gamemode]
 
-	for name in nameOfGamemodes:
-		if name is Array:
+	for nameGamemode in nameOfGamemodes:
+		if nameGamemode is Array:
 			var minimalSize = 0
 			var joinedArray = []
-			for indexName in name:
+			for indexName in nameGamemode:
 				minimalSize = tempArray[indexName].size();
 				tempArray[indexName].shuffle();
 			for index in minimalSize:
 				var arrayToPush = []
-				for indexName in name:
+				for indexName in nameGamemode:
 					arrayToPush.append(tempArray[indexName][index])
 				joinedArray.append(arrayToPush)
 			newArray += joinedArray;
 		else:
-			newArray += tempArray[name];
+			newArray += tempArray[nameGamemode];
 			
 	newArray.shuffle();
 	return newArray;
@@ -90,7 +90,7 @@ func loadCustomCards():
 	var saveCards = FileAccess.open(savePath, FileAccess.READ)
 	var jsonString = saveCards.get_line()
 	var json = JSON.new();
-	var parseResult = json.parse(jsonString)
+	json.parse(jsonString)
 	customCards = json.get_data()
 	if customCards["dare"].size() <= 0 and customCards["neverever"].size() <= 0 and customCards["seconds"].size() <= 0 and customCards["truth"].size() <= 0 and customCards["whoami"].size() > 0:
 		return;

@@ -10,15 +10,15 @@ func _ready():
 		decks.append(deckname)
 	var hiddenDeck = $HiddenDeck
 	var deckDispaly = $VBoxContainer/ScrollContainer/decksDisplay
-	for deckName in decks:
+	for deckNameI in decks:
 		var newDeck = hiddenDeck.duplicate()
-		newDeck.deckName = deckName
+		newDeck.deckName = deckNameI
 		newDeck.visible = true
 		deckDispaly.add_child(newDeck)
 
-func _on_hidden_deck_deck_name_propagate(name, selected):
+func _on_hidden_deck_deck_name_propagate(nameDeck, selected):
 	if not selected:
-		selectedDecks.erase(name)
+		selectedDecks.erase(nameDeck)
 	else:
-		selectedDecks.append(name)
+		selectedDecks.append(nameDeck)
 	deckName.emit(selectedDecks);

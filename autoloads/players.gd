@@ -9,16 +9,16 @@ func _ready():
 	colorsShuffled = colors.duplicate();
 	colors.shuffle();
 
-func addPlayer(name: String):
-	if playersArray.has(name):
+func addPlayer(namePlayer: String):
+	if playersArray.has(namePlayer):
 		return "Gracz o takiej nazwie już istnieje"
 	var player = {
-		"name": name,
+		"name": namePlayer,
 		"points": 0,
-		"firstLetter": name[0].to_upper(),
+		"firstLetter": namePlayer[0].to_upper(),
 		"color": getRandomColor()
 	}
-	playersArray[name] = player;
+	playersArray[namePlayer] = player;
 	return player;
 
 func getRandomColor():

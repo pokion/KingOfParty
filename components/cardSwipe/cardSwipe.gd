@@ -30,6 +30,9 @@ func setContent(text: String)->void:
 func setDeckName(text: String)->void:
 	$Panel/MarginContainer/VBoxContainer/deck.text = text;
 
+func setAuthor(text: String)->void:
+	$Panel/MarginContainer/VBoxContainer/Author.text = text;
+
 func calculateRotation():
 	var deegre = 0;
 	if self.position.x >= vieportSize.x/2:
@@ -47,14 +50,14 @@ func calculateReturnStep(timeElapsed):
 	self.position.x = newPosition
 
 func _on_gui_input(event):
-	if event.button_mask == 1:
-		isPressed = true;
-	if event.button_mask == 0 and isPressed:
-		timeElapse = 0;
-		initialDistance = self.position.x;
-		isPressed = false;
-		
-	if isSwipeActive and event is InputEventMouseMotion and event.button_mask == 1:
-		var positionMouse = event.position
-		self.position.x = get_global_mouse_position().x
+	if isSwipeActive:
+		if event.button_mask == 1:
+			isPressed = true;
+		if event.button_mask == 0 and isPressed:
+			timeElapse = 0;
+			initialDistance = self.position.x;
+			isPressed = false;
+			
+		if isSwipeActive and event is InputEventMouseMotion and event.button_mask == 1:
+			self.position.x = get_global_mouse_position().x
 		

@@ -42,7 +42,7 @@ func _on_button_pressed(buttonName):
 		$VBoxContainer/addCard/addCard.visible = false;
 	buttonPressed = buttonName;
 
-func save(str: String = "d"):
+func save(_strPass: String = "d"):
 	var text = $VBoxContainer/addCard/addCard/LineEdit.text
 	if not text.is_empty():
 		cardsController.save(buttonPressed, {"gameMode": buttonPressed, "content": text, "deck": "custom"})

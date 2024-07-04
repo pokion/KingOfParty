@@ -43,8 +43,6 @@ func _ready():
 		"truthDareContainer": $CanvasLayer/MarginContainer/gameScene/truthDareContainer,
 		"progressBar": $CanvasLayer/MarginContainer/gameScene/secondsProgressBar,
 		"playerTurnAndHint": $CanvasLayer/MarginContainer/gameScene/playerTurnAndHint,
-		"rejectArea": $rejectArea,
-		"completeArea": $completeArea,
 		"skipButton": $CanvasLayer/skipButton
 	}
 	cardsController = get_node("/root/Cards");
@@ -56,7 +54,7 @@ func _ready():
 	onNextPlayer()
 	changePlayerChipViewToCurrentPlayer()
 
-func _process(delta):
+func _process(_delta):
 	if isRejectedAreaNow != null and Input.is_action_just_released("mouseClick"):
 		isRejectedAreaNow = null
 		onNextPlayer()
@@ -87,12 +85,12 @@ func showSecondsMode():
 	$CanvasLayer/uiButtonsInGame.setButtons("startTimer")
 
 func showWhoAmIMode():
-	Utils.showNodes([nodes["mainCard"], nodes["rejectArea"], nodes["completeArea"]])
+	Utils.showNodes([nodes["mainCard"]])
 	nodes["mainCard"].setContent(currentCard["content"])
 	$CanvasLayer/uiButtonsInGame.setButtons("showCard")
 
 func showTruthDareMode(truthOrDare):
-	Utils.showNodes([nodes["mainCard"], nodes["rejectArea"], nodes["completeArea"]])
+	Utils.showNodes([nodes["mainCard"]])
 	if currentCard[0]["gameMode"] == truthOrDare:
 		nodes["mainCard"].setContent(currentCard[0]["content"])
 	else:
@@ -103,7 +101,7 @@ func showTruthDarePickingMode():
 	Utils.showNodes([nodes["truthDareContainer"]])
 
 func showNeverEverMode():
-	Utils.showNodes([nodes["mainCard"], nodes["rejectArea"], nodes["completeArea"]])
+	Utils.showNodes([nodes["mainCard"]])
 	nodes["mainCard"].setContent(currentCard["content"])
 	$CanvasLayer/uiButtonsInGame.setButtons("showCard")
 
@@ -121,9 +119,9 @@ func showPlayerMode():
 	$CanvasLayer/uiButtonsInGame.setButtons("show")
 
 #Utilities
-func addPlayersChips(players):
+func addPlayersChips(playersChip):
 	var playerContainer = $CanvasLayer/MarginContainer/gameScene/ScrollContainer/playerContainer;
-	for player in players:
+	for player in playersChip:
 		var playerChipDuplicated = playerChip.duplicate().instantiate();
 		playerChipDuplicated.stopParticle = true;
 		playerChipDuplicated.fullName = players[player].name
@@ -145,9 +143,11 @@ func _on_show_card_button_pressed():
 	if currentCard is Array:
 		changeVisibilityOfNodes(SHOW_TRUTH_DARE_SCENE)
 		nodes["mainCard"].setDeckName(currentCard[0].deck)
+		nodes["mainCard"].setAuthor(currentCard[0].gameMode)
 	else:
 		changeVisibilityOfNodes(gameModeToEnums[currentCard["gameMode"]])
 		nodes["mainCard"].setDeckName(currentCard.deck)
+		nodes["mainCard"].setAuthor(currentCard.gameMode)
 
 func onNextPlayer():
 	if cards.size() <= 1:
@@ -167,7 +167,7 @@ func _on_skip_card():
 	changeVisibilityOfNodes(SHOW_PLAYER_TURN);
 
 #this function catch signal form truth/dare card
-func _on_dare_button(object, isTruth):
+func _on_dare_button(_object, isTruth):
 	if isTruth:
 		changeVisibilityOfNodes(SHOW_TRUTH_SCENE);
 	else:
@@ -179,13 +179,6 @@ func _on_start_timer_button_pressed():
 func _on_seconds_progress_bar_timer_empty():
 	$CanvasLayer/uiButtonsInGame.visible = true;
 	$CanvasLayer/uiButtonsInGame.setButtons("showCard")
-
-#isRejectedArea returns true only if its a rejected area
-func _on_entered(area, isRejectedArea):
-	isRejectedAreaNow = isRejectedArea
-
-func _on_exited(area):
-	isRejectedAreaNow = null;
 
 func _on_ui_buttons(mode):
 	match mode:

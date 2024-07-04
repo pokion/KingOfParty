@@ -24,6 +24,10 @@ Cards="*res://autoloads/cards.gd"
 GameSettings="*res://autoloads/gameSettings.gd"
 ApplicationSetting="*res://autoloads/applicationSetting.gd"
 
+[debug]
+
+canvas_items/debug_redraw_time=0.0
+
 [display]
 
 window/size/viewport_width=360
