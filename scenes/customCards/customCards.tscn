@@ -1,7 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://bkcig5rg1nmwd"]
+[gd_scene load_steps=6 format=3 uid="uid://bkcig5rg1nmwd"]
 
 [ext_resource type="Theme" uid="uid://ccby6u78vqqyn" path="res://styles/buttonRadio.tres" id="1_5431j"]
 [ext_resource type="Script" path="res://scenes/customCards/customCards.gd" id="1_yuctq"]
+[ext_resource type="Script" path="res://scripts/backToMenu.gd" id="2_wm1tu"]
+[ext_resource type="FontFile" uid="uid://c1x37tqs8bpaa" path="res://addons/fontawesome/fonts/fa-solid-900.woff2" id="3_b113n"]
+[ext_resource type="Script" path="res://addons/fontawesome/FontAwesome.gd" id="4_6jfnd"]
 
 [node name="Control" type="CanvasLayer"]
 script = ExtResource("1_yuctq")
@@ -12,6 +15,28 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="backToMenu" type="MarginContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+script = ExtResource("2_wm1tu")
+
+[node name="FontAwesome" type="Label" parent="VBoxContainer/backToMenu"]
+layout_mode = 2
+size_flags_horizontal = 0
+auto_translate = false
+localize_numeral_system = false
+theme_override_fonts/font = ExtResource("3_b113n")
+theme_override_font_sizes/font_size = 40
+text = ""
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("4_6jfnd")
+icon_size = 40
+icon_name = "arrow-left"
 
 [node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer"]
 custom_minimum_size = Vector2(0, 100)
@@ -116,6 +141,7 @@ scroll_deadzone = 10
 [node name="cardContent" type="HBoxContainer" parent="VBoxContainer/allCustomCards/ScrollContainer"]
 layout_mode = 2
 
+[connection signal="gui_input" from="VBoxContainer/backToMenu" to="VBoxContainer/backToMenu" method="_on_gui_input"]
 [connection signal="pressed" from="VBoxContainer/ScrollContainer/buttons/HBoxContainer/neverever" to="." method="_on_button_pressed" binds= ["neverever"]]
 [connection signal="pressed" from="VBoxContainer/ScrollContainer/buttons/HBoxContainer/whoami" to="." method="_on_button_pressed" binds= ["whoami"]]
 [connection signal="pressed" from="VBoxContainer/ScrollContainer/buttons/HBoxContainer/truth|dare" to="." method="_on_button_pressed" binds= ["truth|dare"]]
