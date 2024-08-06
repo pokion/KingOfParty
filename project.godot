@@ -15,6 +15,7 @@ run/main_scene="res://scenes/menu/menu.tscn"
 config/use_custom_user_dir=true
 config/custom_user_dir_name="KOP"
 config/features=PackedStringArray("4.2", "GL Compatibility")
+run/max_fps=60
 boot_splash/bg_color=Color(0.101961, 0.176471, 0.223529, 1)
 
 [autoload]
