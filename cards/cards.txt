@@ -119,3 +119,83 @@ seconds,Wymień 3 piosenki z musicalu ,music
 seconds,Wymień 3 popularne aplikacje do streamingu muzyki ,music
 seconds,Wymień 3 utwory klasyczne ,music
 seconds,Wymień trzy znane wokalistki popowe ,music
+neverever,"Nigdy przenigdy nie oglądałem żadnego filmu z serii ""Gwiezdne Wojny"" ",movie
+neverever,Nigdy przenigdy nie zasnąłem podczas seansu w kinie ,movie
+neverever,Nigdy przenigdy nie widziałem żadnego filmu nagrodzonego Oscarem za najlepszy film ,movie
+neverever,Nigdy przenigdy nie obejrzałem żadnego filmu z uniwersum Marvela ,movie
+neverever,Nigdy przenigdy nie obejrzałem filmu w 3D ,movie
+neverever,Nigdy przenigdy nie zidentyfikowałem filmu po jednej scenie czy dialogu ,movie
+neverever,Nigdy przenigdy nie widziałem żadnego filmu reżyserii Quentina Tarantino ,movie
+neverever,Nigdy przenigdy nie obejrzałem całej serii filmów o Jamesie Bondzie ,movie
+neverever,Nigdy przenigdy nie oglądałem żadnego filmu animowanego po ukończeniu 18 lat ,movie
+neverever,Nigdy przenigdy nie wypożyczałem filmu ,movie
+whoami,Harry Potter ,movie
+whoami,Darth Vader ,movie
+whoami,Indiana Jones ,movie
+whoami,Katniss Everdeen ,movie
+whoami,James Bond ,movie
+whoami,Elsa ,movie
+whoami,Forrest Gump ,movie
+whoami,Tony Stark ,movie
+whoami,Neo ,movie
+whoami,Jack Sparrow ,movie
+truth,"Jaki jest najgorszy film, jaki kiedykolwiek oglądałeś? ",movie
+truth,"Czy kiedykolwiek płakałeś na filmie? Jeśli tak, na którym?",movie
+truth,Która postać filmowa najbardziej cię irytuje i dlaczego? ,movie
+truth,Która scena z filmu najbardziej cię przestraszyła? ,movie
+truth,"Jaki jest najdziwniejszy film, jaki kiedykolwiek oglądałeś? ",movie
+dare,Wykonaj swoją najlepszą imitację ulubionej postaci filmowej ,movie
+dare,Odtwórz swoją ulubioną scenę z dowolnego filmu ,movie
+dare,Zaśpiewaj piosenkę z ulubionego filmu muzycznego ,movie
+dare,Używaj tylko cytatów z filmów do końca tury,movie
+dare,Zrób 10 pompek lub przysiadów i jednocześnie opowiadaj fabułę swojego ulubionego filmu ,movie
+seconds,Wymień 3 filmy z uniwersum Marvela ,movie
+seconds,"Wymień 3 postacie z serii ""Gwiezdne Wojny"" ",movie
+seconds,"Wymień 3 filmy, w których zagrał Leonardo DiCaprio ",movie
+seconds,Wymień 3 filmy animowane Disneya ,movie
+seconds,"Wymień 3 filmy, które są adaptacjami książek ",movie
+seconds,Wymień 3 postacie z filmów Pixara ,movie
+seconds,"Wymień 3 aktorów, którzy grali rolę Batmana ",movie
+seconds,"Wymień 3 aktorów, którzy grali rolę Spider-Man",movie
+seconds,"Wymień 3 filmy, które mają więcej niż trzy części ",movie
+seconds,"Wymień 3 filmy, których akcja rozgrywa się w przyszłości ",movie
+neverever,"Nigdy przenigdy nie kibicowałem drużynie, która przegrała ",sport
+neverever,Nigdy przenigdy nie uczestniczyłem w maratonie lub biegu długodystansowym ,sport
+neverever,Nigdy przenigdy nie oglądałem meczu na żywo na stadionie ,sport
+neverever,Nigdy przenigdy nie złamałem zasady fair play podczas gry w jakikolwiek sport ,sport
+neverever,Nigdy przenigdy nie próbowałem nauczyć się nowego sportu jako dorosły ,sport
+neverever,Nigdy przenigdy nie grałem w tenisa lub golfa ,sport
+neverever,Nigdy przenigdy nie kibicowałem drużynie spoza swojego kraju ,sport
+neverever,Nigdy przenigdy nie skakałem na bungee ani nie uprawiałem sportów ekstremalnych ,sport
+neverever,Nigdy przenigdy nie złamałem żadnej kości podczas uprawiania sportu ,sport
+neverever,Nigdy przenigdy nie wygrałem żadnej nagrody lub trofeum sportowego ,sport
+whoami,Michael Jordan ,sport
+whoami,Usain Bolt ,sport
+whoami,Cristiano Ronaldo ,sport
+whoami,LeBron James ,sport
+whoami,Tiger Woods ,sport
+whoami,Tom Brady ,sport
+whoami,Lewis Hamilton ,sport
+whoami,Mike Tyson ,sport
+whoami,Iga Świątek,sport
+whoami,Yusuf Dikeç ,sport
+truth,Jaki jest twój ulubiony sport do oglądania i dlaczego? ,sport
+truth,Czy kiedykolwiek oszukiwałeś w grze lub zawodach sportowych? ,sport
+truth,Który sportowiec jest twoim wzorem do naśladowania? ,sport
+truth,Czy kiedykolwiek przerwałeś trening z powodu lenistwa? ,sport
+truth,"Jaki jest najtrudniejszy sport, w jakim kiedykolwiek brałeś udział? ",sport
+dare,Zrób 20 przysiadów w ciągu 10 sekund ,sport
+dare,"Zademonstruj poprawną formę do dowolnego ćwiczenia, jakbyś był trenerem fitness ",sport
+dare,Zrób 10 pompek bez zatrzymywania się ,sport
+dare,"Zrób rozgrzewkę, jakbyś przygotowywał się do ważnych zawodów ",sport
+dare,Spróbuj zrobić plank (deskę) przez 30 sekund ,sport
+seconds,"Wymień 3 sporty, które wymagają użycia piłki ",sport
+seconds,Wymień 3 mistrzów olimpijskich ,sport
+seconds,Wymień 3 style pływackie ,sport
+seconds,"Wymień 3 sporty, które można uprawiać zimą ",sport
+seconds,Wymień 3 rodzaje sprzętu używanego w hokeju na lodzie ,sport
+seconds,"Wymień 3 sporty, które są częścią triathlonu ",sport
+seconds,"Wymień 3 tenisistki, które wygrały Wimbledon ",sport
+seconds,"Wymień 3 kraje, które zdobyły mistrzostwo świata w piłce nożnej ",sport
+seconds,"Wymień 3 sporty, które wymagają kasku ",sport
+seconds,Wymień 3 kluby koszykarskie z NBA ,sport

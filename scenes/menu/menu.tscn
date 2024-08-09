@@ -52,7 +52,7 @@ layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 6
 mouse_default_cursor_shape = 2
-text = "Cards
+text = "Karty
 "
 
 [node name="Author" type="Button" parent="VBoxContainer"]
@@ -65,8 +65,7 @@ theme_override_styles/normal = ExtResource("2_2dpth")
 theme_override_styles/hover = ExtResource("2_2dpth")
 theme_override_styles/pressed = ExtResource("2_2dpth")
 theme_override_styles/focus = ExtResource("2_2dpth")
-text = "Credits
-"
+text = "Autor"
 
 [node name="Spacer2" type="Control" parent="VBoxContainer"]
 layout_mode = 2
